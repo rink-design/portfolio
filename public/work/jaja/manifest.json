@@ -126,6 +126,24 @@
           "src": "/work/jaja/09-video-2.mp4"
         }
       ]
+    },
+    {
+      "key": "10-website",
+      "kind": "website",
+      "items": [
+        {
+          "file": "10-website-1.webp",
+          "w": 2400,
+          "h": 1500,
+          "src": "/work/jaja/10-website-1.webp"
+        },
+        {
+          "file": "10-website-2.webp",
+          "w": 2400,
+          "h": 1500,
+          "src": "/work/jaja/10-website-2.webp"
+        }
+      ]
     }
   ]
 }

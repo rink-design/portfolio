@@ -5,7 +5,7 @@ import { projects } from "@/content/projects";
 import { cases, type Section } from "@/content/cases";
 import { caseBlocks, type Block, type Item } from "@/lib/media";
 import { Visual } from "@/components/blocks/Visual";
-import { Layover } from "@/components/blocks/Layover";
+import { Cards } from "@/components/blocks/Cards";
 import { HScroll } from "@/components/blocks/HScroll";
 import { Phone, Laptop } from "@/components/blocks/Frames";
 import { ImageReveal } from "@/components/motion/ImageReveal";
@@ -28,7 +28,7 @@ function BlockView({ b, alt }: { b: Block; alt: (i: number) => string }) {
   const it = b.items;
   switch (b.kind) {
     case "layover":
-      return <Layover items={it} alt={alt} />;
+      return <Cards items={it} alts={it.map((_, i) => alt(i))} />;
     case "scroll":
       return <HScroll items={it} alts={it.map((_, i) => alt(i))} />;
     case "groot":
@@ -38,29 +38,29 @@ function BlockView({ b, alt }: { b: Block; alt: (i: number) => string }) {
     case "video":
       if (it.length === 1) return <div className="wrap grid-12"><div className="col-span-4 md:col-span-8 md:col-start-3"><ImageReveal><Visual it={it[0]} alt={alt(0)} sizes="66vw" /></ImageReveal></div></div>;
       return (
-        <div className="wrap grid grid-cols-1 gap-[var(--gap)] md:grid-cols-2">
-          {it.map((x, i) => <ImageReveal key={x.src} delay={i * 0.1}><Visual it={x} alt={alt(i)} ratio={b.kind === "video" ? "9/16" : "4/5"} sizes={half} /></ImageReveal>)}
+        <div className="wrap grid grid-cols-1 items-start gap-[var(--gap)] md:grid-cols-2">
+          {it.map((x, i) => <ImageReveal key={x.src} delay={i * 0.1}><Visual it={x} alt={alt(i)} sizes={half} /></ImageReveal>)}
         </div>
       );
     case "trio":
       return (
-        <div className="wrap grid grid-cols-1 gap-[var(--gap)] md:grid-cols-3">
-          {it.map((x, i) => <ImageReveal key={x.src} delay={i * 0.08}><Visual it={x} alt={alt(i)} ratio="4/5" sizes={third} /></ImageReveal>)}
+        <div className="wrap grid grid-cols-1 items-start gap-[var(--gap)] md:grid-cols-3">
+          {it.map((x, i) => <ImageReveal key={x.src} delay={i * 0.08}><Visual it={x} alt={alt(i)} sizes={third} /></ImageReveal>)}
         </div>
       );
     case "detail":
       return (
-        <div className="wrap grid grid-cols-2 gap-[var(--gap)] md:grid-cols-3">
-          {it.map((x, i) => <ImageReveal key={x.src} delay={(i % 3) * 0.08}><Visual it={x} alt={alt(i)} ratio="1/1" sizes={third} /></ImageReveal>)}
+        <div className="wrap grid grid-cols-2 items-start gap-[var(--gap)] md:grid-cols-3">
+          {it.map((x, i) => <ImageReveal key={x.src} delay={(i % 3) * 0.08}><Visual it={x} alt={alt(i)} sizes={third} /></ImageReveal>)}
         </div>
       );
     case "set":
-      // Beeldwand: eerste groot, de rest eromheen.
+      // Beeldwand: kolommen, elk beeld in zijn geheel.
       return (
-        <div className="wrap grid grid-cols-2 gap-[var(--gap)] md:grid-cols-4">
+        <div className="wrap columns-1 gap-[var(--gap)] sm:columns-2 md:columns-3">
           {it.map((x, i) => (
-            <ImageReveal key={x.src} delay={(i % 4) * 0.06} className={i === 0 ? "col-span-2 row-span-2" : ""}>
-              <Visual it={x} alt={alt(i)} ratio="1/1" sizes={i === 0 ? half : "(min-width: 768px) 25vw, 50vw"} />
+            <ImageReveal key={x.src} delay={(i % 3) * 0.06} className="mb-[var(--gap)] break-inside-avoid">
+              <Visual it={x} alt={alt(i)} sizes="(min-width: 768px) 33vw, 100vw" />
             </ImageReveal>
           ))}
         </div>
@@ -69,7 +69,11 @@ function BlockView({ b, alt }: { b: Block; alt: (i: number) => string }) {
     case "telefoon-video":
       return <div className="wrap bg-paper-2/60 py-20 md:py-28"><Reveal><Phone it={it[0]} alt={alt(0)} /></Reveal></div>;
     case "website":
-      return <div className="wrap overflow-x-clip py-16 md:py-24"><Reveal><Laptop it={it[0]} alt={alt(0)} /></Reveal></div>;
+      return (
+        <div className={`wrap grid gap-x-[6%] gap-y-16 overflow-x-clip px-[8%] py-16 md:py-24 ${it.length > 1 ? "md:grid-cols-2" : ""}`}>
+          {it.map((x, i) => <Reveal key={x.src} delay={i * 0.1}><Laptop it={x} alt={alt(i)} /></Reveal>)}
+        </div>
+      );
     default:
       return <div className="wrap grid-12"><div className="col-span-4 md:col-span-8 md:col-start-3"><ImageReveal><Visual it={it[0]} alt={alt(0)} sizes="66vw" /></ImageReveal></div></div>;
   }
@@ -104,7 +108,10 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   // Secties gelijk verdeeld vóór de beeldblokken.
   const per = blocks.length / Math.max(sections.length, 1);
   const at = sections.map((_, n) => Math.min(blocks.length - 1, Math.round(n * per)));
-  const hero: Item | undefined = p.cover ? { src: p.cover, w: 16, h: 9, video: p.cover.endsWith(".mp4"), poster: p.poster } : undefined;
+  const all = blocks.flatMap((b) => b.items);
+  const heroDim = all.find((x) => x.src === p.cover) ?? { w: 16, h: 9 };
+  const hero: Item | undefined = p.cover ? { src: p.cover, w: heroDim.w, h: heroDim.h, video: p.cover.endsWith(".mp4"), poster: p.poster } : undefined;
+  const portrait = hero ? hero.h > hero.w : false;
   let k = 0;
   const alt = () => { k++; return `${p.title} — ${p.disciplines.split(" / ")[0]}, beeld ${String(k).padStart(2, "0")}`; };
 
@@ -119,8 +126,10 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         <Lines as="h1" className="t-display mt-6 -ml-[0.04em] text-[clamp(56px,13.5vw,240px)] !leading-[0.84]" lines={[p.title]} />
       </section>
       {hero && (
-        <section className="mt-8 md:mt-12">
-          <Visual it={hero} alt={`${p.title} — hero`} ratio="16/9" priority className="max-md:!aspect-[4/5]" />
+        <section className={`mt-8 md:mt-12 ${portrait ? "wrap flex justify-center bg-paper-2/60 py-10 md:py-16" : "wrap"}`}>
+          <div className={portrait ? "w-[min(100%,calc(80svh*var(--r)))]" : "w-full"} style={{ ["--r" as string]: hero.w / hero.h }}>
+            <Visual it={hero} alt={`${p.title} — hero`} priority />
+          </div>
         </section>
       )}
 

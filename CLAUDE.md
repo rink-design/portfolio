@@ -36,7 +36,7 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Font: Inter Display (gratis, Google/rsms).
 - Kleur: warm neutraal + één vaste accentkleur: Cobalt #2D3BFF (gekozen bij poort 2).
 - Beelden: Google Drive-map (link in gesprek 3 okt). Webklaar maken met `node scripts/beelden.mjs "<map Portfolio>"` → public/work/<slug>/ + manifest.json. Originelen nooit in de repo.
-- Haar bestandsnamen: `NN_SOORT[_A/B…]_naam`. Soorten: GROOT, DUO, TRIO, SET (beeldwand), LAYOVER (kaarten schuiven over elkaar, sticky), TELEFOON, TELEFOON_VIDEO, VIDEO (A/B = duo), SCROLL-PDF (pagina's in horizontale scroll-band), STUDIO_BLACK/WHITE (paren), DETAIL-GRID_WHITE/BLACK (raster 3×2), WEBSITE_MOCKUP (laptopframe), los = enkel beeld.
+- Haar bestandsnamen: `NN_SOORT[_A/B…]_naam`. Soorten: GROOT, DUO, TRIO, SET (beeldwand), LAYOVER → witte productkaarten naast elkaar (3 per rij, haar keuze: géén over-elkaar-schuiven), TELEFOON, TELEFOON_VIDEO, VIDEO (A/B = duo), SCROLL-PDF (pagina's in horizontale scroll-band), STUDIO_BLACK/WHITE (paren), DETAIL-GRID_WHITE/BLACK (raster 3×2), WEBSITE_MOCKUP (laptopframe), los = enkel beeld.
 - Covers per case in content/projects.ts (JAJA en coffeeshop = video-cover). Big Push cover = pdf-pagina 12 (gorilla).
 - Logo: haar vector `RInk.svg` (sierlijke R + INK) → components/logo-paths.ts; gebruikt in laadscherm en bovenaan home.
 - Video's en websites mogen in code-mockups (telefoon/laptop-frame); eigen Photoshop-mockups kan ook.
@@ -52,6 +52,8 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Beweging (landing): RINK schrijft zichzelf (SVG-omtreklijn tekent, daarna vult hij; WriteOn.tsx), hero-beeld groeit naar volle breedte bij scrollen, tekstregels uit masker, marquee met disciplines, beelden vouwen open, cobalt 'View case'-cursor boven werk, onderlijn-hover op links, paginaovergang 0,35 s. Uit bij 'minder beweging'.
 - Laadscherm (Loader.tsx): GEEN schrijflijnen (haar keuze); lichte grondvorm (paper-2), RINK vult zich van onder naar boven met teller 000–100 terwijl de site laadt, schuift dan omhoog weg; RINK staat exact op de hero-plek. 1× per bezoek (sessionStorage). Later: haar eigen logo-vector i.p.v. font. Goedgekeurd: 'mag zo houden'.
 - Geen scheidingslijnen (borders) tussen secties — haar wens.
+- NIET bijsnijden in cases: alle beelden op natuurlijke verhouding (kaarten: object-contain op wit). Staande hero = gecentreerd op licht vlak.
+- JAJA websites: screenshots van jaja.net (B2B) en jajashop.com (B2C) als 10_WEBSITE_A/B in laptopframes.
 - Tokens sparen: beelden niet één voor één bekijken, per project één contactblad.
 
 ## Techniek-notities
