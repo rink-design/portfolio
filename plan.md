@@ -73,10 +73,10 @@ Teksten nog open: het concept van Purple Rain, en de teksten van Purple en Canaj
 - [x] **1. Basis + eerste echte uitrol** (15 min): het project staat op, vervangt de testpagina en staat online.
 - [x] **2. Designsysteem** (25 min): een stijlpagina met fonts, grid, kleuren en 3 accentvoorstellen. **Poort:** klopt de basis? Welk accent?
 - [x] **3. Landing + selected work** (30 min): de hero met het sterkste werk, RINK + BRAND / PACKAGING / DIGITAL, en het werkgrid. **Poort.**
-- [ ] **4. Case-sjabloon + JAJA volledig** (30 min). **Poort + kort interview over de weergave** (mockups, video, ritme). Die regels gelden daarna voor de rest. *Het belangrijkste moment van de dag.*
-- [ ] **5. De andere 9 cases** (40 min): elk met het beeld dat klaarstaat. Don Gelato als editorial, The Cat met concept 1 naast concept 2, coffeeshop als visual wall. Ontbreekt beeld? Dan een nette korte versie. **Poort.**
-- [ ] **6. About + contact** (15 min).
-- [ ] **7. Beweging + overgangen** (20 min): beeld komt binnen bij scrollen, hover op het werk, rustige paginaovergangen (< 0,4 s), "minder beweging" gerespecteerd. **Poort.**
+- [x] **4. Case-sjabloon + JAJA volledig** (30 min). **Poort + kort interview over de weergave** (mockups, video, ritme). Die regels gelden daarna voor de rest. *Het belangrijkste moment van de dag.*
+- [x] **5. De andere 9 cases** (40 min): elk met het beeld dat klaarstaat. Don Gelato als editorial, The Cat met concept 1 naast concept 2, coffeeshop als visual wall. Ontbreekt beeld? Dan een nette korte versie. **Poort.**
+- [x] **6. About + contact** (15 min).
+- [x] **7. Beweging + overgangen** (20 min): beeld komt binnen bij scrollen, hover op het werk, rustige paginaovergangen (< 0,4 s), "minder beweging" gerespecteerd. **Poort.**
 - [ ] **8. Mobiel + snelheid** (15 min): alles gecheckt op 375 px, lazy loading (beeld laadt pas als het in beeld komt), alt-teksten, Lighthouse ≥ 90.
 - [ ] **Live** (30 min): titel, beschrijving, deelafbeelding, favicon, test op haar telefoon, domein koppelen (GoDaddy).
 - [ ] **Afronden** (15 min): `CLAUDE.md` en `plan.md` bijwerken, lijst voor morgen.
@@ -102,3 +102,9 @@ Na elke goedgekeurde stap: commit + push → Vercel zet het online.
 - **Lang gesprek:** na stap 4 eventueel een verse sessie starten met "Lees CLAUDE.md en plan.md en ga verder."
 - **Rechten:** alle werk mag openbaar (bevestigd). Bij Santani staat haar rol expliciet.
 - **Telefoonnummer op de site:** dat is haar keuze. Er is een kleine kans op spam.
+
+## Lijst voor morgen (bijwerken)
+- Teksten aanvullen: Purple Rain (concept), Purple (concept- en productontwikkeling), Canajoy (statement + product development). Nu verborgen op de site.
+- Soiree: hero-beeld is maar 1024 px breed → grotere versie aanleveren.
+- Showreel-video voor onder de naam (`public/hero.mp4`, 10–20 s, stil, liggend).
+- Eventueel per case de cover-uitsnede finetunen (content/projects.ts).

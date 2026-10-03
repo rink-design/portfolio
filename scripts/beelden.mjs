@@ -9,6 +9,8 @@ import sharp from "sharp";
 const SRC = process.argv[2];
 const OUT = path.join(process.cwd(), "public", "work");
 const MAX = 2400;
+// Kleine correcties op bronbestanden (alleen randjes, nooit het beeld zelf bijsnijden).
+const TRIM = { "01_GROOT_Free-Pick-8ee.png": { top: 14 } }; // Soiree: blauw randje bovenaan
 
 // Mapnaam → slug op de site
 const SLUGS = {
@@ -43,7 +45,10 @@ const isPdf = (f) => /\.pdf$/i.test(f);
 
 async function img(src, dest) {
   const input = /\.psd$/i.test(src) ? execFileSync("convert", [`${src}[0]`, "png:-"], { maxBuffer: 1 << 30 }) : src;
-  const info = await sharp(input, { limitInputPixels: false }).rotate()
+  let pipe = sharp(input, { limitInputPixels: false }).rotate();
+  const t = TRIM[path.basename(src)];
+  if (t) { const m = await sharp(input).metadata(); pipe = sharp(await pipe.extract({ left: 0, top: t.top, width: m.width, height: m.height - t.top }).toBuffer()); }
+  const info = await pipe
     .resize({ width: MAX, height: MAX, fit: "inside", withoutEnlargement: true })
     .webp({ quality: 80, effort: 5 }).toFile(dest);
   return { w: info.width, h: info.height };

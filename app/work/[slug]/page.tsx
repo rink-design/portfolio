@@ -87,7 +87,7 @@ function SectionText({ group }: { group: { s: Section; n: number }[] }) {
           <p className="t-label col-span-4 text-ink-2 md:col-span-1">{String(n + 1).padStart(2, "0")}</p>
           <div className={`col-span-4 mt-4 md:mt-0 ${group.length > 1 ? "md:col-span-5" : "md:col-span-9 md:col-start-4"}`}>
             <Lines as="h2" className="t-h2" lines={[s.label]} />
-            {s.text && <Reveal delay={0.1 + gi * 0.08}><p className="t-body mt-4 max-w-[520px] text-ink-2">{s.text}</p></Reveal>}
+            {s.text && !s.text.includes("[…]") && <Reveal delay={0.1 + gi * 0.08}><p className="t-body mt-4 max-w-[520px] text-ink-2">{s.text}</p></Reveal>}
           </div>
         </div>
       ))}
@@ -102,14 +102,18 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const p = projects[idx];
   const c = cases[slug];
   const next = projects[(idx + 1) % projects.length];
-  const blocks = caseBlocks(slug);
+  // Het hero-beeld niet nóg een keer tonen (behalve in duo's/sets waar het paar telt).
+  const keepPairs = ["duo", "studio", "trio", "detail", "layover", "set"];
+  const blocks = caseBlocks(slug)
+    .map((b) => (keepPairs.includes(b.kind) ? b : { ...b, items: b.items.filter((x) => x.src !== p.cover) }))
+    .filter((b) => b.items.length > 0);
+  const heroSrc = caseBlocks(slug).flatMap((b) => b.items).find((x) => x.src === p.cover);
   const sections = c?.sections ?? [];
 
   // Secties gelijk verdeeld vóór de beeldblokken.
   const per = blocks.length / Math.max(sections.length, 1);
   const at = sections.map((_, n) => Math.min(blocks.length - 1, Math.round(n * per)));
-  const all = blocks.flatMap((b) => b.items);
-  const heroDim = all.find((x) => x.src === p.cover) ?? { w: 16, h: 9 };
+  const heroDim = heroSrc ?? { w: 16, h: 9 };
   const hero: Item | undefined = p.cover ? { src: p.cover, w: heroDim.w, h: heroDim.h, video: p.cover.endsWith(".mp4"), poster: p.poster } : undefined;
   const portrait = hero ? hero.h > hero.w : false;
   let k = 0;
@@ -126,8 +130,9 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         <Lines as="h1" className="t-display mt-6 -ml-[0.04em] text-[clamp(56px,13.5vw,240px)] !leading-[0.84]" lines={[p.title]} />
       </section>
       {hero && (
-        <section className={`mt-8 md:mt-12 ${portrait ? "wrap flex justify-center bg-paper-2/60 py-10 md:py-16" : "wrap"}`}>
-          <div className={portrait ? "w-[min(100%,calc(80svh*var(--r)))]" : "w-full"} style={{ ["--r" as string]: hero.w / hero.h }}>
+        <section className={`wrap mt-8 flex justify-center md:mt-12 ${portrait ? "bg-paper-2/60 py-10 md:py-16" : ""}`}>
+          {/* Nooit hoger dan ± één scherm, nooit bijgesneden */}
+          <div className="w-[min(100%,calc(var(--hmax)*var(--r)))]" style={{ ["--r" as string]: hero.w / hero.h, ["--hmax" as string]: portrait ? "78svh" : "86svh" }}>
             <Visual it={hero} alt={`${p.title} — hero`} priority />
           </div>
         </section>
@@ -137,7 +142,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       <section className="wrap grid-12 py-24 md:py-36">
         <Reveal className="col-span-4 md:col-span-3"><p className="t-label text-ink-2">{c?.intro ?? "(Case)"}</p></Reveal>
         <div className="col-span-4 mt-6 md:col-span-9 md:mt-0">
-          <Lines as="h2" className="t-h1" lines={[c?.statement ?? ""]} />
+          {c?.statement && !c.statement.includes("[…]") && <Lines as="h2" className="t-h1" lines={[c.statement]} />}
           {c?.role && (
             <Reveal delay={0.15} className="mt-12 max-w-[640px]">
               <p className="t-label text-ink-2">My role</p>
