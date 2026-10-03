@@ -1,0 +1,95 @@
+// Tekst per case. Beeldvolgorde komt uit de bestandsnamen in /public/work/<slug>/.
+// Elke sectie verschijnt vóór het beeld met nummer `before` (optioneel; anders gelijk verdeeld).
+
+export type Section = { label: string; text: string; before?: number };
+export type CaseText = { statement: string; intro?: string; role?: string; sections: Section[] };
+
+export const cases: Record<string, CaseText> = {
+  jaja: {
+    statement: "One brand. Every touchpoint.",
+    sections: [
+      { label: "Identity", text: "The visual identity." },
+      { label: "Products", text: "One identity, every product line." },
+      { label: "Production", text: "Materials, print, finishes." },
+      { label: "Campaigns", text: "Campaigns and activations." },
+      { label: "Digital Design", text: "Digital brand assets." },
+      { label: "Social", text: "Social formats and content." },
+      { label: "Websites — B2B & B2C", text: "Two websites, one brand world." },
+    ],
+  },
+  soiree: {
+    statement: "A complete rebrand. Idea to shelf.",
+    sections: [
+      { label: "Concept", text: "The idea behind the rebrand." },
+      { label: "Identity", text: "Logo, type, colour." },
+      { label: "Graphic", text: "Patterns, elements, systems." },
+      { label: "Packaging", text: "The identity on pack." },
+      { label: "Application", text: "Across every touchpoint." },
+    ],
+  },
+  "purple-rain": {
+    statement: "Same disciplines. A different world.",
+    sections: [
+      { label: "Concept", text: "[…]" },
+      { label: "Identity", text: "Logo, type, colour." },
+      { label: "Graphic", text: "Patterns, elements, systems." },
+      { label: "Packaging", text: "The identity on pack." },
+      { label: "Application", text: "Across every touchpoint." },
+    ],
+  },
+  "don-gelato": {
+    statement: "A visual story, directed.",
+    sections: [
+      { label: "Art Direction", text: "The visual world." },
+      { label: "Graphic Identity", text: "Type, colour, brand language." },
+      { label: "Packaging", text: "Pack and product presentation." },
+      { label: "Application", text: "Across applications." },
+      { label: "Campaign Photography", text: "Photography, styling, campaign imagery." },
+    ],
+  },
+  "big-push": {
+    statement: "A new position, made visible.",
+    sections: [
+      { label: "Concept", text: "New positioning and direction." },
+      { label: "Identity", text: "The graphic foundation." },
+      { label: "Website & Assets", text: "Desktop, mobile, digital assets." },
+    ],
+  },
+  santani: {
+    statement: "A creative launch. Concept to social.",
+    role: "Concept, project management and graphics, with fellow students during my internship at Code d’Azur. Later, social content independently, as part of my job.",
+    sections: [
+      { label: "Concept", text: "The creative foundation." },
+      { label: "Launch", text: "How it was introduced." },
+      { label: "Creative Direction", text: "Visual direction." },
+      { label: "Social Content", text: "Launch content." },
+    ],
+  },
+  "the-cat": {
+    statement: "One briefing. Two answers.",
+    intro: "Ladies Bag",
+    sections: [
+      { label: "Concept 01", text: "Concept → Graphics → Packaging → Final visual" },
+      { label: "Concept 02", text: "Concept → Graphics → Packaging → Final visual" },
+      { label: "Side by side", text: "" },
+    ],
+  },
+  purple: {
+    statement: "A coffeeshop, rebranded.",
+    intro: "Coffeeshop in Vlissingen.",
+    sections: [
+      { label: "Concept Development", text: "[…]" },
+      { label: "Identity", text: "The new house style." },
+      { label: "Product Development", text: "[…]" },
+    ],
+  },
+  canajoy: {
+    statement: "[…]",
+    sections: [{ label: "Product Development", text: "[…]" }],
+  },
+  "coffeeshop-packaging": {
+    statement: "A packaging archive.",
+    intro: "De Baron · Shiva · Highlife · Smokey · and more.",
+    sections: [],
+  },
+};

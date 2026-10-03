@@ -22,7 +22,7 @@
   :root { --gutter: 24px; --gap: 20px; }
 }
 
-html { background: var(--color-paper); color: var(--color-ink); }
+html { background: var(--color-paper); color: var(--color-ink); overflow-x: clip; }
 body {
   font-family: var(--font-sans);
   font-feature-settings: "ss01", "cv11";
