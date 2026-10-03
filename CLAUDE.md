@@ -4,7 +4,7 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 
 ## Wie
 - Eigenaar van RINK Design: grafisch ontwerper (brand identity, packaging, digital design, art direction).
-- AMFI · Code d'Azur · Westvliet de Groot · nu freelance als RINK.
+- AMFI · Code d'Azur · Wessel de Groot · nu RINK Design.
 - Kan niet programmeren, heeft een heel scherp oog voor typografie, grid, compositie en beweging. Haar oordeel over hoe iets eruitziet is leidend.
 
 ## Werkwijze (kort)
@@ -64,7 +64,7 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Home-grid: covers 1:1 (haar nieuwe beginfoto's per case, komen via Drive).
 - Home: geen 'Showreel-video volgt'-plek; achtergrond bovenin. 'Approach'-sectie weg. Marquee: Brand Identity · Packaging · Art Direction · Graphic Design, loopt altijd door (geen pauze).
 - About: 'I design brands you can see, hold and use — and that stand out.' MAKE IT COHESIVE. / MAKE IT TANGIBLE. / MAKE IT WORK.
-- Background: AMFI Fashion & Branding · Code d'Azur (internship) · Westvliet de Groot (internship) · Grafisch Vormgeven (studie) · Freelance / RINK Design. (Géén zorg.)
+- Background: AMFI Fashion & Branding · Code d'Azur (internship) · Wessel de Groot (internship) · Grafisch Vormgeven (studie) · Freelance / RINK Design. (Géén zorg.)
 - Contact: korter; Let's work together + e-mail + telefoon + LinkedIn.
 - Cases: één tekstblok (statement + alle onderdelen compact onder elkaar), daarna beeld. Eén consistent grid: zelfde formaat (1:1), beelden VULLEND (cover), links uitgelijnd. (Vervangt 'niet bijsnijden'.) Hero wél geheel in beeld.
 - Websites: echte site als scrollbare full-page screenshot in laptopframe. JAJA: eerst B2B (jaja.net), dan B2C (jajashop.com). Big Push: bigpush.nl als hero (gorilla-hero weg). Santani: link volgt van haar.

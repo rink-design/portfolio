@@ -24,7 +24,7 @@ export const projects: Project[] = [
   { slug: "coffeeshop-packaging", number: "10", title: "SELECTED COFFEESHOP PACKAGING", disciplines: "Packaging / Print / Production", statement: "A packaging archive.", cover: "/covers/coffeeshop-packaging.webp" },
 ];
 
-export const background = ["AMFI — Fashion & Branding", "Grafisch Vormgeven", "Code d’Azur — Internship", "Westvliet de Groot — Internship", "RINK Design"];
+export const background = ["AMFI — Fashion & Branding", "Grafisch Vormgeven", "Code d’Azur — Internship", "Wessel de Groot — Internship", "RINK Design"];
 
 export const contact = {
   email: "rinkevanderakt@gmail.com",
