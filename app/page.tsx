@@ -9,23 +9,21 @@ import { Marquee } from "@/components/motion/Marquee";
 export default function Home() {
   return (
     <main>
-      {/* 01 — IMPACT: het laadscherm schrijft RINK op deze plek; direct daaronder de video */}
-      <section className="wrap pt-24 pb-5 md:pt-28">
-        <RinkMark />
-        <AfterLoad delay={0.35}>
-          <div className="grid-12 t-label mt-5">
-            <span className="col-span-2 md:col-span-4">Brand</span>
-            <span className="col-span-1 md:col-span-4">Packaging</span>
-            <span className="col-span-1 text-right md:col-span-4">Digital</span>
-          </div>
-        </AfterLoad>
+      {/* 01 — HEADER: showreel als achtergrond, logo en labels in wit erbovenop */}
+      <section className="relative flex h-svh min-h-[520px] flex-col overflow-hidden bg-ink">
+        {hasHeroVideo() && <HeroVideo />}
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/35 via-transparent to-ink/30" aria-hidden />
+        <div className="wrap relative pt-24 pb-5 text-paper md:pt-28">
+          <RinkMark color="var(--color-paper)" />
+          <AfterLoad delay={0.35}>
+            <div className="grid-12 t-label mt-5">
+              <span className="col-span-2 md:col-span-4">Brand</span>
+              <span className="col-span-1 md:col-span-4">Packaging</span>
+              <span className="col-span-1 text-right md:col-span-4">Digital</span>
+            </div>
+          </AfterLoad>
+        </div>
       </section>
-      {/* Showreel direct onder RINK / Brand · Packaging · Digital */}
-      {hasHeroVideo() && (
-        <section className="wrap mt-3">
-          <HeroVideo />
-        </section>
-      )}
 
       {/* 03 — SELECTED WORK — vijf rijen van twee */}
       <section id="work" className="wrap mt-16 scroll-mt-16 md:mt-24">

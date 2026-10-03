@@ -78,7 +78,7 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Websites als scrollbare full-page screenshots: public/sites/{jaja-b2b,jaja-b2c,bigpush,santani}.webp. Santani-site: https://santani.vercel.app/
 - Nav 'RINK' vet. Favicon = sierlijke R in zwarte cirkel (app/icon.svg).
 - Covers = alléén preview op de home; komen NIET terug op de case-pagina. Case-hero standaard = eerste beeld van de case. JAJA-hero = B2B-website (jaja.net), B2C daaronder.
-- Showreel direct onder RINK / Brand · Packaging · Digital, in het eerste scherm (logo op pt-24/md:pt-28, ook in Loader), zelfde breedte als logo, geen inspring-animatie. Daarna direct Selected work. Achtergrond alleen bij About; 'Freelance' weg → 'RINK Design'.
+- Header = showreel als schermvullende achtergrond (h-svh, object-cover), logo-SVG en labels in WIT erbovenop (pt-24/md:pt-28, gelijk aan Loader). Daarna direct Selected work.
 - Santani: telefoons (hero) → tekst → website → 2 campagnebeelden gecentreerd. The Cat: hero-paar op eigen verhouding (meer ruimte).
 - Achtergronden Canajoy, Purple Rain, Purple vervangen door de RINK-studio-achtergrond (rembg + verloop, script in scratchpad: bg/swap.py; originelen onaangeroerd op Drive).
 - Beeldbestanden krijgen een inhoud-hash in de naam (cache-busting). Telefoonvideo's 540 px breed, crf 31.
