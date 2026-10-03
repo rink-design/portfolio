@@ -51,6 +51,7 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Idee: sierlijke R die zichzelf 'schrijft' (SVG-lijnanimatie) — met de R uit haar logo, zodra het logo binnen is.
 - Beweging (landing): RINK schrijft zichzelf (SVG-omtreklijn tekent, daarna vult hij; WriteOn.tsx), hero-beeld groeit naar volle breedte bij scrollen, tekstregels uit masker, marquee met disciplines, beelden vouwen open, cobalt 'View case'-cursor boven werk, onderlijn-hover op links, paginaovergang 0,35 s. Uit bij 'minder beweging'.
 - Laadscherm (Loader.tsx): GEEN schrijflijnen (haar keuze); lichte grondvorm (paper-2), RINK vult zich van onder naar boven met teller 000–100 terwijl de site laadt, schuift dan omhoog weg; RINK staat exact op de hero-plek. 1× per bezoek (sessionStorage). Later: haar eigen logo-vector i.p.v. font. Goedgekeurd: 'mag zo houden'.
+- Hoeken: alles strak vierkant, geen afgeronde hoeken (alleen telefoon/laptop-frames, want dat zijn apparaten).
 - Geen scheidingslijnen (borders) tussen secties — haar wens.
 - NIET bijsnijden in cases: alle beelden op natuurlijke verhouding (kaarten: object-contain op wit). Staande hero = gecentreerd op licht vlak.
 - JAJA websites: screenshots van jaja.net (B2B) en jajashop.com (B2C) als 10_WEBSITE_A/B in laptopframes.
