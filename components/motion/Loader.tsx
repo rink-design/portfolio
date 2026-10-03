@@ -2,12 +2,10 @@
 import { animate, motion, useMotionValue, useReducedMotion, useTransform, AnimatePresence } from "motion/react";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
-const EASE = [0.65, 0, 0.35, 1] as const;
 const W = 1000, H = 352, FS = 484;
 const TEXT = "RINK";
 
-// Laadscherm: RINK schrijft zich letter voor letter (R → I → N → K), vult zich van onder naar boven
-// terwijl de site laadt, en schuift dan weg. RINK staat exact op de plek van de hero.
+// Laadscherm: RINK vult zich van onder naar boven terwijl de site laadt, en schuift dan weg. RINK staat exact op de plek van de hero.
 export function Loader() {
   const reduce = useReducedMotion();
   const [show, setShow] = useState(true);
@@ -34,12 +32,12 @@ export function Loader() {
     });
   }, [show]);
 
-  // Voortgang: loopt mee met het echte laden, minimaal ± 2,6 s zodat het schrijven af is.
+  // Voortgang: loopt mee met het echte laden, minimaal ± 2,2 s.
   useEffect(() => {
     if (!show || !xs) return;
-    const min = reduce ? 300 : 2600;
+    const min = reduce ? 300 : 2200;
     const start = performance.now();
-    const ctrl = animate(progress, 88, { duration: min / 1000, ease: [0.7, 0, 0.35, 1] });
+    const ctrl = animate(progress, 88, { duration: min / 1000, ease: [0.45, 0, 0.25, 1] });
     const finish = () => {
       const wait = Math.max(0, min - (performance.now() - start));
       setTimeout(() => {
@@ -55,7 +53,6 @@ export function Loader() {
     return () => { clearTimeout(safety); window.removeEventListener("load", finish); };
   }, [show, xs, reduce, progress]);
 
-  const perLetter = 2.2 / TEXT.length;
   if (skip) return null; // tweede bezoek: meteen weg, geen animatie
 
   return (
@@ -75,14 +72,11 @@ export function Loader() {
                 fill="none" opacity={0}>{TEXT}</text>
               {xs && TEXT.split("").map((ch, i) => (
                 <g key={i}>
-                  {/* Schrijflijn — R eerst, dan doorsturen naar I, N, K */}
-                  <motion.text x={xs[i]} y={H} fill="none" stroke="var(--color-ink)" strokeWidth={2.2} strokeLinejoin="round"
-                    style={{ fontSize: FS, fontWeight: 700, fontFamily: "var(--font-sans)", fontVariationSettings: '"opsz" 32' }}
-                    strokeDasharray={1800}
-                    initial={{ strokeDashoffset: reduce ? 0 : 1800 }} animate={{ strokeDashoffset: 0 }}
-                    transition={{ duration: perLetter * 1.6, ease: EASE, delay: 0.15 + i * perLetter * 0.8 }}>
+                  {/* Lichte grondvorm: zonder lijn, alleen vlak */}
+                  <text x={xs[i]} y={H} fill="var(--color-paper-2)"
+                    style={{ fontSize: FS, fontWeight: 700, fontFamily: "var(--font-sans)", fontVariationSettings: '"opsz" 32' }}>
                     {ch}
-                  </motion.text>
+                  </text>
                   {/* Vulling die meestijgt met het laden */}
                   <text x={xs[i]} y={H} clipPath="url(#rink-fill)" fill="var(--color-ink)"
                     style={{ fontSize: FS, fontWeight: 700, fontFamily: "var(--font-sans)", fontVariationSettings: '"opsz" 32' }}>

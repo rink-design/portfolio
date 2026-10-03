@@ -49,7 +49,7 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Volgorde home: RINK (schrijft zichzelf) → showreel-video direct onder de naam (`public/hero.mp4`, geen apart hero-beeld) → selected work → positioning + marquee → about → contact (positioning onder de cases, haar wens).
 - Idee: sierlijke R die zichzelf 'schrijft' (SVG-lijnanimatie) — met de R uit haar logo, zodra het logo binnen is.
 - Beweging (landing): RINK schrijft zichzelf (SVG-omtreklijn tekent, daarna vult hij; WriteOn.tsx), hero-beeld groeit naar volle breedte bij scrollen, tekstregels uit masker, marquee met disciplines, beelden vouwen open, cobalt 'View case'-cursor boven werk, onderlijn-hover op links, paginaovergang 0,35 s. Uit bij 'minder beweging'.
-- Laadscherm (Loader.tsx): RINK schrijft zich R → I → N → K, vult van onder naar boven met teller 000–100 terwijl de site laadt, schuift dan omhoog weg; RINK staat exact op de hero-plek. 1× per bezoek (sessionStorage). Later: haar eigen logo-vector i.p.v. font; voor echt 'pen-schrijven' is een middenlijn-SVG nodig.
+- Laadscherm (Loader.tsx): GEEN schrijflijnen (haar keuze); lichte grondvorm (paper-2), RINK vult zich van onder naar boven met teller 000–100 terwijl de site laadt, schuift dan omhoog weg; RINK staat exact op de hero-plek. 1× per bezoek (sessionStorage). Later: haar eigen logo-vector i.p.v. font. Goedgekeurd: 'mag zo houden'.
 - Geen scheidingslijnen (borders) tussen secties — haar wens.
 - Tokens sparen: beelden niet één voor één bekijken, per project één contactblad.
 
