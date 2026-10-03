@@ -1,7 +1,7 @@
 import { projects, contact } from "@/content/projects";
 import { WorkCard } from "@/components/WorkCard";
 import { Media } from "@/components/Media";
-import { Letters, Lines, Reveal } from "@/components/motion/Reveal";
+import { FlipIn, Lines, Reveal } from "@/components/motion/Reveal";
 import { HeroGrow } from "@/components/motion/ImageReveal";
 import { Marquee } from "@/components/motion/Marquee";
 
@@ -10,7 +10,7 @@ export default function Home() {
     <main>
       {/* 01 — IMPACT */}
       <section className="wrap flex min-h-svh flex-col justify-end pb-5">
-        <Letters text="RINK" className="t-display -ml-[0.054em] whitespace-nowrap text-[calc((100vw-2*var(--gutter))/2.065)]" />
+        <FlipIn text="RINK" className="t-display -ml-[0.054em] whitespace-nowrap text-[calc((100vw-2*var(--gutter))/2.065)]" />
         <Reveal delay={0.6} now>
           <div className="grid-12 t-label mt-5">
             <span className="col-span-2 md:col-span-4">Brand</span>
@@ -27,17 +27,8 @@ export default function Home() {
         </HeroGrow>
       </section>
 
-      {/* 02 — POSITIONING */}
-      <section className="wrap grid-12 py-28 md:py-44">
-        <Reveal className="col-span-4 md:col-span-3"><p className="t-label text-ink-2">(Approach)</p></Reveal>
-        <Lines className="t-h1 col-span-4 mt-6 md:col-span-9 md:mt-0"
-          lines={["Distinctive.", "Tangible.", <>Built to work<span key="d" className="text-accent">.</span></>]} />
-      </section>
-
-      <Marquee items={["Brand Identity", "Packaging", "Digital Design", "Art Direction"]} />
-
       {/* 03 — SELECTED WORK — vijf rijen van twee */}
-      <section id="work" className="wrap mt-28 scroll-mt-16 md:mt-40">
+      <section id="work" className="wrap mt-24 scroll-mt-16 md:mt-32">
         <div className="flex items-end justify-between border-t border-ink pt-4 pb-10">
           <h2 className="t-label">Selected work</h2>
           <span className="t-label text-ink-2">({String(projects.length).padStart(2, "0")})</span>
@@ -47,8 +38,17 @@ export default function Home() {
         </div>
       </section>
 
+      {/* POSITIONING — na het werk */}
+      <section className="wrap grid-12 mt-16 py-28 md:mt-24 md:py-44">
+        <Reveal className="col-span-4 md:col-span-3"><p className="t-label text-ink-2">(Approach)</p></Reveal>
+        <Lines className="t-h1 col-span-4 mt-6 md:col-span-9 md:mt-0"
+          lines={["Distinctive.", "Tangible.", <>Built to work<span key="d" className="text-accent">.</span></>]} />
+      </section>
+
+      <Marquee items={["Brand Identity", "Packaging", "Digital Design", "Art Direction"]} />
+
       {/* 04 — ABOUT */}
-      <section id="about" className="wrap mt-40 scroll-mt-16 md:mt-56">
+      <section id="about" className="wrap mt-28 scroll-mt-16 md:mt-40">
         <div className="border-t border-ink pt-4"><h2 className="t-label">About</h2></div>
         <div className="grid-12 mt-10">
           <Reveal className="col-span-4 md:col-span-7"><p className="t-h2">I design brands you can see, hold and use.</p></Reveal>

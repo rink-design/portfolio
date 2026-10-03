@@ -49,3 +49,16 @@ export function Letters({ text, className = "", delay = 0.15 }: { text: string; 
     </motion.h1>
   );
 }
+
+// RINK kantelt in zijn geheel omhoog (flip vanaf de onderrand).
+export function FlipIn({ text, className = "", delay = 0.15 }: { text: string; className?: string; delay?: number }) {
+  return (
+    <div style={{ perspective: "1200px" }}>
+      <motion.h1 className={className} style={{ transformOrigin: "50% 100%" }}
+        initial={{ rotateX: -95, opacity: 0, y: "8%" }} animate={{ rotateX: 0, opacity: 1, y: "0%" }}
+        transition={{ duration: 1.2, ease: EASE, delay }}>
+        {text}
+      </motion.h1>
+    </div>
+  );
+}
