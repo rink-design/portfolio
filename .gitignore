@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.vercel/
+.DS_Store
+# Grote originele beelden nooit naar GitHub
+originals/
+*.psd
+*.ai
+*.tif
+*.tiff
