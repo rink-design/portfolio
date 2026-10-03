@@ -34,7 +34,7 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Beweging: uitgesproken met type & beeld (geen zware 3D/WebGL vandaag).
 - Geen open-source template (alles was developer-stijl); referenties zijn het 'template'. Basis: Next.js + Tailwind + Motion.
 - Font: Inter Display (gratis, Google/rsms).
-- Kleur: warm neutraal + één vaste RINK-accentkleur (kleur nog te kiezen).
+- Kleur: warm neutraal + één vaste accentkleur: Cobalt #2D3BFF (gekozen bij poort 2).
 - Logo: ze uploadt haar eigen RINK-logo.
 - Beelden: via één Dropbox/Drive-link, per project een map (01-jaja … 08-coffeeshop-packaging).
 - Bestandsnamen = volgorde + optioneel weergave-woord: `01.jpg`, `04-groot.jpg`, `05-duo.jpg`, `07-telefoon.mp4`, `08-laptop.mp4`. Alleen een nummer = Claude kiest.

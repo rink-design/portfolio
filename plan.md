@@ -20,7 +20,7 @@ Eén sterke, interactieve landingpage die binnen een paar seconden laat zien wie
 ## 4. Designsysteem
 - **Sfeer:** licht en warm. Gebroken wit/warm grijs als basis, bijna-zwart voor tekst.
 - **Font:** Inter Display (gratis). Gigantisch, strak gespatieerd voor RINK en de titels. Kleine kapitalen voor labels, zoals BRAND / PACKAGING / DIGITAL.
-- **Kleur:** één vaste RINK-accentkleur. Ik laat er 3 zien op de stijlpagina, zij kiest.
+- **Kleur:** accent Cobalt #2D3BFF (gekozen).
 - **Grid:** 12 kolommen op desktop, 4 op mobiel. Vaste buitenmarge en kolomafstand.
 - **Typeschaal:** Display (RINK, over de volle breedte) · H1 (casetitel) · H2 (sectielabel) · Body · Label/klein.
 - **Logo:** haar eigen RINK-logo (uit de beeldenmap).
@@ -70,8 +70,8 @@ Teksten nog open: het concept van Purple Rain, en de teksten van Purple en Canaj
 ## 8. Bouwstappen met poorten
 
 - [ ] **Beelden binnenhalen** (15 min): downloaden, tellen, tabel invullen, webklaar maken (max. 2400 px, < 800 KB; video < 10 MB). Originelen nooit naar GitHub.
-- [ ] **1. Basis + eerste echte uitrol** (15 min): het project staat op, vervangt de testpagina en staat online.
-- [ ] **2. Designsysteem** (25 min): een stijlpagina met fonts, grid, kleuren en 3 accentvoorstellen. **Poort:** klopt de basis? Welk accent?
+- [x] **1. Basis + eerste echte uitrol** (15 min): het project staat op, vervangt de testpagina en staat online.
+- [x] **2. Designsysteem** (25 min): een stijlpagina met fonts, grid, kleuren en 3 accentvoorstellen. **Poort:** klopt de basis? Welk accent?
 - [ ] **3. Landing + selected work** (30 min): de hero met het sterkste werk, RINK + BRAND / PACKAGING / DIGITAL, en het werkgrid. **Poort.**
 - [ ] **4. Case-sjabloon + JAJA volledig** (30 min). **Poort + kort interview over de weergave** (mockups, video, ritme). Die regels gelden daarna voor de rest. *Het belangrijkste moment van de dag.*
 - [ ] **5. De andere 9 cases** (40 min): elk met het beeld dat klaarstaat. Don Gelato als editorial, The Cat met concept 1 naast concept 2, coffeeshop als visual wall. Ontbreekt beeld? Dan een nette korte versie. **Poort.**
