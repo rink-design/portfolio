@@ -40,6 +40,10 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Bestandsnamen = volgorde + optioneel weergave-woord: `01.jpg`, `04-groot.jpg`, `05-duo.jpg`, `07-telefoon.mp4`, `08-laptop.mp4`. Alleen een nummer = Claude kiest.
 - Video's en websites mogen in code-mockups (telefoon/laptop-frame); eigen Photoshop-mockups kan ook.
 - Volgorde bouwen: JAJA eerst als proefcase → poort + kort interview over weergave → die regels gelden voor de andere 7 cases.
+- Teksten: Claude schrijft concept (Engels), zij keurt. Concept in `teksten-concept.md`.
+- Geen jaartallen bij cases.
+- Santani: stage bij Code d'Azur, uit opdracht. Haar rol: concept, projectmanagement, graphics (samen met medestudenten). Social media: later alleen, als werk, een tijdje (formulering te bevestigen).
+- Contact: e-mail rinkevanderakt@gmail.com. Instagram 'Design by Rinke', LinkedIn 'Rinke van de Rakt' (exacte links nog nodig).
 - Tokens sparen: beelden niet één voor één bekijken, per project één contactblad.
 
 ## Techniek-notities
