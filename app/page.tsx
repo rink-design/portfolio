@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <main>
       {/* 01 — HEADER: showreel als achtergrond, logo en labels in wit erbovenop */}
-      <section className="relative flex h-svh min-h-[520px] flex-col overflow-hidden bg-ink">
+      <section className="relative flex h-svh min-h-[520px] flex-col justify-end overflow-hidden bg-ink">
         {hasHeroVideo() && <HeroVideo />}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/35 via-transparent to-ink/30" aria-hidden />
-        <div className="wrap relative pt-24 pb-5 text-paper md:pt-28">
+        <div className="wrap relative pb-5 text-paper md:pb-6">
           <RinkMark color="var(--color-paper)" />
           <AfterLoad delay={0.35}>
             <div className="grid-12 t-label mt-5">

@@ -1,3 +1,4 @@
+import { AutoVideo } from "@/components/AutoVideo";
 import Image from "next/image";
 
 // Beeld, video of nette plaatshouder zolang er nog niets is.
@@ -7,7 +8,7 @@ export function Media({
   return (
     <div className={`relative overflow-hidden bg-paper-2 ${className}`} style={{ aspectRatio: ratio }}>
       {src?.endsWith(".mp4") ? (
-        <video src={src} poster={poster} autoPlay muted loop playsInline preload="metadata" aria-label={alt}
+        <AutoVideo src={src} poster={poster} label={alt}
           className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-[var(--ease-out-rink)] group-hover:scale-[1.03]" />
       ) : src ? (
         <Image src={src} alt={alt} fill sizes={sizes} priority={priority} style={{ objectPosition: pos }}

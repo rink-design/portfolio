@@ -3,14 +3,15 @@ import { animate, motion, useMotionValue, useReducedMotion, useTransform, Animat
 import { useEffect, useLayoutEffect, useState } from "react";
 import { LOGO_PATHS, LOGO_VIEWBOX as V } from "../logo-paths";
 
-// Laadscherm: het RINK-logo vult zich van onder naar boven terwijl de site laadt, en schuift dan weg.
-// Het logo staat exact op de plek van het logo bovenaan de home.
+// Laadscherm: het RINK-logo wordt "geschreven": de vulling begint bij de punt van de R (boven én onder tegelijk)
+// en loopt van links naar rechts door naar INK, terwijl de site laadt. Daarna schuift het scherm weg.
+// Het logo staat exact op de plek van het logo onderaan de header.
 export function Loader() {
   const reduce = useReducedMotion();
   const [show, setShow] = useState(true);
   const [skip, setSkip] = useState(false);
   const progress = useMotionValue(0);
-  const fillY = useTransform(progress, [0, 100], [V.y + V.h + 1, V.y - 1]);
+  const fillW = useTransform(progress, [0, 100], [0, V.w + 4]);
   const counter = useTransform(progress, (v) => String(Math.round(v)).padStart(3, "0"));
 
   // Eén keer per bezoek.
@@ -48,13 +49,13 @@ export function Loader() {
   return (
     <AnimatePresence>
       {show && (
-        <motion.div key="loader" className="rink-loader fixed inset-0 z-[70] bg-paper"
+        <motion.div key="loader" className="rink-loader fixed inset-0 z-[70] flex flex-col justify-end bg-paper"
           exit={{ clipPath: "inset(0% 0% 100% 0%)" }} initial={{ clipPath: "inset(0% 0% 0% 0%)" }}
           transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}>
-          <div className="wrap pt-24 md:pt-28">
+          <div className="wrap pb-5 md:pb-6">
             <svg viewBox={`${V.x} ${V.y} ${V.w} ${V.h}`} className="block h-auto w-full" aria-label="RINK — loading">
               <defs>
-                <clipPath id="rink-fill"><motion.rect x={V.x - 2} width={V.w + 4} height={V.h + 4} style={{ y: fillY }} /></clipPath>
+                <clipPath id="rink-fill"><motion.rect x={V.x - 2} y={V.y - 2} height={V.h + 4} style={{ width: fillW }} /></clipPath>
               </defs>
               {/* Lichte grondvorm: geen lijn, alleen vlak */}
               {LOGO_PATHS.map((d, i) => <path key={`g${i}`} d={d} fill="var(--color-paper-2)" />)}
@@ -63,8 +64,10 @@ export function Loader() {
                 {LOGO_PATHS.map((d, i) => <path key={`f${i}`} d={d} fill="var(--color-ink)" />)}
               </g>
             </svg>
+            {/* Onzichtbare labelregel: zelfde hoogte als Brand · Packaging · Digital in de header */}
+            <div className="t-label invisible mt-5" aria-hidden>Brand</div>
           </div>
-          <div className="wrap t-label absolute inset-x-0 bottom-5 flex justify-between">
+          <div className="wrap t-label absolute inset-x-0 top-5 flex justify-between">
             <span>RINK Design</span>
             <motion.span className="tabular-nums">{counter}</motion.span>
           </div>
