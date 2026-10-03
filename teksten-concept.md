@@ -25,7 +25,9 @@ BRAND / PACKAGING / DIGITAL
 | 05 | BIG PUSH | Identity / Digital |
 | 06 | SANTANI | Concept / Creative Direction / Social |
 | 07 | THE CAT | Concept / Packaging |
-| 08 | SELECTED COFFEESHOP PACKAGING | Packaging / Print / Production |
+| 08 | PURPLE | Rebrand / Identity / Product Development |
+| 09 | CANAJOY | Product Development |
+| 10 | SELECTED COFFEESHOP PACKAGING | Packaging / Print / Production |
 
 Geen jaartallen.
 
@@ -93,7 +95,20 @@ Geen jaartallen.
 - **Concept 02** — Concept → Graphics → Packaging → Final visual
 - **Side by side**
 
-## 08 — SELECTED COFFEESHOP PACKAGING
+## 08 — PURPLE
+> A coffeeshop, rebranded.
+
+Coffeeshop in Vlissingen.
+- **Concept Development** — […]
+- **Identity** — The new house style.
+- **Product Development** — […]
+
+## 09 — CANAJOY
+> […]
+
+- **Product Development** — […]
+
+## 10 — SELECTED COFFEESHOP PACKAGING
 > A packaging archive.
 
 De Baron · Shiva · Highlife · Smokey · and more.
