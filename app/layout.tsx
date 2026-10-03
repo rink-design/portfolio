@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
+import { Providers } from "@/components/motion/Providers";
+import { Cursor } from "@/components/motion/Cursor";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,8 +21,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={inter.variable}>
       <body>
-        <Nav />
-        {children}
+        <Providers>
+          <Nav />
+          {children}
+          <Cursor />
+        </Providers>
       </body>
     </html>
   );
