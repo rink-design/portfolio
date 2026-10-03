@@ -1,0 +1,23 @@
+{
+  "slug": "canajoy",
+  "blocks": [
+    {
+      "key": "01-duo",
+      "kind": "duo",
+      "items": [
+        {
+          "file": "01-duo-1.webp",
+          "w": 2400,
+          "h": 1340,
+          "src": "/work/canajoy/01-duo-1.webp"
+        },
+        {
+          "file": "01-duo-2.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/canajoy/01-duo-2.webp"
+        }
+      ]
+    }
+  ]
+}

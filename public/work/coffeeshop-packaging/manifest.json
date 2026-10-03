@@ -1,0 +1,73 @@
+{
+  "slug": "coffeeshop-packaging",
+  "blocks": [
+    {
+      "key": "01-set",
+      "kind": "set",
+      "items": [
+        {
+          "file": "01-set-1.webp",
+          "w": 1024,
+          "h": 1024,
+          "src": "/work/coffeeshop-packaging/01-set-1.webp"
+        },
+        {
+          "file": "01-set-2.webp",
+          "w": 2400,
+          "h": 1340,
+          "src": "/work/coffeeshop-packaging/01-set-2.webp"
+        },
+        {
+          "file": "01-set-3.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/coffeeshop-packaging/01-set-3.webp"
+        },
+        {
+          "file": "01-set-4.webp",
+          "w": 1024,
+          "h": 1024,
+          "src": "/work/coffeeshop-packaging/01-set-4.webp"
+        },
+        {
+          "file": "01-set-5.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/coffeeshop-packaging/01-set-5.webp"
+        }
+      ]
+    },
+    {
+      "key": "02-duo",
+      "kind": "duo",
+      "items": [
+        {
+          "file": "02-duo-1.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/coffeeshop-packaging/02-duo-1.webp"
+        },
+        {
+          "file": "02-duo-2.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/coffeeshop-packaging/02-duo-2.webp"
+        }
+      ]
+    },
+    {
+      "key": "03-video",
+      "kind": "video",
+      "items": [
+        {
+          "file": "03-video-1.mp4",
+          "poster": "/work/coffeeshop-packaging/03-video-1.webp",
+          "video": true,
+          "w": 720,
+          "h": 1280,
+          "src": "/work/coffeeshop-packaging/03-video-1.mp4"
+        }
+      ]
+    }
+  ]
+}

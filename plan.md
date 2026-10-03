@@ -69,7 +69,7 @@ Teksten nog open: het concept van Purple Rain, en de teksten van Purple en Canaj
 
 ## 8. Bouwstappen met poorten
 
-- [ ] **Beelden binnenhalen** (15 min): downloaden, tellen, tabel invullen, webklaar maken (max. 2400 px, < 800 KB; video < 10 MB). Originelen nooit naar GitHub.
+- [x] **Beelden binnenhalen** (15 min): downloaden, tellen, tabel invullen, webklaar maken (max. 2400 px, < 800 KB; video < 10 MB). Originelen nooit naar GitHub.
 - [x] **1. Basis + eerste echte uitrol** (15 min): het project staat op, vervangt de testpagina en staat online.
 - [x] **2. Designsysteem** (25 min): een stijlpagina met fonts, grid, kleuren en 3 accentvoorstellen. **Poort:** klopt de basis? Welk accent?
 - [x] **3. Landing + selected work** (30 min): de hero met het sterkste werk, RINK + BRAND / PACKAGING / DIGITAL, en het werkgrid. **Poort.**

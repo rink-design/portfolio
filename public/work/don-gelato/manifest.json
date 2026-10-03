@@ -1,0 +1,155 @@
+{
+  "slug": "don-gelato",
+  "blocks": [
+    {
+      "key": "01-duo",
+      "kind": "duo",
+      "items": [
+        {
+          "file": "01-duo-1.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/01-duo-1.webp"
+        },
+        {
+          "file": "01-duo-2.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/01-duo-2.webp"
+        }
+      ]
+    },
+    {
+      "key": "02-studio-black",
+      "kind": "studio",
+      "items": [
+        {
+          "file": "02-studio-black-1.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/02-studio-black-1.webp"
+        },
+        {
+          "file": "02-studio-black-2.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/02-studio-black-2.webp"
+        }
+      ]
+    },
+    {
+      "key": "02-studio-white",
+      "kind": "studio",
+      "items": [
+        {
+          "file": "02-studio-white-1.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/02-studio-white-1.webp"
+        },
+        {
+          "file": "02-studio-white-2.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/02-studio-white-2.webp"
+        }
+      ]
+    },
+    {
+      "key": "03-detail-white",
+      "kind": "detail",
+      "items": [
+        {
+          "file": "03-detail-white-1.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/03-detail-white-1.webp"
+        },
+        {
+          "file": "03-detail-white-2.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/03-detail-white-2.webp"
+        },
+        {
+          "file": "03-detail-white-3.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/03-detail-white-3.webp"
+        },
+        {
+          "file": "03-detail-white-4.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/03-detail-white-4.webp"
+        },
+        {
+          "file": "03-detail-white-5.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/03-detail-white-5.webp"
+        },
+        {
+          "file": "03-detail-white-6.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/03-detail-white-6.webp"
+        }
+      ]
+    },
+    {
+      "key": "04-detail-black",
+      "kind": "detail",
+      "items": [
+        {
+          "file": "04-detail-black-1.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/04-detail-black-1.webp"
+        },
+        {
+          "file": "04-detail-black-2.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/04-detail-black-2.webp"
+        },
+        {
+          "file": "04-detail-black-3.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/04-detail-black-3.webp"
+        },
+        {
+          "file": "04-detail-black-4.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/04-detail-black-4.webp"
+        },
+        {
+          "file": "04-detail-black-5.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/04-detail-black-5.webp"
+        },
+        {
+          "file": "04-detail-black-6.webp",
+          "w": 2400,
+          "h": 2400,
+          "src": "/work/don-gelato/04-detail-black-6.webp"
+        }
+      ]
+    },
+    {
+      "key": "04-single",
+      "kind": "single",
+      "items": [
+        {
+          "file": "04-single-1.webp",
+          "w": 2400,
+          "h": 1347,
+          "src": "/work/don-gelato/04-single-1.webp"
+        }
+      ]
+    }
+  ]
+}

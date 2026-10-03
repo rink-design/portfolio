@@ -35,9 +35,10 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Geen open-source template (alles was developer-stijl); referenties zijn het 'template'. Basis: Next.js + Tailwind + Motion.
 - Font: Inter Display (gratis, Google/rsms).
 - Kleur: warm neutraal + één vaste accentkleur: Cobalt #2D3BFF (gekozen bij poort 2).
-- Logo: ze uploadt haar eigen RINK-logo.
-- Beelden: via één Dropbox/Drive-link, per project een map (01-jaja … 08-coffeeshop-packaging).
-- Bestandsnamen = volgorde + optioneel weergave-woord: `01.jpg`, `04-groot.jpg`, `05-duo.jpg`, `07-telefoon.mp4`, `08-laptop.mp4`. Alleen een nummer = Claude kiest.
+- Beelden: Google Drive-map (link in gesprek 3 okt). Webklaar maken met `node scripts/beelden.mjs "<map Portfolio>"` → public/work/<slug>/ + manifest.json. Originelen nooit in de repo.
+- Haar bestandsnamen: `NN_SOORT[_A/B…]_naam`. Soorten: GROOT, DUO, TRIO, SET (beeldwand), LAYOVER (kaarten schuiven over elkaar, sticky), TELEFOON, TELEFOON_VIDEO, VIDEO (A/B = duo), SCROLL-PDF (pagina's in horizontale scroll-band), STUDIO_BLACK/WHITE (paren), DETAIL-GRID_WHITE/BLACK (raster 3×2), WEBSITE_MOCKUP (laptopframe), los = enkel beeld.
+- Covers per case in content/projects.ts (JAJA en coffeeshop = video-cover). Big Push cover = pdf-pagina 12 (gorilla).
+- Logo: haar vector `RInk.svg` (sierlijke R + INK) → components/logo-paths.ts; gebruikt in laadscherm en bovenaan home.
 - Video's en websites mogen in code-mockups (telefoon/laptop-frame); eigen Photoshop-mockups kan ook.
 - Volgorde bouwen: JAJA eerst als proefcase → poort + kort interview over weergave → die regels gelden voor de andere 7 cases.
 - Teksten: Claude schrijft concept (Engels), zij keurt. Concept in `teksten-concept.md`.

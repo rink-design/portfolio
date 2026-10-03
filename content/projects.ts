@@ -6,20 +6,22 @@ export type Project = {
   title: string;
   disciplines: string;
   statement: string;
-  cover?: string; // pad naar coverbeeld in /public/work/<slug>/
+  cover?: string; // coverbeeld of -video in /public/work/<slug>/ (grid + hero van de case)
+  poster?: string; // stilstaand beeld bij een video-cover
+  coverPos?: string; // uitsnede van de cover, bv. "82% 50%"
 };
 
 export const projects: Project[] = [
-  { slug: "jaja", number: "01", title: "JAJA", disciplines: "Brand / Packaging / Digital", statement: "One brand. Every touchpoint." },
-  { slug: "soiree", number: "02", title: "SOIREE", disciplines: "Identity / Packaging", statement: "A complete rebrand. Idea to shelf." },
-  { slug: "purple-rain", number: "03", title: "PURPLE RAIN", disciplines: "Identity / Packaging", statement: "Same disciplines. A different world." },
-  { slug: "don-gelato", number: "04", title: "DON GELATO", disciplines: "Art Direction / Identity / Packaging / Photography", statement: "A visual story, directed." },
-  { slug: "big-push", number: "05", title: "BIG PUSH", disciplines: "Identity / Digital", statement: "A new position, made visible." },
-  { slug: "santani", number: "06", title: "SANTANI", disciplines: "Concept / Creative Direction / Social", statement: "A creative launch. Concept to social." },
-  { slug: "the-cat", number: "07", title: "THE CAT", disciplines: "Concept / Packaging", statement: "One briefing. Two answers." },
-  { slug: "purple", number: "08", title: "PURPLE", disciplines: "Rebrand / Identity / Product Development", statement: "A coffeeshop, rebranded." },
-  { slug: "canajoy", number: "09", title: "CANAJOY", disciplines: "Product Development", statement: "" },
-  { slug: "coffeeshop-packaging", number: "10", title: "SELECTED COFFEESHOP PACKAGING", disciplines: "Packaging / Print / Production", statement: "A packaging archive." },
+  { slug: "jaja", number: "01", title: "JAJA", disciplines: "Brand / Packaging / Digital", statement: "One brand. Every touchpoint.", cover: "/work/jaja/09-video-1.mp4", poster: "/work/jaja/09-video-1.webp" },
+  { slug: "soiree", number: "02", title: "SOIREE", disciplines: "Identity / Packaging", statement: "A complete rebrand. Idea to shelf.", cover: "/work/soiree/01-groot-1.webp" },
+  { slug: "purple-rain", number: "03", title: "PURPLE RAIN", disciplines: "Identity / Packaging", statement: "Same disciplines. A different world.", cover: "/work/purple-rain/01-groot-1.webp" },
+  { slug: "don-gelato", number: "04", title: "DON GELATO", disciplines: "Art Direction / Identity / Packaging / Photography", statement: "A visual story, directed.", cover: "/work/don-gelato/02-studio-black-2.webp" },
+  { slug: "big-push", number: "05", title: "BIG PUSH", disciplines: "Identity / Digital", statement: "A new position, made visible.", cover: "/work/big-push/02-scroll-1-p12.webp", coverPos: "82% 50%" },
+  { slug: "santani", number: "06", title: "SANTANI", disciplines: "Concept / Creative Direction / Social", statement: "A creative launch. Concept to social.", cover: "/work/santani/03-duo-1.webp" },
+  { slug: "the-cat", number: "07", title: "THE CAT", disciplines: "Concept / Packaging", statement: "One briefing. Two answers.", cover: "/work/the-cat/01-duo-1.webp" },
+  { slug: "purple", number: "08", title: "PURPLE", disciplines: "Rebrand / Identity / Product Development", statement: "A coffeeshop, rebranded.", cover: "/work/purple/01-groot-1.webp" },
+  { slug: "canajoy", number: "09", title: "CANAJOY", disciplines: "Product Development", statement: "", cover: "/work/canajoy/01-duo-1.webp" },
+  { slug: "coffeeshop-packaging", number: "10", title: "SELECTED COFFEESHOP PACKAGING", disciplines: "Packaging / Print / Production", statement: "A packaging archive.", cover: "/work/coffeeshop-packaging/03-video-1.mp4", poster: "/work/coffeeshop-packaging/03-video-1.webp" },
 ];
 
 export const contact = {

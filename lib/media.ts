@@ -1,26 +1,22 @@
 import fs from "node:fs";
 import path from "node:path";
 
-// Leest de beelden van een case uit /public/work/<slug>/ .
-// Bestandsnaam = volgorde + optioneel weergave-woord:
-//   01.jpg · 04-groot.jpg · 05-duo.jpg · 07-telefoon.mp4 · 08-laptop.mp4
-export type Kind = "groot" | "duo" | "telefoon" | "laptop" | "standaard";
-export type MediaItem = { src: string; video: boolean; kind: Kind; n: number };
+// Leest het manifest dat scripts/beelden.mjs per case maakt (public/work/<slug>/manifest.json).
+export type Item = { src: string; w: number; h: number; video?: boolean; poster?: string };
+export type Kind = "groot" | "duo" | "trio" | "set" | "layover" | "telefoon" | "telefoon-video" | "video"
+  | "scroll" | "studio" | "detail" | "single" | "website";
+export type Block = { key: string; kind: Kind; items: Item[] };
 
-const IMG = /\.(jpe?g|png|webp|avif|gif)$/i;
-const VID = /\.(mp4|webm)$/i;
-
-export function caseMedia(slug: string): MediaItem[] {
-  const dir = path.join(process.cwd(), "public", "work", slug);
-  if (!fs.existsSync(dir)) return [];
-  return fs
-    .readdirSync(dir)
-    .filter((f) => IMG.test(f) || VID.test(f))
-    .map((f): MediaItem => {
-      const base = f.replace(/\.[^.]+$/, "").toLowerCase();
-      const n = parseInt(base, 10);
-      const word = (["groot", "duo", "telefoon", "laptop"] as const).find((w) => base.includes(w));
-      return { src: `/work/${slug}/${f}`, video: VID.test(f), kind: word ?? "standaard", n: isNaN(n) ? 999 : n };
-    })
-    .sort((a, b) => a.n - b.n || a.src.localeCompare(b.src));
+export function caseBlocks(slug: string): Block[] {
+  const f = path.join(process.cwd(), "public", "work", slug, "manifest.json");
+  if (!fs.existsSync(f)) return [];
+  const blocks: Block[] = JSON.parse(fs.readFileSync(f, "utf8")).blocks;
+  // Opeenvolgende LAYOVER-groepen worden één stapel.
+  const out: Block[] = [];
+  for (const b of blocks) {
+    const prev = out[out.length - 1];
+    if (b.kind === "layover" && prev?.kind === "layover") prev.items.push(...b.items);
+    else out.push({ ...b, items: [...b.items] });
+  }
+  return out;
 }

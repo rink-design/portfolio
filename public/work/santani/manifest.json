@@ -1,0 +1,61 @@
+{
+  "slug": "santani",
+  "blocks": [
+    {
+      "key": "01-telefoon",
+      "kind": "telefoon",
+      "items": [
+        {
+          "file": "01-telefoon-1.webp",
+          "w": 1105,
+          "h": 2400,
+          "src": "/work/santani/01-telefoon-1.webp"
+        }
+      ]
+    },
+    {
+      "key": "02-telefoon-video",
+      "kind": "telefoon-video",
+      "items": [
+        {
+          "file": "02-telefoon-video-1.mp4",
+          "poster": "/work/santani/02-telefoon-video-1.webp",
+          "video": true,
+          "w": 720,
+          "h": 1280,
+          "src": "/work/santani/02-telefoon-video-1.mp4"
+        }
+      ]
+    },
+    {
+      "key": "03-duo",
+      "kind": "duo",
+      "items": [
+        {
+          "file": "03-duo-1.webp",
+          "w": 1080,
+          "h": 1920,
+          "src": "/work/santani/03-duo-1.webp"
+        },
+        {
+          "file": "03-duo-2.webp",
+          "w": 1080,
+          "h": 1920,
+          "src": "/work/santani/03-duo-2.webp"
+        }
+      ]
+    },
+    {
+      "key": "04-website",
+      "kind": "website",
+      "items": [
+        {
+          "file": "04-website-1.webp",
+          "w": 1600,
+          "h": 1077,
+          "src": "/work/santani/04-website-1.webp"
+        }
+      ]
+    }
+  ]
+}

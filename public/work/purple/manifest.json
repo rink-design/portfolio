@@ -1,0 +1,77 @@
+{
+  "slug": "purple",
+  "blocks": [
+    {
+      "key": "01-groot",
+      "kind": "groot",
+      "items": [
+        {
+          "file": "01-groot-1.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/purple/01-groot-1.webp"
+        }
+      ]
+    },
+    {
+      "key": "02-duo",
+      "kind": "duo",
+      "items": [
+        {
+          "file": "02-duo-1.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/purple/02-duo-1.webp"
+        },
+        {
+          "file": "02-duo-2.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/purple/02-duo-2.webp"
+        }
+      ]
+    },
+    {
+      "key": "03-duo",
+      "kind": "duo",
+      "items": [
+        {
+          "file": "03-duo-1.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/purple/03-duo-1.webp"
+        },
+        {
+          "file": "03-duo-2.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/purple/03-duo-2.webp"
+        }
+      ]
+    },
+    {
+      "key": "04-trio",
+      "kind": "trio",
+      "items": [
+        {
+          "file": "04-trio-1.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/purple/04-trio-1.webp"
+        },
+        {
+          "file": "04-trio-2.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/purple/04-trio-2.webp"
+        },
+        {
+          "file": "04-trio-3.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/purple/04-trio-3.webp"
+        }
+      ]
+    }
+  ]
+}

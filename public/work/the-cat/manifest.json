@@ -1,0 +1,23 @@
+{
+  "slug": "the-cat",
+  "blocks": [
+    {
+      "key": "01-duo",
+      "kind": "duo",
+      "items": [
+        {
+          "file": "01-duo-1.webp",
+          "w": 1600,
+          "h": 1062,
+          "src": "/work/the-cat/01-duo-1.webp"
+        },
+        {
+          "file": "01-duo-2.webp",
+          "w": 2400,
+          "h": 1610,
+          "src": "/work/the-cat/01-duo-2.webp"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,107 @@
+{
+  "slug": "soiree",
+  "blocks": [
+    {
+      "key": "01-groot",
+      "kind": "groot",
+      "items": [
+        {
+          "file": "01-groot-1.webp",
+          "w": 1024,
+          "h": 1024,
+          "src": "/work/soiree/01-groot-1.webp"
+        }
+      ]
+    },
+    {
+      "key": "02-duo",
+      "kind": "duo",
+      "items": [
+        {
+          "file": "02-duo-1.webp",
+          "w": 1024,
+          "h": 1024,
+          "src": "/work/soiree/02-duo-1.webp"
+        },
+        {
+          "file": "02-duo-2.webp",
+          "w": 1024,
+          "h": 1024,
+          "src": "/work/soiree/02-duo-2.webp"
+        }
+      ]
+    },
+    {
+      "key": "03-duo",
+      "kind": "duo",
+      "items": [
+        {
+          "file": "03-duo-1.webp",
+          "w": 714,
+          "h": 664,
+          "src": "/work/soiree/03-duo-1.webp"
+        }
+      ]
+    },
+    {
+      "key": "03-scroll",
+      "kind": "scroll",
+      "items": [
+        {
+          "file": "03-scroll-1-p01.webp",
+          "w": 2000,
+          "h": 1415,
+          "src": "/work/soiree/03-scroll-1-p01.webp"
+        },
+        {
+          "file": "03-scroll-1-p02.webp",
+          "w": 2000,
+          "h": 1415,
+          "src": "/work/soiree/03-scroll-1-p02.webp"
+        },
+        {
+          "file": "03-scroll-1-p03.webp",
+          "w": 2000,
+          "h": 1415,
+          "src": "/work/soiree/03-scroll-1-p03.webp"
+        },
+        {
+          "file": "03-scroll-1-p04.webp",
+          "w": 2000,
+          "h": 1415,
+          "src": "/work/soiree/03-scroll-1-p04.webp"
+        },
+        {
+          "file": "03-scroll-1-p05.webp",
+          "w": 2000,
+          "h": 1415,
+          "src": "/work/soiree/03-scroll-1-p05.webp"
+        },
+        {
+          "file": "03-scroll-1-p06.webp",
+          "w": 2000,
+          "h": 1415,
+          "src": "/work/soiree/03-scroll-1-p06.webp"
+        },
+        {
+          "file": "03-scroll-1-p07.webp",
+          "w": 2000,
+          "h": 1415,
+          "src": "/work/soiree/03-scroll-1-p07.webp"
+        },
+        {
+          "file": "03-scroll-1-p08.webp",
+          "w": 2000,
+          "h": 1415,
+          "src": "/work/soiree/03-scroll-1-p08.webp"
+        },
+        {
+          "file": "03-scroll-1-p09.webp",
+          "w": 2000,
+          "h": 1415,
+          "src": "/work/soiree/03-scroll-1-p09.webp"
+        }
+      ]
+    }
+  ]
+}

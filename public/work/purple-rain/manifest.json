@@ -1,0 +1,53 @@
+{
+  "slug": "purple-rain",
+  "blocks": [
+    {
+      "key": "01-groot",
+      "kind": "groot",
+      "items": [
+        {
+          "file": "01-groot-1.webp",
+          "w": 1024,
+          "h": 1024,
+          "src": "/work/purple-rain/01-groot-1.webp"
+        }
+      ]
+    },
+    {
+      "key": "02-duo",
+      "kind": "duo",
+      "items": [
+        {
+          "file": "02-duo-1.webp",
+          "w": 2400,
+          "h": 1347,
+          "src": "/work/purple-rain/02-duo-1.webp"
+        },
+        {
+          "file": "02-duo-2.webp",
+          "w": 2400,
+          "h": 1347,
+          "src": "/work/purple-rain/02-duo-2.webp"
+        }
+      ]
+    },
+    {
+      "key": "03-duo",
+      "kind": "duo",
+      "items": [
+        {
+          "file": "03-duo-1.webp",
+          "w": 2400,
+          "h": 1347,
+          "src": "/work/purple-rain/03-duo-1.webp"
+        },
+        {
+          "file": "03-duo-2.webp",
+          "w": 1545,
+          "h": 2400,
+          "src": "/work/purple-rain/03-duo-2.webp"
+        }
+      ]
+    }
+  ]
+}
