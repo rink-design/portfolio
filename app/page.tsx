@@ -4,14 +4,13 @@ import { Lines, Reveal } from "@/components/motion/Reveal";
 import { RinkMark } from "@/components/RinkMark";
 import { AfterLoad } from "@/components/motion/AfterLoad";
 import { HeroVideo, hasHeroVideo } from "@/components/HeroVideo";
-import { HeroGrow } from "@/components/motion/ImageReveal";
 import { Marquee } from "@/components/motion/Marquee";
 
 export default function Home() {
   return (
     <main>
       {/* 01 — IMPACT: het laadscherm schrijft RINK op deze plek; direct daaronder de video */}
-      <section className="wrap pt-[22vh] pb-5 md:pt-[26vh]">
+      <section className="wrap pt-24 pb-5 md:pt-28">
         <RinkMark />
         <AfterLoad delay={0.35}>
           <div className="grid-12 t-label mt-5">
@@ -23,13 +22,13 @@ export default function Home() {
       </section>
       {/* Showreel direct onder RINK / Brand · Packaging · Digital */}
       {hasHeroVideo() && (
-        <section className="mt-3">
-          <HeroGrow><HeroVideo /></HeroGrow>
+        <section className="wrap mt-3">
+          <HeroVideo />
         </section>
       )}
 
       {/* 03 — SELECTED WORK — vijf rijen van twee */}
-      <section id="work" className="wrap mt-24 scroll-mt-16 md:mt-32">
+      <section id="work" className="wrap mt-16 scroll-mt-16 md:mt-24">
         <div className="flex items-end justify-between pb-10">
           <h2 className="t-label">Selected work</h2>
         </div>

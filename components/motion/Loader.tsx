@@ -51,7 +51,7 @@ export function Loader() {
         <motion.div key="loader" className="rink-loader fixed inset-0 z-[70] bg-paper"
           exit={{ clipPath: "inset(0% 0% 100% 0%)" }} initial={{ clipPath: "inset(0% 0% 0% 0%)" }}
           transition={{ duration: 0.9, ease: [0.76, 0, 0.24, 1] }}>
-          <div className="wrap pt-[22vh] md:pt-[26vh]">
+          <div className="wrap pt-24 md:pt-28">
             <svg viewBox={`${V.x} ${V.y} ${V.w} ${V.h}`} className="block h-auto w-full" aria-label="RINK — loading">
               <defs>
                 <clipPath id="rink-fill"><motion.rect x={V.x - 2} width={V.w + 4} height={V.h + 4} style={{ y: fillY }} /></clipPath>
