@@ -82,7 +82,7 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Laadscherm 'schrijft': vulling van links naar rechts over volle hoogte, start bij de punt van de R → INK. Logo op exact dezelfde plek onderaan; teller bovenaan.
 - Alle video's via components/AutoVideo.tsx (iOS-autoplay: muted/playsinline als attribuut + play() in beeld). Energiebesparingsmodus op iPhone kan autoplay alsnog blokkeren → start bij eerste aanraking.
 - Santani: telefoons (hero) → tekst → website → 2 campagnebeelden gecentreerd. The Cat: hero-paar op eigen verhouding (meer ruimte).
-- Achtergronden Canajoy, Purple Rain, Purple vervangen door de RINK-studio-achtergrond (rembg + verloop, script in scratchpad: bg/swap.py; originelen onaangeroerd op Drive).
+- Achtergronden Canajoy, Purple Rain, Purple vervangen door de RINK-studio-achtergrond (rembg + verloop, script: scripts/achtergrond-studio.py; originelen onaangeroerd op Drive).
 - Beeldbestanden krijgen een inhoud-hash in de naam (cache-busting). Telefoonvideo's 540 px breed, crf 31.
 
 ## Techniek-notities
