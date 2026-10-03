@@ -26,3 +26,16 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Taal: Engels (Nederlands eventueel later).
 - Alle 8 projecten mogen openbaar online.
 - Domein: koopt ze zelf bij GoDaddy; koppelen in fase 5.
+- Ontwerpaanpak: mix — Claude ontwerpt met haar, op basis van een open-source template.
+- Referenties: collinscole.framer.website, dept.global, itsoffbrand.com, patrickjane.framer.website, lusion.co.
+- Sfeer: licht & warm (gebroken wit / warm grijs, zoals Offbrand).
+- Typografie: gigantische grotesk over de volle breedte (zoals Collins).
+- Werk op home: strak grid, groot beeld, volgens haar wireframe.
+- Beweging: uitgesproken met type & beeld (geen zware 3D/WebGL vandaag).
+- Geen open-source template (alles was developer-stijl); referenties zijn het 'template'. Basis: Next.js + Tailwind + Motion.
+- Font: Inter Display (gratis, Google/rsms).
+- Kleur: warm neutraal + één vaste RINK-accentkleur (kleur nog te kiezen).
+- Logo: ze uploadt haar eigen RINK-logo.
+
+## Techniek-notities
+- Chromium-screenshots: launch met `--ignore-certificate-errors-spki-list=PS48cX347wDVcRynzq+DFqswl2PLNE1sG6uQvxMCOS0=` (vertrouwt alleen de proxy-CA van deze omgeving).
