@@ -14,8 +14,15 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-zeta-eight-09eeu06opz.vercel.app"),
   title: "RINK — Brand, Packaging, Digital",
-  description: "RINK Design — brand identity, packaging, digital design and art direction.",
+  description: "RINK Design — brand identity, packaging, digital design and art direction. Distinctive. Tangible. Built to work.",
+  openGraph: {
+    title: "RINK — Brand, Packaging, Digital",
+    description: "Brand identity, packaging, digital design and art direction.",
+    siteName: "RINK Design",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

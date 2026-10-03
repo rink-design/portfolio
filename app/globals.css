@@ -5,7 +5,7 @@
   --color-paper: #ebe8e2;      /* warm gebroken wit */
   --color-paper-2: #e0dcd4;    /* iets dieper, voor vlakken */
   --color-ink: #141311;        /* bijna-zwart */
-  --color-ink-2: #6f6b64;      /* secundaire tekst */
+  --color-ink-2: #605c55;      /* secundaire tekst (contrast ≥ 4,5:1) */
   --color-line: #cfcac1;       /* lijnen */
   --color-accent: #2d3bff;     /* Cobalt — gekozen in stap 2 */
 

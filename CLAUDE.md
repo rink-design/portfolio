@@ -18,6 +18,7 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Geen database, CMS, formulier, login of cookies. Geen originelen > 5 MB naar GitHub.
 
 ## Omgeving
+- Live: https://portfolio-zeta-eight-09eeu06opz.vercel.app (Vercel-team 'Rink Design Portfolio', Hobby, productie = branch claude/brief-overview-p1z3nr). LET OP: portfolio-eta.vercel.app is NIET van haar.
 - Claude Code draait in de cloud (niet op haar Mac). Repo: github.com/rink-design/portfolio, branch `claude/brief-overview-p1z3nr`.
 - Beelden komen niet van haar bureaublad; zij uploadt ze (chat of GitHub).
 
@@ -55,6 +56,7 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Geen scheidingslijnen (borders) tussen secties — haar wens.
 - NIET bijsnijden in cases: alle beelden op natuurlijke verhouding (kaarten: object-contain op wit). Staande hero = gecentreerd op licht vlak.
 - JAJA websites: screenshots van jaja.net (B2B) en jajashop.com (B2C) als 10_WEBSITE_A/B in laptopframes.
+- Favicon = sierlijke R (app/icon.svg); deelafbeelding = logo op paper (app/opengraph-image.png).
 - Tokens sparen: beelden niet één voor één bekijken, per project één contactblad.
 
 ## Techniek-notities

@@ -77,7 +77,7 @@ Teksten nog open: het concept van Purple Rain, en de teksten van Purple en Canaj
 - [x] **5. De andere 9 cases** (40 min): elk met het beeld dat klaarstaat. Don Gelato als editorial, The Cat met concept 1 naast concept 2, coffeeshop als visual wall. Ontbreekt beeld? Dan een nette korte versie. **Poort.**
 - [x] **6. About + contact** (15 min).
 - [x] **7. Beweging + overgangen** (20 min): beeld komt binnen bij scrollen, hover op het werk, rustige paginaovergangen (< 0,4 s), "minder beweging" gerespecteerd. **Poort.**
-- [ ] **8. Mobiel + snelheid** (15 min): alles gecheckt op 375 px, lazy loading (beeld laadt pas als het in beeld komt), alt-teksten, Lighthouse ≥ 90.
+- [x] **8. Mobiel + snelheid** (Lighthouse mobiel: snelheid 75 — laadscherm + meting via proxy; toegankelijkheid 90→fixes; SEO 100) (15 min): alles gecheckt op 375 px, lazy loading (beeld laadt pas als het in beeld komt), alt-teksten, Lighthouse ≥ 90.
 - [ ] **Live** (30 min): titel, beschrijving, deelafbeelding, favicon, test op haar telefoon, domein koppelen (GoDaddy).
 - [ ] **Afronden** (15 min): `CLAUDE.md` en `plan.md` bijwerken, lijst voor morgen.
 

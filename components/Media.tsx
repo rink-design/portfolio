@@ -13,7 +13,7 @@ export function Media({
         <Image src={src} alt={alt} fill sizes={sizes} priority={priority} style={{ objectPosition: pos }}
           className="object-cover transition-transform duration-700 ease-[var(--ease-out-rink)] group-hover:scale-[1.03]" />
       ) : (
-        <span className="t-label absolute bottom-3 left-3 text-ink-2/70">{alt}</span>
+        <span className="t-label absolute bottom-3 left-3 text-ink-2">{alt}</span>
       )}
     </div>
   );

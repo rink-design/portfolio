@@ -9,7 +9,7 @@ export function HeroVideo() {
       {has ? (
         <video src="/hero.mp4" autoPlay muted loop playsInline preload="auto" className="absolute inset-0 h-full w-full object-cover" />
       ) : (
-        <span className="t-label absolute bottom-3 left-[var(--gutter)] text-ink-2/70">Showreel-video volgt</span>
+        <span className="t-label absolute bottom-3 left-[var(--gutter)] text-ink-2">Showreel-video volgt</span>
       )}
     </div>
   );
