@@ -1,7 +1,8 @@
 import { projects, contact } from "@/content/projects";
 import { WorkCard } from "@/components/WorkCard";
 import { Lines, Reveal } from "@/components/motion/Reveal";
-import { WriteOn } from "@/components/motion/WriteOn";
+import { RinkMark } from "@/components/RinkMark";
+import { AfterLoad } from "@/components/motion/AfterLoad";
 import { HeroVideo } from "@/components/HeroVideo";
 import { HeroGrow } from "@/components/motion/ImageReveal";
 import { Marquee } from "@/components/motion/Marquee";
@@ -9,16 +10,16 @@ import { Marquee } from "@/components/motion/Marquee";
 export default function Home() {
   return (
     <main>
-      {/* 01 — IMPACT: naam schrijft zichzelf, direct daaronder de video */}
+      {/* 01 — IMPACT: het laadscherm schrijft RINK op deze plek; direct daaronder de video */}
       <section className="wrap pt-[22vh] pb-5 md:pt-[26vh]">
-        <WriteOn text="RINK" />
-        <Reveal delay={1.8} now>
+        <RinkMark />
+        <AfterLoad delay={0.35}>
           <div className="grid-12 t-label mt-5">
             <span className="col-span-2 md:col-span-4">Brand</span>
             <span className="col-span-1 md:col-span-4">Packaging</span>
             <span className="col-span-1 text-right md:col-span-4">Digital</span>
           </div>
-        </Reveal>
+        </AfterLoad>
       </section>
       <section className="mt-2">
         <HeroGrow><HeroVideo /></HeroGrow>

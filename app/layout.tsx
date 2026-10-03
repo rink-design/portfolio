@@ -4,6 +4,7 @@ import "./globals.css";
 import { Nav } from "@/components/Nav";
 import { Providers } from "@/components/motion/Providers";
 import { Cursor } from "@/components/motion/Cursor";
+import { Loader } from "@/components/motion/Loader";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -21,10 +22,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={inter.variable}>
       <body>
+        <noscript><style>{`.rink-loader{display:none!important}`}</style></noscript>
         <Providers>
           <Nav />
           {children}
           <Cursor />
+          <Loader />
         </Providers>
       </body>
     </html>
