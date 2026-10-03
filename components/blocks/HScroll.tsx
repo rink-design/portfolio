@@ -21,9 +21,8 @@ export function HScroll({ items, alts }: { items: Item[]; alts: string[] }) {
       <div className="sticky top-0 flex h-svh items-center overflow-hidden">
         <motion.div ref={track} className="flex w-max gap-[var(--gap)] px-[var(--gutter)]" style={{ x }}>
           {items.map((it, i) => (
-            <div key={it.src} className="relative w-[78vw] shrink-0 md:w-[62vw]" style={{ aspectRatio: `${it.w}/${it.h}` }}>
-              <Image src={it.src} alt={alts[i]} fill sizes="(min-width: 768px) 62vw, 78vw" className="object-cover shadow-[0_20px_50px_-25px_rgba(20,19,17,0.35)]" />
-              <span className="t-label absolute -bottom-7 left-0 text-ink-2">{String(i + 1).padStart(2, "0")} / {String(items.length).padStart(2, "0")}</span>
+            <div key={it.src} className="relative w-[86vw] shrink-0 md:w-[72vw]" style={{ aspectRatio: `${it.w}/${it.h}` }}>
+              <Image src={it.src} alt={alts[i]} fill sizes="(min-width: 768px) 72vw, 86vw" className="object-cover" />
             </div>
           ))}
         </motion.div>

@@ -62,15 +62,37 @@ function vid(src, dest, poster) {
   return sharp(p).webp({ quality: 78 }).toFile(poster).then((i) => { fs.unlinkSync(p); return { w: i.width, h: i.height }; });
 }
 
+// Breedte van een effen witte rand (gemeten vanuit het midden van elke zijde), max 10%.
+async function whiteMargin(f) {
+  const { data, info } = await sharp(f).raw().toBuffer({ resolveWithObject: true });
+  const W = info.width, H = info.height, c = info.channels;
+  const white = (x, y) => { const i = (y * W + x) * c; return data[i] > 240 && data[i + 1] > 240 && data[i + 2] > 240; };
+  let x = 0; while (x < W * 0.1 && white(x, H >> 1) && white(W - 1 - x, H >> 1)) x++;
+  let y = 0; while (y < H * 0.1 && white(W >> 1, y) && white(W >> 1, H - 1 - y)) y++;
+  return { x: x >= W * 0.1 ? 0 : x, y: y >= H * 0.1 ? 0 : y };
+}
+
 async function pdfPages(src, dir, prefix) {
   const tmp = path.join(dir, "_pdf");
   fs.mkdirSync(tmp, { recursive: true });
   execFileSync("pdftoppm", ["-png", "-scale-to", "2000", src, path.join(tmp, "p")]);
   const pages = fs.readdirSync(tmp).sort();
+  // Witte kader rond alle pagina's (zit in de pdf zelf) wegsnijden: kleinste rand over alle pagina's.
+  const margins = await Promise.all(pages.map((f) => whiteMargin(path.join(tmp, f))));
+  // Witte pagina's geven 0 (geen meetbare rand); neem de kleinste rand van de pagina's mét kader.
+  const nz = (k) => { const v = margins.map((q) => q[k]).filter((v) => v > 0); return v.length >= pages.length / 2 ? Math.min(...v) : 0; };
+  const m = { x: nz("x"), y: nz("y") };
   const out = [];
   for (let i = 0; i < pages.length; i++) {
     const name = `${prefix}-p${String(i + 1).padStart(2, "0")}.webp`;
-    const d = await img(path.join(tmp, pages[i]), path.join(dir, name));
+    let srcPage = path.join(tmp, pages[i]);
+    if (m.x > 0 || m.y > 0) {
+      const meta = await sharp(srcPage).metadata();
+      const cut = path.join(tmp, `cut-${pages[i]}`);
+      await sharp(srcPage).extract({ left: m.x + 2, top: m.y + 2, width: meta.width - 2 * (m.x + 2), height: meta.height - 2 * (m.y + 2) }).toFile(cut);
+      srcPage = cut;
+    }
+    const d = await img(srcPage, path.join(dir, name));
     out.push({ file: name, ...d });
   }
   fs.rmSync(tmp, { recursive: true });

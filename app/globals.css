@@ -80,11 +80,10 @@ body {
 
 /* Marquee */
 .marquee-track { animation: marquee 28s linear infinite; }
-.marquee:hover .marquee-track { animation-play-state: paused; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track { animation: none; }
+  .marquee-track { animation-duration: 90s; }
   *, *::before, *::after { transition-duration: 0.01ms !important; }
 }
 
@@ -97,3 +96,6 @@ body {
 }
 .link-line:hover::after { transform: scaleX(1); transform-origin: left; }
 .link-line:hover { color: var(--color-accent); }
+
+/* Websitescherm: dunne scrollbalk */
+.site-screen { scrollbar-width: thin; scrollbar-color: var(--color-ink-2) transparent; }

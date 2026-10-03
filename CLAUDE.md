@@ -73,5 +73,11 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - The Cat + Canajoy: hero = twee beelden naast elkaar. Coffeeshop: geen hero, archief, alles even groot, Baron-video ertussen.
 - Soiree/Purple Rain/Don Gelato/Purple: hero → tekst → brandbook-pdf (indien) → grid. PDF-pagina's vullend, geen witranden.
 
+- Nieuwe covers (1:1, donkerblauwe studiostijl) in public/covers/<slug>.webp — Soiree en The Cat hebben nog geen nieuwe cover. Case-hero 'cover' = die cover, geheel in beeld.
+- Showreel onder RINK: public/hero.mp4 (4:3, 12 s, stil) + hero-poster.webp.
+- Websites als scrollbare full-page screenshots: public/sites/{jaja-b2b,jaja-b2c,bigpush,santani}.webp. Santani-site: https://santani.vercel.app/
+- Nav 'RINK' vet. Favicon = sierlijke R in zwarte cirkel (app/icon.svg).
+- Achtergrond staat bovenin onder het logo én bij About (checken of ze dat dubbel wil).
+
 ## Techniek-notities
 - Chromium-screenshots: launch met `--ignore-certificate-errors-spki-list=PS48cX347wDVcRynzq+DFqswl2PLNE1sG6uQvxMCOS0=` (vertrouwt alleen de proxy-CA van deze omgeving).

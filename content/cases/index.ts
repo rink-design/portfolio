@@ -1,12 +1,26 @@
 // Tekst per case. Beeldvolgorde komt uit de bestandsnamen in /public/work/<slug>/.
 // Elke sectie verschijnt vóór het beeld met nummer `before` (optioneel; anders gelijk verdeeld).
 
-export type Section = { label: string; text: string; before?: number };
-export type CaseText = { statement: string; intro?: string; role?: string; sections: Section[] };
+export type Section = { label: string; text: string };
+export type Site = { src: string; w: number; h: number; label: string };
+// Opbouw van de case (tune-ronde 3 okt):
+//  hero: "cover" = één beeld geheel in beeld · "pair" = eerste twee beelden naast elkaar
+//        "site" = eerste website in laptop · "phones" = telefoons op een rij · "none" = geen hero
+export type CaseText = {
+  statement: string; intro?: string; role?: string; sections: Section[];
+  hero?: "cover" | "pair" | "site" | "phones" | "none";
+  sites?: Site[];          // echte websites, scrollbaar in een laptop
+  videosAsPhones?: boolean; // losse video's in iPhones i.p.v. in het grid
+};
 
 export const cases: Record<string, CaseText> = {
   jaja: {
     statement: "One brand. Every touchpoint.",
+    videosAsPhones: true,
+    sites: [
+      { src: "/sites/jaja-b2b.webp", w: 1440, h: 6873, label: "B2B — jaja.net" },
+      { src: "/sites/jaja-b2c.webp", w: 1440, h: 6088, label: "B2C — jajashop.com" },
+    ],
     sections: [
       { label: "Identity", text: "The visual identity." },
       { label: "Products", text: "One identity, every product line." },
@@ -49,6 +63,8 @@ export const cases: Record<string, CaseText> = {
   },
   "big-push": {
     statement: "A new position, made visible.",
+    hero: "site",
+    sites: [{ src: "/sites/bigpush.webp", w: 1440, h: 8371, label: "bigpush.nl" }],
     sections: [
       { label: "Concept", text: "New positioning and direction." },
       { label: "Identity", text: "The graphic foundation." },
@@ -57,6 +73,8 @@ export const cases: Record<string, CaseText> = {
   },
   santani: {
     statement: "A creative launch. Concept to social.",
+    hero: "phones",
+    sites: [{ src: "/sites/santani.webp", w: 1440, h: 9000, label: "santani.vercel.app" }],
     role: "Concept, project management and graphics, with fellow students during my internship at Code d’Azur. Later, social content independently, as part of my job.",
     sections: [
       { label: "Concept", text: "The creative foundation." },
@@ -67,6 +85,7 @@ export const cases: Record<string, CaseText> = {
   },
   "the-cat": {
     statement: "One briefing. Two answers.",
+    hero: "pair",
     intro: "Ladies Bag",
     sections: [
       { label: "Concept 01", text: "Concept → Graphics → Packaging → Final visual" },
@@ -85,10 +104,12 @@ export const cases: Record<string, CaseText> = {
   },
   canajoy: {
     statement: "[…]",
+    hero: "pair",
     sections: [{ label: "Product Development", text: "[…]" }],
   },
   "coffeeshop-packaging": {
     statement: "A packaging archive.",
+    hero: "none",
     intro: "De Baron · Shiva · Highlife · Smokey · and more.",
     sections: [],
   },

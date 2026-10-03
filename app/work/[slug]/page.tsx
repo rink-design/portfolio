@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/content/projects";
-import { cases, type Section } from "@/content/cases";
-import { caseBlocks, type Block, type Item } from "@/lib/media";
+import { cases, type Site } from "@/content/cases";
+import { caseBlocks, type Item } from "@/lib/media";
+import coverSizes from "@/public/covers/sizes.json";
 import { Visual } from "@/components/blocks/Visual";
-import { Cards } from "@/components/blocks/Cards";
 import { HScroll } from "@/components/blocks/HScroll";
-import { Phone, Laptop } from "@/components/blocks/Frames";
+import { Phone, SiteLaptop } from "@/components/blocks/Frames";
 import { ImageReveal } from "@/components/motion/ImageReveal";
 import { Lines, Reveal } from "@/components/motion/Reveal";
 
@@ -21,77 +21,37 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return p ? { title: `${p.title} — RINK`, description: `${p.title} — ${p.disciplines}. ${cases[slug]?.statement ?? ""}` } : {};
 }
 
-const half = "(min-width: 768px) 50vw, 100vw";
-const third = "(min-width: 768px) 33vw, 100vw";
+const isPlaceholder = (t?: string) => !t || t.includes("[…]");
+const PHONE_KINDS = ["telefoon", "telefoon-video"];
 
-function BlockView({ b, alt }: { b: Block; alt: (i: number) => string }) {
-  const it = b.items;
-  switch (b.kind) {
-    case "layover":
-      return <Cards items={it} alts={it.map((_, i) => alt(i))} />;
-    case "scroll":
-      return <HScroll items={it} alts={it.map((_, i) => alt(i))} />;
-    case "groot":
-      return <div className="wrap"><ImageReveal><Visual it={it[0]} alt={alt(0)} /></ImageReveal></div>;
-    case "duo":
-    case "studio":
-    case "video":
-      if (it.length === 1) return <div className="wrap grid-12"><div className="col-span-4 md:col-span-8 md:col-start-3"><ImageReveal><Visual it={it[0]} alt={alt(0)} sizes="66vw" /></ImageReveal></div></div>;
-      return (
-        <div className="wrap grid grid-cols-1 items-start gap-[var(--gap)] md:grid-cols-2">
-          {it.map((x, i) => <ImageReveal key={x.src} delay={i * 0.1}><Visual it={x} alt={alt(i)} sizes={half} /></ImageReveal>)}
-        </div>
-      );
-    case "trio":
-      return (
-        <div className="wrap grid grid-cols-1 items-start gap-[var(--gap)] md:grid-cols-3">
-          {it.map((x, i) => <ImageReveal key={x.src} delay={i * 0.08}><Visual it={x} alt={alt(i)} sizes={third} /></ImageReveal>)}
-        </div>
-      );
-    case "detail":
-      return (
-        <div className="wrap grid grid-cols-2 items-start gap-[var(--gap)] md:grid-cols-3">
-          {it.map((x, i) => <ImageReveal key={x.src} delay={(i % 3) * 0.08}><Visual it={x} alt={alt(i)} sizes={third} /></ImageReveal>)}
-        </div>
-      );
-    case "set":
-      // Beeldwand: kolommen, elk beeld in zijn geheel.
-      return (
-        <div className="wrap columns-1 gap-[var(--gap)] sm:columns-2 md:columns-3">
-          {it.map((x, i) => (
-            <ImageReveal key={x.src} delay={(i % 3) * 0.06} className="mb-[var(--gap)] break-inside-avoid">
-              <Visual it={x} alt={alt(i)} sizes="(min-width: 768px) 33vw, 100vw" />
-            </ImageReveal>
-          ))}
-        </div>
-      );
-    case "telefoon":
-    case "telefoon-video":
-      return <div className="wrap bg-paper-2/60 py-20 md:py-28"><Reveal><Phone it={it[0]} alt={alt(0)} /></Reveal></div>;
-    case "website":
-      return (
-        <div className={`wrap grid gap-x-[6%] gap-y-16 overflow-x-clip px-[8%] py-16 md:py-24 ${it.length > 1 ? "md:grid-cols-2" : ""}`}>
-          {it.map((x, i) => <Reveal key={x.src} delay={i * 0.1}><Laptop it={x} alt={alt(i)} /></Reveal>)}
-        </div>
-      );
-    default:
-      return <div className="wrap grid-12"><div className="col-span-4 md:col-span-8 md:col-start-3"><ImageReveal><Visual it={it[0]} alt={alt(0)} sizes="66vw" /></ImageReveal></div></div>;
-  }
+// Eén consistent grid: 1:1, vullend, links uitgelijnd.
+function Grid({ items, alt }: { items: Item[]; alt: (i: number) => string }) {
+  return (
+    <div className="wrap grid grid-cols-1 gap-[var(--gap)] sm:grid-cols-2 md:grid-cols-3">
+      {items.map((x, i) => (
+        <ImageReveal key={x.src} delay={(i % 3) * 0.06}>
+          <Visual it={x} alt={alt(i)} ratio="1/1" sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw" />
+        </ImageReveal>
+      ))}
+    </div>
+  );
 }
 
-function SectionText({ group }: { group: { s: Section; n: number }[] }) {
+function Phones({ items, alt }: { items: Item[]; alt: (i: number) => string }) {
   return (
-    <section className="wrap grid-12 gap-y-12 pt-24 pb-14 md:pt-36 md:pb-20">
-      {group.map(({ s, n }, gi) => (
-        <div key={s.label} className={`col-span-4 grid grid-cols-subgrid ${group.length > 1 ? "md:col-span-6" : "md:col-span-12"}`}>
-          <p className="t-label col-span-4 text-ink-2 md:col-span-1">{String(n + 1).padStart(2, "0")}</p>
-          <div className={`col-span-4 mt-4 md:mt-0 ${group.length > 1 ? "md:col-span-5" : "md:col-span-9 md:col-start-4"}`}>
-            <Lines as="h2" className="t-h2" lines={[s.label]} />
-            {s.text && !s.text.includes("[…]") && <Reveal delay={0.1 + gi * 0.08}><p className="t-body mt-4 max-w-[520px] text-ink-2">{s.text}</p></Reveal>}
-          </div>
-        </div>
-      ))}
-    </section>
+    <div className="wrap bg-paper-2/60 py-16 md:py-24">
+      <div className={`mx-auto grid max-w-[1200px] grid-cols-2 gap-[4vw] md:gap-[2.5vw] ${items.length >= 4 ? "md:grid-cols-4" : items.length === 3 ? "md:grid-cols-3" : "max-w-[520px]"}`}>
+        {items.map((x, i) => <Reveal key={x.src} delay={i * 0.08}><Phone it={x} alt={alt(i)} /></Reveal>)}
+      </div>
+    </div>
+  );
+}
+
+function Sites({ sites }: { sites: Site[] }) {
+  return (
+    <div className={`wrap grid gap-x-[5%] gap-y-16 overflow-x-clip px-[6%] py-16 md:py-24 ${sites.length > 1 ? "md:grid-cols-2" : "mx-auto max-w-[1240px]"}`}>
+      {sites.map((s, i) => <Reveal key={s.src} delay={i * 0.1}><SiteLaptop site={s} /></Reveal>)}
+    </div>
   );
 }
 
@@ -100,75 +60,99 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const idx = projects.findIndex((p) => p.slug === slug);
   if (idx < 0) notFound();
   const p = projects[idx];
-  const c = cases[slug];
+  const c = cases[slug] ?? { statement: "", sections: [] };
   const next = projects[(idx + 1) % projects.length];
-  // Het hero-beeld niet nóg een keer tonen (behalve in duo's/sets waar het paar telt).
-  const keepPairs = ["duo", "studio", "trio", "detail", "layover", "set"];
-  const blocks = caseBlocks(slug)
-    .map((b) => (keepPairs.includes(b.kind) ? b : { ...b, items: b.items.filter((x) => x.src !== p.cover) }))
-    .filter((b) => b.items.length > 0);
-  const heroSrc = caseBlocks(slug).flatMap((b) => b.items).find((x) => x.src === p.cover);
-  const sections = c?.sections ?? [];
+  const blocks = caseBlocks(slug);
 
-  // Secties gelijk verdeeld vóór de beeldblokken.
-  const per = blocks.length / Math.max(sections.length, 1);
-  const at = sections.map((_, n) => Math.min(blocks.length - 1, Math.round(n * per)));
-  const heroDim = heroSrc ?? { w: 16, h: 9 };
-  const hero: Item | undefined = p.cover ? { src: p.cover, w: heroDim.w, h: heroDim.h, video: p.cover.endsWith(".mp4"), poster: p.poster } : undefined;
-  const portrait = hero ? hero.h > hero.w : false;
+  // Indelen: pdf-band, telefoons, websites, en de rest in het grid.
+  const scroll = blocks.filter((b) => b.kind === "scroll").flatMap((b) => b.items);
+  const phones = blocks.filter((b) => PHONE_KINDS.includes(b.kind) || (c.videosAsPhones && b.kind === "video")).flatMap((b) => b.items);
+  const mockSites: Site[] = blocks.filter((b) => b.kind === "website").flatMap((b) => b.items)
+    .map((x) => ({ src: x.src, w: x.w, h: x.h, label: `${p.title} website` }));
+  const sites = c.sites ?? mockSites;
+  let grid = blocks.filter((b) => !["scroll", "website", ...PHONE_KINDS].includes(b.kind) && !(c.videosAsPhones && b.kind === "video")).flatMap((b) => b.items);
+
+  // Hero
+  const mode = c.hero ?? "cover";
+  let heroItems: Item[] = [];
+  if (mode === "cover") {
+    const dims = (coverSizes as Record<string, number[]>)[slug];
+    const cov = dims && p.cover ? { src: p.cover, w: dims[0], h: dims[1] } : grid.find((x) => x.src === p.cover) ?? grid[0];
+    if (cov) { heroItems = [cov]; grid = grid.filter((x) => x.src !== cov.src); }
+  } else if (mode === "pair") {
+    heroItems = grid.slice(0, 2); grid = grid.slice(2);
+  }
+  const heroPhones = mode === "phones";
+  const heroSite = mode === "site" ? sites.slice(0, 1) : [];
+  const restSites = mode === "site" ? sites.slice(1) : sites;
+
   let k = 0;
-  const alt = () => { k++; return `${p.title} — ${p.disciplines.split(" / ")[0]}, beeld ${String(k).padStart(2, "0")}`; };
+  const alt = () => { k++; return `${p.title} — ${p.disciplines.split(" / ")[0]}, image ${k}`; };
+  const sections = c.sections.filter((s) => s.label);
 
   return (
     <main>
       {/* KOP */}
       <section className="wrap pt-28 md:pt-36">
-        <div className="grid-12 items-end">
-          <p className="t-label col-span-4 text-ink-2 md:col-span-2">{p.number} / {String(projects.length).padStart(2, "0")}</p>
-          <p className="t-label col-span-4 mt-2 text-ink-2 md:col-span-10 md:mt-0 md:text-right">{p.disciplines}</p>
-        </div>
+        <p className="t-label text-ink-2 md:text-right">{p.disciplines}</p>
         <Lines as="h1" className="t-display mt-6 -ml-[0.04em] text-[clamp(56px,13.5vw,240px)] !leading-[0.84]" lines={[p.title]} />
       </section>
-      {hero && (
-        <section className={`wrap mt-8 flex justify-center md:mt-12 ${portrait ? "bg-paper-2/60 py-10 md:py-16" : ""}`}>
-          {/* Nooit hoger dan ± één scherm, nooit bijgesneden */}
-          <div className="w-[min(100%,calc(var(--hmax)*var(--r)))]" style={{ ["--r" as string]: hero.w / hero.h, ["--hmax" as string]: portrait ? "78svh" : "86svh" }}>
-            <Visual it={hero} alt={`${p.title} — hero`} priority />
-          </div>
-        </section>
-      )}
 
-      {/* INTRO */}
-      <section className="wrap grid-12 py-24 md:py-36">
-        <Reveal className="col-span-4 md:col-span-3"><p className="t-label text-ink-2">{c?.intro ?? "(Case)"}</p></Reveal>
-        <div className="col-span-4 mt-6 md:col-span-9 md:mt-0">
-          {c?.statement && !c.statement.includes("[…]") && <Lines as="h2" className="t-h1" lines={[c.statement]} />}
-          {c?.role && (
-            <Reveal delay={0.15} className="mt-12 max-w-[640px]">
+      {/* HERO — geheel in beeld */}
+      <div className="mt-8 md:mt-12">
+        {heroItems.length === 1 && (
+          <div className="wrap">
+            <div className="w-[min(100%,calc(86svh*var(--r)))]" style={{ ["--r" as string]: heroItems[0].w / heroItems[0].h }}>
+              <Visual it={heroItems[0]} alt={`${p.title} — hero`} priority />
+            </div>
+          </div>
+        )}
+        {heroItems.length === 2 && (
+          <div className="wrap grid grid-cols-1 gap-[var(--gap)] md:grid-cols-2">
+            {heroItems.map((x) => <Visual key={x.src} it={x} alt={`${p.title} — hero`} ratio="1/1" priority sizes="(min-width: 768px) 50vw, 100vw" />)}
+          </div>
+        )}
+        {heroPhones && phones.length > 0 && <Phones items={phones} alt={alt} />}
+        {heroSite.length > 0 && <Sites sites={heroSite} />}
+      </div>
+
+      {/* TEKST — één blok: statement, daaronder alle onderdelen */}
+      <section className="wrap grid-12 gap-y-10 py-20 md:py-28">
+        <div className="col-span-4 md:col-span-6">
+          {!isPlaceholder(c.statement) && <Lines as="h2" className="t-h1" lines={[c.statement]} />}
+          {c.intro && <Reveal delay={0.1}><p className="t-label mt-6 text-ink-2">{c.intro}</p></Reveal>}
+          {c.role && (
+            <Reveal delay={0.15} className="mt-10 max-w-[560px]">
               <p className="t-label text-ink-2">My role</p>
-              <p className="t-body mt-3">{c.role}</p>
+              <p className="t-body mt-2">{c.role}</p>
             </Reveal>
           )}
         </div>
+        {sections.length > 0 && (
+          <Reveal delay={0.1} className="col-span-4 md:col-span-5 md:col-start-8">
+            <dl className="space-y-4">
+              {sections.map((s) => (
+                <div key={s.label} className="grid grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-4">
+                  <dt className="t-label pt-[0.3em]">{s.label}</dt>
+                  <dd className="t-body text-ink-2">{isPlaceholder(s.text) ? "" : s.text}</dd>
+                </div>
+              ))}
+            </dl>
+          </Reveal>
+        )}
       </section>
 
-      {/* BLOKKEN */}
+      {/* BEELD */}
       <div className="space-y-[var(--gap)]">
-        {blocks.map((b, bi) => (
-          <div key={b.key}>
-            {at.includes(bi) && <SectionText group={sections.map((s, n) => ({ s, n })).filter((_, n) => at[n] === bi)} />}
-            <BlockView b={b} alt={alt} />
-          </div>
-        ))}
-        {blocks.length === 0 && <p className="wrap t-label text-ink-2">Beeld volgt.</p>}
+        {scroll.length > 0 && <HScroll items={scroll} alts={scroll.map(() => alt())} />}
+        {grid.length > 0 && <Grid items={grid} alt={alt} />}
+        {!heroPhones && phones.length > 0 && <Phones items={phones} alt={alt} />}
+        {restSites.length > 0 && <Sites sites={restSites} />}
       </div>
 
       {/* NEXT PROJECT */}
       <Link href={`/work/${next.slug}`} className="group wrap mt-28 block bg-ink pt-6 pb-10 text-paper md:mt-40" data-cursor="Next">
-        <div className="flex justify-between">
-          <span className="t-label text-paper/60">Next project</span>
-          <span className="t-label text-paper/60">{next.number}</span>
-        </div>
+        <span className="t-label text-paper/60">Next project</span>
         <p className="t-display mt-16 text-[clamp(48px,11vw,200px)] !leading-[0.86] transition-colors duration-300 group-hover:text-accent">
           {next.title} →
         </p>
