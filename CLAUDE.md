@@ -30,7 +30,7 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Referenties: collinscole.framer.website, dept.global, itsoffbrand.com, patrickjane.framer.website, lusion.co.
 - Sfeer: licht & warm (gebroken wit / warm grijs, zoals Offbrand).
 - Typografie: gigantische grotesk over de volle breedte (zoals Collins).
-- Werk op home: strak grid, groot beeld, volgens haar wireframe.
+- Werk op home: 5 rijen van 2, alle 10 cases gelijk (4:5), recht naast elkaar. Geen JAJA-groot, geen brede coffeeshop (besluit poort 3).
 - Beweging: uitgesproken met type & beeld (geen zware 3D/WebGL vandaag).
 - Geen open-source template (alles was developer-stijl); referenties zijn het 'template'. Basis: Next.js + Tailwind + Motion.
 - Font: Inter Display (gratis, Google/rsms).

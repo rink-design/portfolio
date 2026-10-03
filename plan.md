@@ -63,7 +63,7 @@ Elke case kiest zijn eigen blokken, in zijn eigen volgorde.
 | 09 | CANAJOY | Product Development | ? | wacht op link |
 | 10 | SELECTED COFFEESHOP PACKAGING | Packaging / Print / Production | ? | wacht op link |
 
-Werkoverzicht op home: **JAJA groot** → paren (Soiree + Purple Rain · Don Gelato + Big Push · Santani + The Cat · Purple + Canajoy) → **Coffeeshop packaging breed**.
+Werkoverzicht op home: **5 rijen van 2**, alle cases gelijk (staand 4:5), recht naast elkaar (besluit poort 3).
 
 Teksten nog open: het concept van Purple Rain, en de teksten van Purple en Canajoy (concept volgt bij het bouwen).
 
@@ -72,7 +72,7 @@ Teksten nog open: het concept van Purple Rain, en de teksten van Purple en Canaj
 - [ ] **Beelden binnenhalen** (15 min): downloaden, tellen, tabel invullen, webklaar maken (max. 2400 px, < 800 KB; video < 10 MB). Originelen nooit naar GitHub.
 - [x] **1. Basis + eerste echte uitrol** (15 min): het project staat op, vervangt de testpagina en staat online.
 - [x] **2. Designsysteem** (25 min): een stijlpagina met fonts, grid, kleuren en 3 accentvoorstellen. **Poort:** klopt de basis? Welk accent?
-- [ ] **3. Landing + selected work** (30 min): de hero met het sterkste werk, RINK + BRAND / PACKAGING / DIGITAL, en het werkgrid. **Poort.**
+- [x] **3. Landing + selected work** (30 min): de hero met het sterkste werk, RINK + BRAND / PACKAGING / DIGITAL, en het werkgrid. **Poort.**
 - [ ] **4. Case-sjabloon + JAJA volledig** (30 min). **Poort + kort interview over de weergave** (mockups, video, ritme). Die regels gelden daarna voor de rest. *Het belangrijkste moment van de dag.*
 - [ ] **5. De andere 9 cases** (40 min): elk met het beeld dat klaarstaat. Don Gelato als editorial, The Cat met concept 1 naast concept 2, coffeeshop als visual wall. Ontbreekt beeld? Dan een nette korte versie. **Poort.**
 - [ ] **6. About + contact** (15 min).

@@ -3,10 +3,6 @@ import { WorkCard } from "@/components/WorkCard";
 import { Media } from "@/components/Media";
 
 export default function Home() {
-  const large = projects.filter((p) => p.layout === "large");
-  const pairs = projects.filter((p) => p.layout === "pair");
-  const wide = projects.filter((p) => p.layout === "wide");
-
   return (
     <main>
       {/* 01 — IMPACT */}
@@ -39,16 +35,9 @@ export default function Home() {
           <span className="t-label text-ink-2">({String(projects.length).padStart(2, "0")})</span>
         </div>
 
-        <div className="space-y-16 md:space-y-24">
-          {large.map((p) => <WorkCard key={p.slug} p={p} />)}
-          <div className="grid grid-cols-1 gap-x-[var(--gap)] gap-y-16 md:grid-cols-2 md:gap-y-24">
-            {pairs.map((p, i) => (
-              <div key={p.slug} className={i % 2 === 1 ? "md:mt-32" : ""}>
-                <WorkCard p={p} />
-              </div>
-            ))}
-          </div>
-          {wide.map((p) => <WorkCard key={p.slug} p={p} />)}
+        {/* Vijf rijen van twee — alle cases gelijk */}
+        <div className="grid grid-cols-1 gap-x-[var(--gap)] gap-y-16 md:grid-cols-2 md:gap-y-24">
+          {projects.map((p) => <WorkCard key={p.slug} p={p} />)}
         </div>
       </section>
 
