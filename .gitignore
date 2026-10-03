@@ -8,3 +8,5 @@ originals/
 *.ai
 *.tif
 *.tiff
+next-env.d.ts
+*.tsbuildinfo

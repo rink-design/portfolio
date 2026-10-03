@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+/* RINK designsysteem — tokens */
+@theme {
+  --color-paper: #ebe8e2;      /* warm gebroken wit */
+  --color-paper-2: #e0dcd4;    /* iets dieper, voor vlakken */
+  --color-ink: #141311;        /* bijna-zwart */
+  --color-ink-2: #6f6b64;      /* secundaire tekst */
+  --color-line: #cfcac1;       /* lijnen */
+  --color-accent: #ff4f00;     /* voorlopig — keuze in stap 2 */
+
+  --font-sans: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
+
+  --ease-out-rink: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root {
+  --gutter: 16px;   /* buitenmarge mobiel */
+  --gap: 12px;      /* kolomafstand mobiel */
+}
+@media (min-width: 768px) {
+  :root { --gutter: 24px; --gap: 20px; }
+}
+
+html { background: var(--color-paper); color: var(--color-ink); }
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--color-ink); color: var(--color-paper); }
+
+@layer components {
+  .wrap { padding-inline: var(--gutter); }
+  .grid-12 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: var(--gap);
+  }
+  @media (min-width: 768px) {
+    .grid-12 { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  }
+
+  /* Typeschaal */
+  .t-display {
+    font-variation-settings: "opsz" 32;
+    font-weight: 700;
+    letter-spacing: -0.065em;
+    line-height: 0.78;
+  }
+  .t-h1 {
+    font-variation-settings: "opsz" 32;
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 0.9;
+    font-size: clamp(48px, 9vw, 160px);
+  }
+  .t-h2 {
+    font-variation-settings: "opsz" 32;
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    font-size: clamp(28px, 3.6vw, 56px);
+  }
+  .t-body {
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.35;
+    font-size: clamp(17px, 1.35vw, 21px);
+  }
+  .t-label {
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 1.2;
+  }
+}
