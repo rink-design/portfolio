@@ -59,5 +59,19 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Favicon = sierlijke R (app/icon.svg); deelafbeelding = logo op paper (app/opengraph-image.png).
 - Tokens sparen: beelden niet één voor één bekijken, per project één contactblad.
 
+## Tune-ronde 3 okt (avond) — VERVANGT eerdere regels waar ze botsen
+- Overal GEEN nummers (geen 01/02, geen '04 / 10', geen '(10)', geen tellers).
+- Home-grid: covers 1:1 (haar nieuwe beginfoto's per case, komen via Drive).
+- Home: geen 'Showreel-video volgt'-plek; achtergrond bovenin. 'Approach'-sectie weg. Marquee: Brand Identity · Packaging · Art Direction · Graphic Design, loopt altijd door (geen pauze).
+- About: 'I design brands you can see, hold and use — and that stand out.' MAKE IT COHESIVE. / MAKE IT TANGIBLE. / MAKE IT WORK.
+- Background: AMFI Fashion & Branding · Code d'Azur (internship) · Westvliet de Groot (internship) · Grafisch Vormgeven (studie) · Freelance / RINK Design. (Géén zorg.)
+- Contact: korter; Let's work together + e-mail + telefoon + LinkedIn.
+- Cases: één tekstblok (statement + alle onderdelen compact onder elkaar), daarna beeld. Eén consistent grid: zelfde formaat (1:1), beelden VULLEND (cover), links uitgelijnd. (Vervangt 'niet bijsnijden'.) Hero wél geheel in beeld.
+- Websites: echte site als scrollbare full-page screenshot in laptopframe. JAJA: eerst B2B (jaja.net), dan B2C (jajashop.com). Big Push: bigpush.nl als hero (gorilla-hero weg). Santani: link volgt van haar.
+- JAJA: 4 iPhones naast elkaar (social-screenshot + 3 video's).
+- Santani: start met telefoonvideo + social-telefoon naast elkaar → tekst → laptop scrollende site → 2 campagnebeelden. Blikje-hero weg.
+- The Cat + Canajoy: hero = twee beelden naast elkaar. Coffeeshop: geen hero, archief, alles even groot, Baron-video ertussen.
+- Soiree/Purple Rain/Don Gelato/Purple: hero → tekst → brandbook-pdf (indien) → grid. PDF-pagina's vullend, geen witranden.
+
 ## Techniek-notities
 - Chromium-screenshots: launch met `--ignore-certificate-errors-spki-list=PS48cX347wDVcRynzq+DFqswl2PLNE1sG6uQvxMCOS0=` (vertrouwt alleen de proxy-CA van deze omgeving).
