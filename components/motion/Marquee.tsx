@@ -11,7 +11,7 @@ export function Marquee({ items }: { items: string[] }) {
     </div>
   );
   return (
-    <div className="marquee flex overflow-hidden border-y border-ink py-5 md:py-7" aria-label={items.join(", ")}>
+    <div className="marquee flex overflow-hidden py-5 md:py-7" aria-label={items.join(", ")}>
       <div className="marquee-track flex" aria-hidden>{row}{row}</div>
     </div>
   );

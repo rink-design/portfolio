@@ -89,7 +89,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         <div className="col-span-4 mt-6 md:col-span-9 md:mt-0">
           <h2 className="t-h1">{c?.statement}</h2>
           {c?.role && (
-            <div className="mt-12 max-w-[640px] border-t border-line pt-4">
+            <div className="mt-12 max-w-[640px]">
               <p className="t-label text-ink-2">My role</p>
               <p className="t-body mt-3">{c.role}</p>
             </div>
@@ -103,7 +103,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           switch (b.t) {
             case "text":
               return (
-                <section key={k} className="wrap grid-12 !mt-24 border-t border-line pt-4 pb-14 md:!mt-36 md:pb-20">
+                <section key={k} className="wrap grid-12 !mt-24 pb-14 md:!mt-36 md:pb-20">
                   <p className="t-label col-span-4 text-ink-2 md:col-span-3">{String(b.n + 1).padStart(2, "0")}</p>
                   <div className="col-span-4 mt-4 md:col-span-9 md:mt-0">
                     <h3 className="t-h2">{b.s.label}</h3>

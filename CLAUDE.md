@@ -46,9 +46,10 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Contact: e-mail rinkevanderakt@gmail.com, telefoon +31 6 199 70311 (tonen), LinkedIn https://nl.linkedin.com/in/rinke-van-de-rakt-244045213. Geen Instagram.
 - Toon teksten: kort en strak, statements (v2 in `teksten-concept.md`).
 - Extra cases: 08 PURPLE (coffeeshop Vlissingen; rebrand, huisstijl, concept- en productontwikkeling; eigen case, los van Purple Rain) en 09 CANAJOY (product development). Coffeeshop packaging wordt 10 (brede afsluiter). Totaal 10 cases.
-- Volgorde home: RINK → hero → selected work → positioning + marquee → about → contact (positioning onder de cases, haar wens).
+- Volgorde home: RINK (schrijft zichzelf) → showreel-video direct onder de naam (`public/hero.mp4`, geen apart hero-beeld) → selected work → positioning + marquee → about → contact (positioning onder de cases, haar wens).
 - Idee: sierlijke R die zichzelf 'schrijft' (SVG-lijnanimatie) — met de R uit haar logo, zodra het logo binnen is.
-- Beweging (landing): RINK flipt in zijn geheel omhoog (rotateX vanaf onderrand), hero-beeld groeit naar volle breedte bij scrollen, tekstregels uit masker, marquee met disciplines, beelden vouwen open, cobalt 'View case'-cursor boven werk, onderlijn-hover op links, paginaovergang 0,35 s. Uit bij 'minder beweging'.
+- Beweging (landing): RINK schrijft zichzelf (SVG-omtreklijn tekent, daarna vult hij; WriteOn.tsx), hero-beeld groeit naar volle breedte bij scrollen, tekstregels uit masker, marquee met disciplines, beelden vouwen open, cobalt 'View case'-cursor boven werk, onderlijn-hover op links, paginaovergang 0,35 s. Uit bij 'minder beweging'.
+- Geen scheidingslijnen (borders) tussen secties — haar wens.
 - Tokens sparen: beelden niet één voor één bekijken, per project één contactblad.
 
 ## Techniek-notities

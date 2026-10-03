@@ -1,17 +1,18 @@
 import { projects, contact } from "@/content/projects";
 import { WorkCard } from "@/components/WorkCard";
-import { Media } from "@/components/Media";
-import { FlipIn, Lines, Reveal } from "@/components/motion/Reveal";
+import { Lines, Reveal } from "@/components/motion/Reveal";
+import { WriteOn } from "@/components/motion/WriteOn";
+import { HeroVideo } from "@/components/HeroVideo";
 import { HeroGrow } from "@/components/motion/ImageReveal";
 import { Marquee } from "@/components/motion/Marquee";
 
 export default function Home() {
   return (
     <main>
-      {/* 01 — IMPACT */}
-      <section className="wrap flex min-h-svh flex-col justify-end pb-5">
-        <FlipIn text="RINK" className="t-display -ml-[0.054em] whitespace-nowrap text-[calc((100vw-2*var(--gutter))/2.065)]" />
-        <Reveal delay={0.6} now>
+      {/* 01 — IMPACT: naam schrijft zichzelf, direct daaronder de video */}
+      <section className="wrap pt-[22vh] pb-5 md:pt-[26vh]">
+        <WriteOn text="RINK" />
+        <Reveal delay={1.8} now>
           <div className="grid-12 t-label mt-5">
             <span className="col-span-2 md:col-span-4">Brand</span>
             <span className="col-span-1 md:col-span-4">Packaging</span>
@@ -19,17 +20,13 @@ export default function Home() {
           </div>
         </Reveal>
       </section>
-
-      {/* Hero-beeld: groeit naar volle breedte tijdens het scrollen */}
-      <section>
-        <HeroGrow>
-          <Media alt="Hero — sterkste beeld volgt" ratio="16/9" priority className="max-md:!aspect-[4/5]" />
-        </HeroGrow>
+      <section className="mt-2">
+        <HeroGrow><HeroVideo /></HeroGrow>
       </section>
 
       {/* 03 — SELECTED WORK — vijf rijen van twee */}
       <section id="work" className="wrap mt-24 scroll-mt-16 md:mt-32">
-        <div className="flex items-end justify-between border-t border-ink pt-4 pb-10">
+        <div className="flex items-end justify-between pb-10">
           <h2 className="t-label">Selected work</h2>
           <span className="t-label text-ink-2">({String(projects.length).padStart(2, "0")})</span>
         </div>
@@ -49,7 +46,7 @@ export default function Home() {
 
       {/* 04 — ABOUT */}
       <section id="about" className="wrap mt-28 scroll-mt-16 md:mt-40">
-        <div className="border-t border-ink pt-4"><h2 className="t-label">About</h2></div>
+        <h2 className="t-label">About</h2>
         <div className="grid-12 mt-10">
           <Reveal className="col-span-4 md:col-span-7"><p className="t-h2">I design brands you can see, hold and use.</p></Reveal>
         </div>
