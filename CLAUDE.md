@@ -42,8 +42,9 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Volgorde bouwen: JAJA eerst als proefcase → poort + kort interview over weergave → die regels gelden voor de andere 7 cases.
 - Teksten: Claude schrijft concept (Engels), zij keurt. Concept in `teksten-concept.md`.
 - Geen jaartallen bij cases.
-- Santani: stage bij Code d'Azur, uit opdracht. Haar rol: concept, projectmanagement, graphics (samen met medestudenten). Social media: later alleen, als werk, een tijdje (formulering te bevestigen).
-- Contact: e-mail rinkevanderakt@gmail.com. Instagram 'Design by Rinke', LinkedIn 'Rinke van de Rakt' (exacte links nog nodig).
+- Santani: stage bij Code d'Azur, uit opdracht. Haar rol: concept, projectmanagement, graphics (samen met medestudenten). Social media: later zelfstandig, als onderdeel van haar werk (bevestigd).
+- Contact: e-mail rinkevanderakt@gmail.com, telefoon +31 6 199 70311 (tonen), LinkedIn https://nl.linkedin.com/in/rinke-van-de-rakt-244045213. Geen Instagram.
+- Toon teksten: kort en strak, statements (v2 in `teksten-concept.md`).
 - Tokens sparen: beelden niet één voor één bekijken, per project één contactblad.
 
 ## Techniek-notities

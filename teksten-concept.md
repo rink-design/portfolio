@@ -1,7 +1,7 @@
-# Teksten — concept (ter goedkeuring)
+# Teksten — concept v2 (korter, strakker)
 
-Alles in het Engels. Gebaseerd op de briefing en haar antwoorden. Geen verzonnen feiten.
-`[…]` = plaatshouder, in te vullen door haar.
+Engels. Gebaseerd op de briefing en haar antwoorden. Geen verzonnen feiten.
+`[…]` = plaatshouder.
 
 ---
 
@@ -10,8 +10,7 @@ Alles in het Engels. Gebaseerd op de briefing en haar antwoorden. Geen verzonnen
 **RINK**
 BRAND / PACKAGING / DIGITAL
 
-Positioning (één regel onder de hero):
-> Brand identity, packaging and digital design — distinctive, tangible and built to work.
+> Distinctive. Tangible. Built to work.
 
 ---
 
@@ -28,99 +27,83 @@ Positioning (één regel onder de hero):
 | 07 | THE CAT | Concept / Packaging |
 | 08 | SELECTED COFFEESHOP PACKAGING | Packaging / Print / Production |
 
-Geen jaartallen (besluit).
+Geen jaartallen.
 
 ---
 
 ## 01 — JAJA
+> One brand. Every touchpoint.
 
-**Intro**
-One brand, every touchpoint. From the identity to product lines, production, campaigns, social and two websites — JAJA shows how far a single visual language can stretch.
-
-- **Identity** — Developing the visual identity and the brand behind it.
-- **Products** — Carrying the identity across every product line.
-- **Production** — Materials, print, finishes and the technical details that make it real.
-- **Campaigns** — Campaigns, activations and commercial communication.
-- **Digital Design** — Digital brand expressions and assets.
-- **Social** — Social content, formats and visual storytelling.
-- **Websites — B2B & B2C** — The brand's digital world, across both commercial websites.
+- **Identity** — The visual identity.
+- **Products** — One identity, every product line.
+- **Production** — Materials, print, finishes.
+- **Campaigns** — Campaigns and activations.
+- **Digital Design** — Digital brand assets.
+- **Social** — Social formats and content.
+- **Websites — B2B & B2C** — Two websites, one brand world.
 
 ## 02 — SOIREE
+> A complete rebrand. Idea to shelf.
 
-**Intro**
-A complete rebrand, from first idea to the shelf. Concept, identity, graphic language and packaging — built as one system.
-
-- **Concept** — The original idea and direction of the rebrand.
-- **Identity** — Logo, typography, colour and visual identity.
-- **Graphic** — Graphic language, elements, patterns and visual systems.
-- **Packaging** — Translating the identity to packaging.
-- **Application** — The brand across physical and digital touchpoints.
+- **Concept** — The idea behind the rebrand.
+- **Identity** — Logo, type, colour.
+- **Graphic** — Patterns, elements, systems.
+- **Packaging** — The identity on pack.
+- **Application** — Across every touchpoint.
 
 ## 03 — PURPLE RAIN
+> Same disciplines. A different world.
 
-**Intro**
-Same disciplines, a completely different world. A branding and packaging case with its own mood, language and character.
-
-- **Concept** — […korte zin over het idee]
-- **Identity** — Logo, typography, colour and visual identity.
-- **Graphic** — Graphic language, elements and patterns.
-- **Packaging** — Translating the identity to packaging.
-- **Application** — The brand across its touchpoints.
+- **Concept** — […]
+- **Identity** — Logo, type, colour.
+- **Graphic** — Patterns, elements, systems.
+- **Packaging** — The identity on pack.
+- **Application** — Across every touchpoint.
 
 ## 04 — DON GELATO
+> A visual story, directed.
 
-**Intro**
-A visual story told through art direction. From the creative direction and graphic identity to packaging and campaign photography.
-
-- **Art Direction** — The overall visual world and creative direction.
-- **Graphic Identity** — Typography, colour, graphic elements and brand language.
-- **Packaging** — Packaging design and product presentation.
-- **Application** — Translating the brand to different applications.
-- **Campaign Photography** — Photography, campaign imagery, styling and visual content.
+- **Art Direction** — The visual world.
+- **Graphic Identity** — Type, colour, brand language.
+- **Packaging** — Pack and product presentation.
+- **Application** — Across applications.
+- **Campaign Photography** — Photography, styling, campaign imagery.
 
 ## 05 — BIG PUSH
+> A new position, made visible.
 
-**Intro**
-A new position, made visible. A new identity and graphic foundation, brought to life in a website and digital assets.
-
-- **Concept** — New positioning and visual direction.
-- **Identity** — The identity and graphic foundation.
-- **Website & Assets** — Web design for desktop and mobile, plus digital assets.
+- **Concept** — New positioning and direction.
+- **Identity** — The graphic foundation.
+- **Website & Assets** — Desktop, mobile, digital assets.
 
 ## 06 — SANTANI
+> A creative launch. Concept to social.
 
-**Intro**
-A creative launch, from concept to social. Developed during my internship at Code d'Azur, on assignment.
+**My role** — Concept, project management and graphics, with fellow students during my internship at Code d'Azur. Later, social content independently, as part of my job.
 
-**My role** — Concept, project management and graphics, created together with fellow students. Social content: [klopt dit? → "I later created social content for Santani independently, as a job."]
-
-- **Concept** — The idea and creative foundation.
-- **Launch** — How the concept was introduced.
-- **Creative Direction** — Visual direction and creative choices.
-- **Social Content** — Content and communication around the launch.
+- **Concept** — The creative foundation.
+- **Launch** — How it was introduced.
+- **Creative Direction** — Visual direction.
+- **Social Content** — Launch content.
 
 ## 07 — THE CAT · LADIES BAG
-
-**Intro**
-One briefing, two completely different answers. Two creative directions for The Cat's Ladies Bag — each from concept to final visual.
+> One briefing. Two answers.
 
 - **Concept 01** — Concept → Graphics → Packaging → Final visual
 - **Concept 02** — Concept → Graphics → Packaging → Final visual
-- **Side by side** — Both concepts, next to each other.
+- **Side by side**
 
 ## 08 — SELECTED COFFEESHOP PACKAGING
+> A packaging archive.
 
-**Intro**
-A visual archive of packaging for coffeeshop brands — including De Baron, Shiva, Highlife and Smokey. Packaging, rolling papers, boxes, bags, displays, print details and finishes.
-
-(Verder vooral beeld, weinig tekst.)
+De Baron · Shiva · Highlife · Smokey · and more.
+(Verder alleen beeld.)
 
 ---
 
 ## About
 
-**How I work**
-I design brands people can see, hold and use. Strategy and craft come together in identities, packaging and digital work that stand out on the shelf and on screen.
+> I design brands you can see, hold and use.
 
 MAKE IT DISTINCTIVE.
 MAKE IT TANGIBLE.
@@ -136,7 +119,6 @@ LET'S WORK TOGETHER.
 
 Brand Identity · Packaging · Digital Design · Art Direction
 
-- Email: rinkevanderakt@gmail.com
-- Instagram: [exacte link]
-- LinkedIn: [exacte link]
-- Telefoon: [tonen ja/nee]
+- rinkevanderakt@gmail.com
+- +31 6 199 70311
+- LinkedIn → https://nl.linkedin.com/in/rinke-van-de-rakt-244045213
