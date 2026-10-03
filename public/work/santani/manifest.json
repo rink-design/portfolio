@@ -6,10 +6,10 @@
       "kind": "telefoon",
       "items": [
         {
-          "file": "01-telefoon-1.webp",
+          "file": "01-telefoon-1-cc0708c2.webp",
           "w": 1105,
           "h": 2400,
-          "src": "/work/santani/01-telefoon-1.webp"
+          "src": "/work/santani/01-telefoon-1-cc0708c2.webp"
         }
       ]
     },
@@ -18,12 +18,12 @@
       "kind": "telefoon-video",
       "items": [
         {
-          "file": "02-telefoon-video-1.mp4",
-          "poster": "/work/santani/02-telefoon-video-1.webp",
+          "file": "02-telefoon-video-1-4638c417.mp4",
+          "poster": "/work/santani/02-telefoon-video-1-f7526596.webp",
           "video": true,
-          "w": 720,
-          "h": 1280,
-          "src": "/work/santani/02-telefoon-video-1.mp4"
+          "w": 540,
+          "h": 960,
+          "src": "/work/santani/02-telefoon-video-1-4638c417.mp4"
         }
       ]
     },
@@ -32,16 +32,16 @@
       "kind": "duo",
       "items": [
         {
-          "file": "03-duo-1.webp",
+          "file": "03-duo-1-ff21827f.webp",
           "w": 1080,
           "h": 1920,
-          "src": "/work/santani/03-duo-1.webp"
+          "src": "/work/santani/03-duo-1-ff21827f.webp"
         },
         {
-          "file": "03-duo-2.webp",
+          "file": "03-duo-2-73435f32.webp",
           "w": 1080,
           "h": 1920,
-          "src": "/work/santani/03-duo-2.webp"
+          "src": "/work/santani/03-duo-2-73435f32.webp"
         }
       ]
     },
@@ -50,10 +50,10 @@
       "kind": "website",
       "items": [
         {
-          "file": "04-website-1.webp",
+          "file": "04-website-1-3878b79c.webp",
           "w": 1600,
           "h": 1077,
-          "src": "/work/santani/04-website-1.webp"
+          "src": "/work/santani/04-website-1-3878b79c.webp"
         }
       ]
     }

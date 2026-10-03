@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { projects } from "@/content/projects";
 import { cases, type Site } from "@/content/cases";
 import { caseBlocks, type Item } from "@/lib/media";
-import coverSizes from "@/public/covers/sizes.json";
 import { Visual } from "@/components/blocks/Visual";
 import { HScroll } from "@/components/blocks/HScroll";
 import { Phone, SiteLaptop } from "@/components/blocks/Frames";
@@ -25,9 +24,9 @@ const isPlaceholder = (t?: string) => !t || t.includes("[…]");
 const PHONE_KINDS = ["telefoon", "telefoon-video"];
 
 // Eén consistent grid: 1:1, vullend, links uitgelijnd.
-function Grid({ items, alt }: { items: Item[]; alt: (i: number) => string }) {
+function Grid({ items, alt, center }: { items: Item[]; alt: (i: number) => string; center?: boolean }) {
   return (
-    <div className="wrap grid grid-cols-1 gap-[var(--gap)] sm:grid-cols-2 md:grid-cols-3">
+    <div className={`wrap grid grid-cols-1 gap-[var(--gap)] sm:grid-cols-2 md:grid-cols-3 ${center && items.length < 3 ? "mx-auto max-w-[1100px] md:!grid-cols-2" : ""}`}>
       {items.map((x, i) => (
         <ImageReveal key={x.src} delay={(i % 3) * 0.06}>
           <Visual it={x} alt={alt(i)} ratio="1/1" sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw" />
@@ -73,12 +72,10 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   let grid = blocks.filter((b) => !["scroll", "website", ...PHONE_KINDS].includes(b.kind) && !(c.videosAsPhones && b.kind === "video")).flatMap((b) => b.items);
 
   // Hero
-  const mode = c.hero ?? "cover";
+  const mode = c.hero ?? "first";
   let heroItems: Item[] = [];
-  if (mode === "cover") {
-    const dims = (coverSizes as Record<string, number[]>)[slug];
-    const cov = dims && p.cover ? { src: p.cover, w: dims[0], h: dims[1] } : grid.find((x) => x.src === p.cover) ?? grid[0];
-    if (cov) { heroItems = [cov]; grid = grid.filter((x) => x.src !== cov.src); }
+  if (mode === "first") {
+    if (grid[0]) { heroItems = [grid[0]]; grid = grid.slice(1); }
   } else if (mode === "pair") {
     heroItems = grid.slice(0, 2); grid = grid.slice(2);
   }
@@ -108,8 +105,8 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
           </div>
         )}
         {heroItems.length === 2 && (
-          <div className="wrap grid grid-cols-1 gap-[var(--gap)] md:grid-cols-2">
-            {heroItems.map((x) => <Visual key={x.src} it={x} alt={`${p.title} — hero`} ratio="1/1" priority sizes="(min-width: 768px) 50vw, 100vw" />)}
+          <div className="wrap grid grid-cols-1 items-center gap-[var(--gap)] md:grid-cols-2">
+            {heroItems.map((x) => <Visual key={x.src} it={x} alt={`${p.title} — hero`} ratio={c.heroNatural ? undefined : "1/1"} priority sizes="(min-width: 768px) 50vw, 100vw" />)}
           </div>
         )}
         {heroPhones && phones.length > 0 && <Phones items={phones} alt={alt} />}
@@ -145,9 +142,10 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       {/* BEELD */}
       <div className="space-y-[var(--gap)]">
         {scroll.length > 0 && <HScroll items={scroll} alts={scroll.map(() => alt())} />}
-        {grid.length > 0 && <Grid items={grid} alt={alt} />}
+        {c.sitesFirst && restSites.length > 0 && <Sites sites={restSites} />}
+        {grid.length > 0 && <Grid items={grid} alt={alt} center={c.centerGrid} />}
         {!heroPhones && phones.length > 0 && <Phones items={phones} alt={alt} />}
-        {restSites.length > 0 && <Sites sites={restSites} />}
+        {!c.sitesFirst && restSites.length > 0 && <Sites sites={restSites} />}
       </div>
 
       {/* NEXT PROJECT */}

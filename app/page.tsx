@@ -19,11 +19,11 @@ export default function Home() {
             <span className="col-span-1 md:col-span-4">Packaging</span>
             <span className="col-span-1 text-right md:col-span-4">Digital</span>
           </div>
-          <p className="t-label mt-8 max-w-[900px] text-ink-2 md:mt-10">{background.join("  ·  ")}</p>
         </AfterLoad>
       </section>
+      {/* Showreel direct onder RINK / Brand · Packaging · Digital */}
       {hasHeroVideo() && (
-        <section className="mt-2">
+        <section className="mt-3">
           <HeroGrow><HeroVideo /></HeroGrow>
         </section>
       )}

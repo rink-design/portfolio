@@ -6,10 +6,10 @@
       "kind": "groot",
       "items": [
         {
-          "file": "01-groot-1.webp",
+          "file": "01-groot-1-7109e49b.webp",
           "w": 1024,
           "h": 1010,
-          "src": "/work/soiree/01-groot-1.webp"
+          "src": "/work/soiree/01-groot-1-7109e49b.webp"
         }
       ]
     },
@@ -18,16 +18,16 @@
       "kind": "duo",
       "items": [
         {
-          "file": "02-duo-1.webp",
+          "file": "02-duo-1-ed9c8862.webp",
           "w": 1024,
           "h": 1024,
-          "src": "/work/soiree/02-duo-1.webp"
+          "src": "/work/soiree/02-duo-1-ed9c8862.webp"
         },
         {
-          "file": "02-duo-2.webp",
+          "file": "02-duo-2-74bcab4a.webp",
           "w": 1024,
           "h": 1024,
-          "src": "/work/soiree/02-duo-2.webp"
+          "src": "/work/soiree/02-duo-2-74bcab4a.webp"
         }
       ]
     },
@@ -36,10 +36,10 @@
       "kind": "duo",
       "items": [
         {
-          "file": "03-duo-1.webp",
+          "file": "03-duo-1-6dff142a.webp",
           "w": 714,
           "h": 664,
-          "src": "/work/soiree/03-duo-1.webp"
+          "src": "/work/soiree/03-duo-1-6dff142a.webp"
         }
       ]
     },
@@ -48,58 +48,58 @@
       "kind": "scroll",
       "items": [
         {
-          "file": "03-scroll-1-p01.webp",
+          "file": "03-scroll-1-p01-4c7ffac2.webp",
           "w": 2000,
           "h": 1415,
-          "src": "/work/soiree/03-scroll-1-p01.webp"
+          "src": "/work/soiree/03-scroll-1-p01-4c7ffac2.webp"
         },
         {
-          "file": "03-scroll-1-p02.webp",
+          "file": "03-scroll-1-p02-3b23adbd.webp",
           "w": 2000,
           "h": 1415,
-          "src": "/work/soiree/03-scroll-1-p02.webp"
+          "src": "/work/soiree/03-scroll-1-p02-3b23adbd.webp"
         },
         {
-          "file": "03-scroll-1-p03.webp",
+          "file": "03-scroll-1-p03-5a0cb2cf.webp",
           "w": 2000,
           "h": 1415,
-          "src": "/work/soiree/03-scroll-1-p03.webp"
+          "src": "/work/soiree/03-scroll-1-p03-5a0cb2cf.webp"
         },
         {
-          "file": "03-scroll-1-p04.webp",
+          "file": "03-scroll-1-p04-ae0b3367.webp",
           "w": 2000,
           "h": 1415,
-          "src": "/work/soiree/03-scroll-1-p04.webp"
+          "src": "/work/soiree/03-scroll-1-p04-ae0b3367.webp"
         },
         {
-          "file": "03-scroll-1-p05.webp",
+          "file": "03-scroll-1-p05-f079f899.webp",
           "w": 2000,
           "h": 1415,
-          "src": "/work/soiree/03-scroll-1-p05.webp"
+          "src": "/work/soiree/03-scroll-1-p05-f079f899.webp"
         },
         {
-          "file": "03-scroll-1-p06.webp",
+          "file": "03-scroll-1-p06-8df807c4.webp",
           "w": 2000,
           "h": 1415,
-          "src": "/work/soiree/03-scroll-1-p06.webp"
+          "src": "/work/soiree/03-scroll-1-p06-8df807c4.webp"
         },
         {
-          "file": "03-scroll-1-p07.webp",
+          "file": "03-scroll-1-p07-60b3856f.webp",
           "w": 2000,
           "h": 1415,
-          "src": "/work/soiree/03-scroll-1-p07.webp"
+          "src": "/work/soiree/03-scroll-1-p07-60b3856f.webp"
         },
         {
-          "file": "03-scroll-1-p08.webp",
+          "file": "03-scroll-1-p08-d075f33f.webp",
           "w": 2000,
           "h": 1415,
-          "src": "/work/soiree/03-scroll-1-p08.webp"
+          "src": "/work/soiree/03-scroll-1-p08-d075f33f.webp"
         },
         {
-          "file": "03-scroll-1-p09.webp",
+          "file": "03-scroll-1-p09-ae47c656.webp",
           "w": 2000,
           "h": 1415,
-          "src": "/work/soiree/03-scroll-1-p09.webp"
+          "src": "/work/soiree/03-scroll-1-p09-ae47c656.webp"
         }
       ]
     }

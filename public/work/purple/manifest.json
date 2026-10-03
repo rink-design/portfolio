@@ -6,10 +6,10 @@
       "kind": "groot",
       "items": [
         {
-          "file": "01-groot-1.webp",
+          "file": "01-groot-1-d6fbb6ff.webp",
           "w": 2048,
           "h": 2048,
-          "src": "/work/purple/01-groot-1.webp"
+          "src": "/work/purple/01-groot-1-d6fbb6ff.webp"
         }
       ]
     },
@@ -18,16 +18,16 @@
       "kind": "duo",
       "items": [
         {
-          "file": "02-duo-1.webp",
+          "file": "02-duo-1-469c158e.webp",
           "w": 2048,
           "h": 2048,
-          "src": "/work/purple/02-duo-1.webp"
+          "src": "/work/purple/02-duo-1-469c158e.webp"
         },
         {
-          "file": "02-duo-2.webp",
+          "file": "02-duo-2-33fd4af6.webp",
           "w": 2048,
           "h": 2048,
-          "src": "/work/purple/02-duo-2.webp"
+          "src": "/work/purple/02-duo-2-33fd4af6.webp"
         }
       ]
     },
@@ -36,16 +36,16 @@
       "kind": "duo",
       "items": [
         {
-          "file": "03-duo-1.webp",
+          "file": "03-duo-1-d3d25470.webp",
           "w": 2048,
           "h": 2048,
-          "src": "/work/purple/03-duo-1.webp"
+          "src": "/work/purple/03-duo-1-d3d25470.webp"
         },
         {
-          "file": "03-duo-2.webp",
+          "file": "03-duo-2-4f72f0f9.webp",
           "w": 2048,
           "h": 2048,
-          "src": "/work/purple/03-duo-2.webp"
+          "src": "/work/purple/03-duo-2-4f72f0f9.webp"
         }
       ]
     },
@@ -54,22 +54,22 @@
       "kind": "trio",
       "items": [
         {
-          "file": "04-trio-1.webp",
+          "file": "04-trio-1-5ded5af4.webp",
           "w": 2048,
           "h": 2048,
-          "src": "/work/purple/04-trio-1.webp"
+          "src": "/work/purple/04-trio-1-5ded5af4.webp"
         },
         {
-          "file": "04-trio-2.webp",
+          "file": "04-trio-2-8ecb8360.webp",
           "w": 2048,
           "h": 2048,
-          "src": "/work/purple/04-trio-2.webp"
+          "src": "/work/purple/04-trio-2-8ecb8360.webp"
         },
         {
-          "file": "04-trio-3.webp",
+          "file": "04-trio-3-d09cf5de.webp",
           "w": 2048,
           "h": 2048,
-          "src": "/work/purple/04-trio-3.webp"
+          "src": "/work/purple/04-trio-3-d09cf5de.webp"
         }
       ]
     }

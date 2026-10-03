@@ -5,6 +5,14 @@ import fs from "node:fs";
 import path from "node:path";
 import { execFileSync } from "node:child_process";
 import sharp from "sharp";
+import crypto from "node:crypto";
+
+// Unieke bestandsnaam per inhoud → nieuwe versie = nieuw adres (geen oude beelden uit de cache).
+function stamp(file) {
+  const h = crypto.createHash("sha1").update(fs.readFileSync(file)).digest("hex").slice(0, 8);
+  const p = path.parse(file); const out = path.join(p.dir, `${p.name}-${h}${p.ext}`);
+  fs.renameSync(file, out); return path.basename(out);
+}
 
 const SRC = process.argv[2];
 const OUT = path.join(process.cwd(), "public", "work");
@@ -55,8 +63,9 @@ async function img(src, dest) {
 }
 
 function vid(src, dest, poster) {
-  execFileSync("ffmpeg", ["-loglevel", "error", "-y", "-i", src, "-an", "-c:v", "libx264", "-preset", "slow", "-crf", "26",
-    "-pix_fmt", "yuv420p", "-movflags", "+faststart", "-vf", "scale='if(gt(iw,ih),min(1280,iw),-2)':'if(gt(iw,ih),-2,min(1280,ih))'", dest]);
+  // Staande video's komen in een telefoon van ± 300 px breed → 540 px breed is ruim genoeg en laadt snel.
+  execFileSync("ffmpeg", ["-loglevel", "error", "-y", "-i", src, "-an", "-c:v", "libx264", "-preset", "slow", "-crf", "31",
+    "-pix_fmt", "yuv420p", "-movflags", "+faststart", "-vf", "scale='if(gt(iw,ih),min(1280,iw),min(540,iw))':-2", dest]);
   execFileSync("ffmpeg", ["-loglevel", "error", "-y", "-ss", "0.5", "-i", dest, "-frames:v", "1", "-q:v", "3", poster.replace(/\.webp$/, ".jpg")]);
   const p = poster.replace(/\.webp$/, ".jpg");
   return sharp(p).webp({ quality: 78 }).toFile(poster).then((i) => { fs.unlinkSync(p); return { w: i.width, h: i.height }; });
@@ -116,12 +125,12 @@ for (const folder of fs.readdirSync(SRC)) {
     const stem = `${key}-${idx}`;
     if (isVid(f)) {
       const d = await vid(src, path.join(dir, `${stem}.mp4`), path.join(dir, `${stem}.webp`));
-      groups.get(key).items.push({ file: `${stem}.mp4`, poster: `${stem}.webp`, video: true, ...d });
+      groups.get(key).items.push({ file: stamp(path.join(dir, `${stem}.mp4`)), poster: stamp(path.join(dir, `${stem}.webp`)), video: true, ...d });
     } else if (isPdf(f)) {
-      groups.get(key).items.push(...(await pdfPages(src, dir, stem)));
+      groups.get(key).items.push(...(await pdfPages(src, dir, stem)).map((x) => ({ ...x, file: stamp(path.join(dir, x.file)) })));
     } else {
       const d = await img(src, path.join(dir, `${stem}.webp`));
-      groups.get(key).items.push({ file: `${stem}.webp`, ...d });
+      groups.get(key).items.push({ file: stamp(path.join(dir, `${stem}.webp`)), ...d });
     }
   }
   const blocks = [...groups.values()].sort((a, b) => a.n - b.n || a.key.localeCompare(b.key))
