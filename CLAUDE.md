@@ -22,4 +22,7 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Beelden komen niet van haar bureaublad; zij uploadt ze (chat of GitHub).
 
 ## Besluiten
-- (nog geen)
+- Doelgroep: merken én bureaus. Toon professioneel, het werk spreekt.
+- Taal: Engels (Nederlands eventueel later).
+- Alle 8 projecten mogen openbaar online.
+- Domein: koopt ze zelf bij GoDaddy; koppelen in fase 5.
