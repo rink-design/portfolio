@@ -109,6 +109,12 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Steekwoorden home (5 okt): JAJA Brand & Design · Soirée/Purple Rain/Purple Rebrand · Don Gelato/Canajoy Art Direction · The Cat Ladies Sub-brand · Coffeeshop Packaging · Santani Launch & Social · Big Push Repositioning.
 - Santani-rol (zonder 'I'): concept met mede-stagiairs bij Code d’Azur, timeline + visual/art direction; daarna kort freelance social content creator voor de lancering.
 
+## Tekstronde 3 (5 okt) — VERVANGT eerdere tekstregels waar ze botsen
+- Overal 'Brand Identity' (niet 'Identity'); Graphics/patterns vallen onder Brand Identity (geen apart kopje). 'Web Design' i.p.v. Websites/Website.
+- Rollen mogen weer langer (1–2 zinnen, zonder 'I'). Soirée = coffeeshop met nieuwe naam (geen rookaccessoires). Purple Rain = Arabische touch, cultuur & traditie ('Tradition, made exclusive.'). Purple = 'inspired by the sea', + Interior. Soirée/Purple Rain: 6+ products. JAJA: familiebedrijf, maakt ook producten voor andere coffeeshops, 100+ products. Don Gelato: prints van een artiest, rolling papers, campagnefoto met AI. The Cat: Ladies Bag als RINK, nieuwe editie om de zoveel tijd. Canajoy: idee van een klant → merk + product. Big Push: graphic designer, site gebouwd met AI; tag 'Rebranding & Web Design'.
+- Coffeeshop-namen: De Baron · Shiva · Hakuna Matata · Central · Barbershop · Hunters · Dolphins · Highlife (geen Smokey).
+- Open (beeld): uitsnedes Highlife + Dolphins opnieuw (alleen als het goed lukt); iPhone-mockup van coffeeshop-case naar JAJA.
+
 ## Techniek-notities
 - Chromium-screenshots: launch met `--ignore-certificate-errors-spki-list=PS48cX347wDVcRynzq+DFqswl2PLNE1sG6uQvxMCOS0=` (vertrouwt alleen de proxy-CA van deze omgeving).
 
