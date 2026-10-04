@@ -85,25 +85,22 @@ export default function Home() {
       </section>
 
       {/* 05 — CONTACT: vloeibaar inkt-en-cobalt vlak, Get in touch-menu, live klok */}
-      <section id="contact" data-tone="dark" className="relative isolate mt-40 overflow-hidden bg-ink text-paper md:mt-56">
+      {/* Precies één schermhoogte: beschikbaarheid bovenin, gegevens onderaan */}
+      <section id="contact" data-tone="dark" className="relative isolate mt-40 flex min-h-svh flex-col overflow-hidden bg-ink text-paper md:mt-56">
         <LiquidDrops />
-        <div className="wrap flex flex-col gap-16 pt-16 pb-6 md:gap-20 md:pt-20">
+        <div className="wrap flex flex-1 flex-col gap-10 pt-16 pb-6">
           <Availability />
-          <Lines className="t-display !leading-[0.86] !tracking-[-0.052em] text-[clamp(64px,15.5vw,260px)]" stagger={0.1}
+          <Lines className="t-display !leading-[0.86] !tracking-[-0.052em] text-[clamp(64px,min(15.5vw,26svh),260px)]" stagger={0.1}
             lines={["Let’s work", <>together<span key="d" className="ml-[0.06em] inline-block h-[0.17em] w-[0.17em] bg-accent" aria-hidden /></>]} />
           <Reveal>
             <GetInTouch />
           </Reveal>
-          {/* Gegevens lager, netjes verdeeld: links · midden · rechts */}
-          <Reveal className="t-body mt-12 grid grid-cols-1 gap-3 md:mt-24 md:grid-cols-3 md:items-baseline">
+          {/* Gegevens onderaan, netjes verdeeld: links · midden · rechts */}
+          <Reveal className="t-body mt-auto grid grid-cols-1 gap-3 md:grid-cols-3 md:items-baseline">
             <a href={`mailto:${contact.email}`} className="link-line justify-self-start">{contact.email}</a>
             <a href={contact.phoneHref} className="link-line justify-self-start md:justify-self-center">{contact.phone}</a>
             <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="link-line justify-self-start md:justify-self-end">LinkedIn ↗</a>
           </Reveal>
-          <div className="t-label mt-6 flex justify-between text-paper/60">
-            <span>© RINK Design</span>
-            <a href="#top" className="link-line">Back to top ↑</a>
-          </div>
         </div>
       </section>
     </main>
