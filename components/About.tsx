@@ -5,8 +5,8 @@ import { AboutPortrait } from "@/components/AboutPortrait";
 import { about } from "@/content/about";
 
 // Label links (kolom 1–3), inhoud rechts (vanaf kolom 4) — zelfde lijn voor alle blokken.
-const lab = "col-span-4 mb-5 md:col-span-3 md:mb-0";
-const body = "col-span-4 md:col-span-9";
+const lab = "col-span-4 mb-5 md:col-span-6 md:mb-0";
+const body = "col-span-4 md:col-span-6 md:col-start-7";
 const block = "grid-12 mt-24 md:mt-44";
 
 function Rows({ rows }: { rows: typeof about.experience }) {
@@ -14,9 +14,9 @@ function Rows({ rows }: { rows: typeof about.experience }) {
     <div className="group/rows">
       {rows.map((r) => (
         <div key={r.name}
-          className="row group/row flex flex-col items-start gap-1 py-1.5 transition-opacity duration-300 group-has-[.row:hover]/rows:opacity-25 hover:opacity-100! md:flex-row md:items-end md:justify-between md:gap-[var(--gap)]">
-          <p className="t-h1 text-[clamp(40px,8.4vw,150px)] transition-colors duration-300 group-hover/row:text-accent">{r.name}</p>
-          <div className="grid shrink-0 gap-1 pb-3 transition-colors duration-300 group-hover/row:text-accent md:max-w-[34%] md:pb-[0.9em] md:text-right">
+          className="row group/row flex flex-col items-start py-3 transition-opacity duration-300 group-has-[.row:hover]/rows:opacity-25 hover:opacity-100! md:py-4">
+          <p className="t-h1 text-[clamp(40px,5.8vw,110px)] transition-colors duration-300 group-hover/row:text-accent">{r.name}</p>
+          <div className="mt-3 grid gap-1 transition-colors duration-300 group-hover/row:text-accent">
             {r.lines.map((l) => <p key={l} className="t-label">{l}</p>)}
           </div>
         </div>
@@ -66,21 +66,21 @@ export function About() {
       </div>
 
       <div className={block}>
-        <div className={lab}><p className="t-label pt-[0.6em] text-ink-2">Experience</p></div>
+        <div className={lab}><p className="t-label pt-[15px] text-ink-2">Experience</p></div>
         <div className={body}><Rows rows={about.experience} /></div>
       </div>
 
       <div className={block}>
-        <div className={lab}><p className="t-label pt-[0.6em] text-ink-2">Education</p></div>
+        <div className={lab}><p className="t-label pt-[15px] text-ink-2">Education</p></div>
         <div className={body}><Rows rows={about.education} /></div>
       </div>
 
       <div className={block}>
-        <div className={lab}><p className="t-label pt-[0.6em] text-ink-2">In numbers</p></div>
-        <div className={`${body} grid grid-cols-2 gap-x-[clamp(40px,8vw,160px)]`}>
+        <div className={lab}><p className="t-label pt-[13px] text-ink-2">In numbers</p></div>
+        <div className={`${body} grid grid-cols-2 gap-x-[var(--gap)]`}>
           {about.numbers.map((n, i) => (
             <Reveal key={n.label} delay={i * 0.1}>
-              <p className="t-h1 text-[clamp(40px,8.4vw,150px)] text-accent"><CountUp to={n.to} suffix="+" delay={i * 0.15} /></p>
+              <p className="t-h1 text-[clamp(40px,5.8vw,110px)] text-accent"><CountUp to={n.to} suffix="+" delay={i * 0.15} /></p>
               <p className="t-label mt-4 text-ink-2">{n.label}</p>
             </Reveal>
           ))}
