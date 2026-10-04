@@ -2,27 +2,28 @@
 import { animate, motion, useMotionValue, useReducedMotion, useTransform, AnimatePresence } from "motion/react";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { LOGO_PATHS, LOGO_VIEWBOX as V } from "../logo-paths";
-import { PEN_SEGS, R_WRITE_END, penAt } from "../r-pen";
+import { INK_END, PEN_SEGS, R_WRITE_END, inkAt, penAt } from "../r-pen";
 import { R_REGIONS } from "../r-regions";
 
 const INK_X = 76.5; // waar I-N-K begint
+const INK_W = V.x + V.w + 2 - INK_X;
 const DELAY = 0.25; // rust voordat de pen begint
 
 // Laadscherm: de sierlijke R wordt in kobalt geschreven met één doorgaande pen (components/r-pen.ts).
 // Elke streek onthult alleen zijn eigen gebied van de letter (components/r-regions.ts), zodat er geen klontjes
-// ontstaan waar streken elkaar raken. Wat nog niet geschreven is, is achtergrond. Daarna vult I-N-K van links
-// naar rechts mee met het laden. Tot slot vervaagt het scherm: het logo gaat over in het witte logo van de header,
+// ontstaan waar streken elkaar raken. Wat nog niet geschreven is, is achtergrond. I-N-K vult van links naar rechts
+// als vervolg van de pen (los van het laden; de teller loopt wel mee met het laden). Tot slot vervaagt het scherm: het logo gaat over in het witte logo van de header,
 // dat er exact onder staat.
 export function Loader() {
   const reduce = useReducedMotion();
   const [show, setShow] = useState(true);
   const [skip, setSkip] = useState(false);
   const progress = useMotionValue(0);
-  const fillW = useTransform(progress, [50, 100], [0, V.x + V.w + 2 - INK_X], { clamp: true });
   const counter = useTransform(progress, (v) => String(Math.round(v)).padStart(3, "0"));
   const segRefs = useRef<Record<string, SVGPathElement | null>>({});
   const regionsRef = useRef<SVGGElement>(null);
   const fullRef = useRef<SVGPathElement>(null);
+  const inkRef = useRef<SVGRectElement>(null);
 
   // Eén keer per bezoek.
   useLayoutEffect(() => {
@@ -44,11 +45,12 @@ export function Loader() {
         el.setAttribute("stroke-dashoffset", String(s.len - d[s.key]));
         el.setAttribute("opacity", d[s.key] > 0.05 ? "1" : "0");
       });
-      const finished = t >= R_WRITE_END;
+      inkRef.current?.setAttribute("width", String(inkAt(t) * INK_W));
+      const rDone = t >= R_WRITE_END;
       // klaar: de hele R als één vorm (geen naadjes tussen de gebieden)
-      fullRef.current?.setAttribute("opacity", finished ? "1" : "0");
-      if (regionsRef.current) regionsRef.current.style.visibility = finished ? "hidden" : "visible";
-      if (!finished) raf = requestAnimationFrame(draw);
+      fullRef.current?.setAttribute("opacity", rDone ? "1" : "0");
+      if (regionsRef.current) regionsRef.current.style.visibility = rDone ? "hidden" : "visible";
+      if (t < Math.max(R_WRITE_END, INK_END)) raf = requestAnimationFrame(draw);
     };
     raf = requestAnimationFrame(draw);
     return () => cancelAnimationFrame(raf);
@@ -57,7 +59,7 @@ export function Loader() {
   // Voortgang: loopt mee met het echte laden, minimaal ± 2,8 s.
   useEffect(() => {
     if (!show || skip) return;
-    const min = reduce ? 300 : Math.round((DELAY + R_WRITE_END + 0.8) * 1000);
+    const min = reduce ? 300 : Math.round((DELAY + Math.max(R_WRITE_END, INK_END) + 0.3) * 1000);
     const start = performance.now();
     const ctrl = animate(progress, 88, { duration: min / 1000, ease: [0.35, 0, 0.25, 1] });
     let finished = false;
@@ -98,14 +100,14 @@ export function Loader() {
                       strokeDasharray={`${s.len} ${s.len + 20}`} strokeDashoffset={s.len} opacity={0} />
                   </mask>
                 ))}
-                <clipPath id="ink-fill"><motion.rect x={INK_X} y={V.y - 2} height={V.h + 4} style={{ width: fillW }} /></clipPath>
+                <clipPath id="ink-fill"><rect ref={inkRef} x={INK_X} y={V.y - 2} height={V.h + 4} width={0} /></clipPath>
               </defs>
               {/* De R: elk gebied wordt onthuld door zijn eigen pennenstreek */}
               <g ref={regionsRef} clipPath="url(#r-shape)" fill="var(--color-accent)">
                 {PEN_SEGS.map((s) => <path key={s.key} d={R_REGIONS[s.id]} mask={`url(#pen-${s.key})`} />)}
               </g>
               <path ref={fullRef} d={LOGO_PATHS[0]} fill="var(--color-accent)" opacity={0} />
-              {/* I-N-K, vult mee met het laden */}
+              {/* I-N-K, vult als vervolg van de pen */}
               <g clipPath="url(#ink-fill)" fill="var(--color-accent)">
                 {LOGO_PATHS.slice(1).map((d, i) => <path key={i} d={d} />)}
               </g>

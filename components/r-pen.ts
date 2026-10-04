@@ -70,6 +70,14 @@ const flick = bez(0.3, 0.6, 0.2, 1);
 
 export const R_WRITE_END = Math.max(T, BOWL_END, TJ + 0.32);
 
+// I-N-K vult van links naar rechts als vervolg van de pen: start als het puntje rechtsboven uitzwiept
+// (dat eindigt precies waar de I begint) en loopt in één beweging door tot en met de K. Los van het laden,
+// zodat hij nooit halverwege blijft wachten.
+const INK_START = TJ + 0.2, INK_DUR = 1.25;
+const inkEase = bez(0.45, 0, 0.25, 1);
+export const INK_END = INK_START + INK_DUR;
+export const inkAt = (t: number) => inkEase(clamp((t - INK_START) / INK_DUR));
+
 export function penAt(t: number): Record<string, number> {
   const c = cost(t);
   const d: Record<string, number> = {
