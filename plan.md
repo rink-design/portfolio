@@ -78,7 +78,7 @@ Teksten nog open: het concept van Purple Rain, en de teksten van Purple en Canaj
 - [x] **6. About + contact** (15 min).
 - [x] **7. Beweging + overgangen** (20 min): beeld komt binnen bij scrollen, hover op het werk, rustige paginaovergangen (< 0,4 s), "minder beweging" gerespecteerd. **Poort.**
 - [x] **8. Mobiel + snelheid** (Lighthouse mobiel: snelheid 75 — laadscherm + meting via proxy; toegankelijkheid 90→fixes; SEO 100) (15 min): alles gecheckt op 375 px, lazy loading (beeld laadt pas als het in beeld komt), alt-teksten, Lighthouse ≥ 90.
-- [ ] **Live** (30 min): titel, beschrijving, deelafbeelding, favicon ✓, domein koppelen ✓ (www.byrink.com, 4 okt). Nog: test op haar telefoon.
+- [x] **Live** (30 min): titel, beschrijving, deelafbeelding, favicon, domein koppelen (www.byrink.com, 4 okt), getest op haar telefoon (goedgekeurd).
 - [ ] **Afronden** (15 min): `CLAUDE.md` en `plan.md` bijwerken, lijst voor morgen.
 
 Na elke goedgekeurde stap: commit + push → Vercel zet het online.

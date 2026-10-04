@@ -6,16 +6,16 @@
       "kind": "duo",
       "items": [
         {
-          "file": "01-duo-1-4bb09a41.webp",
-          "w": 2048,
-          "h": 1143,
-          "src": "/work/canajoy/01-duo-1-4bb09a41.webp"
-        },
-        {
-          "file": "01-duo-2-18e7916a.webp",
+          "file": "01-duo-1-339d28b5.webp",
           "w": 2048,
           "h": 2048,
-          "src": "/work/canajoy/01-duo-2-18e7916a.webp"
+          "src": "/work/canajoy/01-duo-1-339d28b5.webp"
+        },
+        {
+          "file": "01-duo-2-2eeb7b6f.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/canajoy/01-duo-2-2eeb7b6f.webp"
         }
       ]
     }

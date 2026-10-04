@@ -6,16 +6,16 @@
       "kind": "duo",
       "items": [
         {
-          "file": "01-duo-1-9c0541e2.webp",
-          "w": 2400,
-          "h": 2400,
-          "src": "/work/don-gelato/01-duo-1-9c0541e2.webp"
+          "file": "01-duo-1-5849833b.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/don-gelato/01-duo-1-5849833b.webp"
         },
         {
-          "file": "01-duo-2-13caa1cf.webp",
-          "w": 2400,
-          "h": 2400,
-          "src": "/work/don-gelato/01-duo-2-13caa1cf.webp"
+          "file": "01-duo-2-8ad8c170.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/don-gelato/01-duo-2-8ad8c170.webp"
         }
       ]
     },
@@ -60,10 +60,10 @@
       "kind": "detail",
       "items": [
         {
-          "file": "03-detail-white-1-6aee49d1.webp",
-          "w": 2400,
-          "h": 2400,
-          "src": "/work/don-gelato/03-detail-white-1-6aee49d1.webp"
+          "file": "03-detail-white-1-7b061eb9.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/don-gelato/03-detail-white-1-7b061eb9.webp"
         },
         {
           "file": "03-detail-white-2-d866b7d5.webp",
@@ -102,16 +102,16 @@
       "kind": "detail",
       "items": [
         {
-          "file": "04-detail-black-1-65a4ef42.webp",
-          "w": 2400,
-          "h": 2400,
-          "src": "/work/don-gelato/04-detail-black-1-65a4ef42.webp"
+          "file": "04-detail-black-1-347fc715.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/don-gelato/04-detail-black-1-347fc715.webp"
         },
         {
-          "file": "04-detail-black-2-c55c25a9.webp",
-          "w": 2400,
-          "h": 2400,
-          "src": "/work/don-gelato/04-detail-black-2-c55c25a9.webp"
+          "file": "04-detail-black-2-5c82a9c0.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/don-gelato/04-detail-black-2-5c82a9c0.webp"
         },
         {
           "file": "04-detail-black-3-f1d19b12.webp",
@@ -144,10 +144,10 @@
       "kind": "single",
       "items": [
         {
-          "file": "04-single-1-ef17d1b3.webp",
-          "w": 2400,
-          "h": 1347,
-          "src": "/work/don-gelato/04-single-1-ef17d1b3.webp"
+          "file": "04-single-1-92efd68f.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/don-gelato/04-single-1-92efd68f.webp"
         }
       ]
     }
