@@ -47,10 +47,10 @@ export default function Home() {
       <About />
 
       {/* 05 — CONTACT: vloeibaar inkt-en-cobalt vlak, Get in touch-menu, live klok */}
-      {/* Precies één schermhoogte: beschikbaarheid bovenin, knop in het midden, logo + gegevens onderaan */}
-      <section id="contact" data-tone="dark" className="relative isolate mt-16 flex min-h-svh flex-col overflow-hidden bg-ink text-paper md:mt-32">
+      {/* Precies één schermhoogte (lvh: ook als de Safari-balk op iPhone inklapt), gegevens onderaan, vrij van de thuisbalk */}
+      <section id="contact" data-tone="dark" className="relative isolate mt-16 flex min-h-lvh flex-col overflow-hidden bg-ink text-paper md:mt-32">
         <LiquidDrops />
-        <div className="wrap flex flex-1 flex-col gap-10 pt-16 pb-6">
+        <div className="wrap flex flex-1 flex-col gap-10 pt-16 pb-[max(1.5rem,env(safe-area-inset-bottom))]">
           <Availability />
           <Lines className="t-display !leading-[0.86] !tracking-[-0.052em] text-[clamp(64px,min(15.5vw,22svh),260px)]" stagger={0.1}
             lines={["Let’s work", <>together<span key="d" className="ml-[0.06em] inline-block h-[0.17em] w-[0.17em] bg-accent" aria-hidden /></>]} />
