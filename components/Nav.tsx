@@ -39,7 +39,7 @@ export function Nav() {
       <Link href="/" aria-label="Design by RINK — home">Design by RINK</Link>
       <nav className="flex gap-5 md:gap-8">
         {SECTIONS.map((id) => (
-          <Link key={id} href={`/#${id}`} className="capitalize">{id}</Link>
+          <Link key={id} href={`/#${id}`} className="uppercase">{id}</Link>
         ))}
       </nav>
     </header>
