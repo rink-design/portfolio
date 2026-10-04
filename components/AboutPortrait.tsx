@@ -23,18 +23,18 @@ export function AboutPortrait() {
   }, [reduce]);
 
   return (
-    <figure className="col-span-4 self-start md:sticky md:top-6 md:col-span-6">
-      <div className="about-slab">
-        <div className="relative aspect-[4/5] overflow-hidden bg-paper-2">
+    <figure data-mid="photo" className="col-span-4 md:col-span-6 md:flex md:flex-col">
+      <div className="about-slab md:flex md:flex-1 md:flex-col">
+        <div className="relative aspect-[4/5] overflow-hidden bg-paper-2 md:aspect-auto md:min-h-[360px] md:flex-1">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img ref={img} src="/about/portret-70b46b7c.webp" alt="Portrait of Rinke van de Rakt" loading="lazy"
             className="about-photo absolute inset-x-0 -top-[6%] h-[112%] w-full object-cover object-[50%_25%]" />
+          <figcaption className="absolute inset-x-0 bottom-0 flex justify-between gap-3 bg-gradient-to-t from-ink/55 to-transparent p-4 pt-12 text-paper">
+            <span className="t-label">Rinke van de Rakt</span>
+            <span className="t-label opacity-80">Amsterdam</span>
+          </figcaption>
         </div>
       </div>
-      <figcaption className="mt-4 flex justify-between gap-3">
-        <span className="t-label">Rinke van de Rakt</span>
-        <span className="t-label text-ink-2">Amsterdam</span>
-      </figcaption>
     </figure>
   );
 }

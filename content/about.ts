@@ -13,10 +13,13 @@ export const about = {
     { name: "Sint Lucas", lines: ["Graphic Design & Photography", "4 years"] },
   ],
   numbers: [{ to: 38, label: "Projects" }, { to: 7, label: "Years of experience" }],
-  // Tijdelijke letter-tegels; eigen iconen volgen.
+  // Officiële logo's via Iconify (public/tools). Magnific heeft er nog geen: tijdelijke letter-tegel.
   tools: [
-    { name: "Illustrator", mark: "Il" }, { name: "Photoshop", mark: "Ph" }, { name: "InDesign", mark: "In" }, { name: "Figma", mark: "Fi" },
-    { name: "CapCut", mark: "Cc" }, { name: "Shopify", mark: "Sh" }, { name: "Claude", mark: "Cl" }, { name: "ChatGPT", mark: "GP" },
-    { name: "Midjourney", mark: "Mi" }, { name: "Magnific", mark: "Ma" }, { name: "Automation", mark: "Au" },
-  ],
+    { name: "Illustrator", logo: "/tools/illustrator.svg" }, { name: "Photoshop", logo: "/tools/photoshop.svg" },
+    { name: "InDesign", logo: "/tools/indesign.svg" }, { name: "Figma", logo: "/tools/figma.svg" },
+    { name: "CapCut", logo: "/tools/capcut.svg" }, { name: "Shopify", logo: "/tools/shopify.svg" },
+    { name: "Claude", logo: "/tools/claude.svg" }, { name: "ChatGPT", logo: "/tools/chatgpt.svg" },
+    { name: "Midjourney", logo: "/tools/midjourney.svg" }, { name: "Magnific", mark: "Ma" },
+    { name: "Automation", logo: "/tools/automation.svg" },
+  ] as { name: string; logo?: string; mark?: string }[],
 };
