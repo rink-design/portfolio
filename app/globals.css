@@ -216,8 +216,8 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 .about-slab:hover .about-photo { filter: grayscale(1) contrast(1.05); }
 
 /* About: tools-band, heel langzaam; pauzeert bij hover */
-.tools-track { animation: tools-scroll 160s linear infinite; }
-.tools-track-rev { animation-direction: reverse; animation-duration: 180s; }
+.tools-track { animation: tools-scroll 40s linear infinite; }  /* één set van 5 tegels per 40 s (± 50 px/s) */
+.tools-track-rev { animation-direction: reverse; animation-duration: 44s; }
 .tools:hover .tools-track { animation-play-state: paused; }
 @keyframes tools-scroll { to { transform: translateX(-25%); } }
 @media (prefers-reduced-motion: reduce) { .tools-track { animation-duration: 600s; } }

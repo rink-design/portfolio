@@ -26,9 +26,11 @@ function Rows({ rows, group }: { rows: typeof about.experience; group: string })
   );
 }
 
-function ToolRow({ reverse }: { reverse?: boolean }) {
-  const set = about.tools.map((t) => (
-    <div key={t.name} className="flex shrink-0 items-center gap-4 bg-paper-2 py-3 pl-4 pr-6">
+// Twee rijen, elk een eigen helft van de tools (geen dubbele tool boven elkaar). Tegels even breed,
+// zodat de kolommen netjes onder elkaar vallen.
+function ToolRow({ tools, reverse }: { tools: typeof about.tools; reverse?: boolean }) {
+  const set = tools.map((t) => (
+    <div key={t.name} className="flex w-[clamp(240px,26vw,400px)] shrink-0 items-center gap-4 bg-paper-2 py-3 pl-4 pr-6">
       {t.logo
         // eslint-disable-next-line @next/next/no-img-element
         ? <img src={t.logo} alt="" width={48} height={48} className="size-12 shrink-0 object-contain" />
@@ -71,8 +73,8 @@ export function About() {
           <p className="t-label mb-6 text-ink-2">Tools</p>
         </div>
         <div className="tools -mx-[var(--gutter)] grid gap-[var(--gap)] overflow-hidden" role="list" aria-label={about.tools.map((t) => t.name).join(", ")}>
-          <ToolRow />
-          <ToolRow reverse />
+          <ToolRow tools={about.tools.slice(0, 5)} />
+          <ToolRow tools={about.tools.slice(5)} reverse />
         </div>
 
         {/* Witruimte boven en onder de cijfers is even groot (128 px, mobiel 64 px) */}
