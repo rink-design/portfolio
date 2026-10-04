@@ -125,3 +125,11 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Schaduwen: klein en subtiel, alleen bij het apparaat.
 - Santani: alleen de lancering, eerste 10 weken.
 - Preview-werkwijze: statische snapshot van de echte pagina's als Artifact (scratchpad/casepreview/build.py) → pas na 'goedgekeurd' live.
+
+## Ronde header & onderkant (4 okt, nacht) — VERVANGT eerdere regels waar ze botsen
+- Menu (components/Nav.tsx): exact stijl en plek van de laadschermtekst (t-label 500, top 20 px, 'RINK Design'); verdwijnt bij omlaag scrollen, komt terug bij omhoog. LIVE.
+- Mobiel: viewport-fit=cover + themeColor ink op home + html-grond ink op home → video tot bovenin. Nog checken op haar iPhone.
+- About: kopje boven de cijfers (38+/7+), daarna marquee, dan semi-cv met ruime witruimte; duur met streepje achter de functie; geen jaartallen bij studies en stages; Languages weg; zin 'Brands made to be seen…' onderaan. LIVE.
+- Services: Brand Identity · Packaging · Product Development · Art Direction · Graphic Design · Digital Design · Web Design · Social Content. LIVE.
+- Onderkant (in de maak): opbouw 'Live' ZONDER lopende letterband; vloeibaar inkt-met-cobalt WebGL-vlak dat op muis/vinger reageert; cobalt 'Get in touch'-knop die openklapt met Mail · Bel · WhatsApp (LinkedIn los eronder); groene stip altijd 'Available for new projects' (nooit Offline); live Amsterdam-klok; Back to top. Moet 'booming' zijn.
+- Muis: zes voorstellen, géén tekst in de cursor nodig. Preview: claude.ai/artifact/EUAAXfsQ37XDdbys9s8M62
