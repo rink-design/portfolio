@@ -6,16 +6,20 @@
       "kind": "duo",
       "items": [
         {
-          "file": "01-duo-1-339d28b5.webp",
-          "w": 2048,
-          "h": 2048,
-          "src": "/work/canajoy/01-duo-1-339d28b5.webp"
+          "file": "01-duo-1-acaf673a.jpg",
+          "w": 1600,
+          "h": 1600,
+          "src": "/work/canajoy/01-duo-1-acaf673a.jpg",
+          "product": true,
+          "hdr": "/work/canajoy/01-duo-1-hdr-8ef3d477.jpg"
         },
         {
-          "file": "01-duo-2-2eeb7b6f.webp",
-          "w": 2048,
-          "h": 2048,
-          "src": "/work/canajoy/01-duo-2-2eeb7b6f.webp"
+          "file": "01-duo-2-ac4da681.jpg",
+          "w": 1600,
+          "h": 1600,
+          "src": "/work/canajoy/01-duo-2-ac4da681.jpg",
+          "product": true,
+          "hdr": "/work/canajoy/01-duo-2-hdr-bd42e137.jpg"
         }
       ]
     }

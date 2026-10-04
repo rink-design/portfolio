@@ -15,11 +15,11 @@ export function Reveal({ children, delay = 0, className = "", now = false }: { c
 }
 
 // Regels komen één voor één omhoog uit een masker (ruim genoeg onder voor g, j, p).
-export function Lines({ lines, className = "", as: Tag = "h2", stagger = 0.08 }:
-  { lines: React.ReactNode[]; className?: string; as?: "h1" | "h2" | "p"; stagger?: number }) {
+export function Lines({ lines, className = "", as: Tag = "h2", stagger = 0.08, style }:
+  { lines: React.ReactNode[]; className?: string; as?: "h1" | "h2" | "p"; stagger?: number; style?: React.CSSProperties }) {
   const MotionTag = motion[Tag];
   return (
-    <MotionTag className={className} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-10% 0px" }}
+    <MotionTag className={className} style={style} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-10% 0px" }}
       transition={{ staggerChildren: stagger }}>
       {lines.map((l, i) => (
         <span key={i} className="block overflow-hidden pt-[0.16em] -mt-[0.16em] pb-[0.22em] -mb-[0.22em]">

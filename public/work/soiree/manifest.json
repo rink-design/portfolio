@@ -6,10 +6,12 @@
       "kind": "groot",
       "items": [
         {
-          "file": "01-groot-1-8b40bd89.webp",
-          "w": 2048,
-          "h": 2048,
-          "src": "/work/soiree/01-groot-1-8b40bd89.webp"
+          "file": "01-groot-1-46335a9d.jpg",
+          "w": 1600,
+          "h": 1600,
+          "src": "/work/soiree/01-groot-1-46335a9d.jpg",
+          "product": true,
+          "hdr": "/work/soiree/01-groot-1-hdr-496aaaf4.jpg"
         }
       ]
     },
@@ -18,16 +20,18 @@
       "kind": "duo",
       "items": [
         {
-          "file": "02-duo-1-62ac27da.webp",
-          "w": 2048,
-          "h": 2048,
-          "src": "/work/soiree/02-duo-1-62ac27da.webp"
+          "file": "02-duo-1-b4ae058a.jpg",
+          "w": 1600,
+          "h": 1600,
+          "src": "/work/soiree/02-duo-1-b4ae058a.jpg",
+          "product": true
         },
         {
-          "file": "02-duo-2-9a4622f4.webp",
-          "w": 2048,
-          "h": 2048,
-          "src": "/work/soiree/02-duo-2-9a4622f4.webp"
+          "file": "02-duo-2-fad87ef0.jpg",
+          "w": 1600,
+          "h": 1600,
+          "src": "/work/soiree/02-duo-2-fad87ef0.jpg",
+          "product": true
         }
       ]
     },

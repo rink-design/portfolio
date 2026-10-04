@@ -34,7 +34,7 @@ function matrix3d(P: number[][]) {
   return `matrix3d(${k[0]},${k[3]},0,${k[6]},${k[1]},${k[4]},0,${k[7]},0,0,1,0,${k[2]},${k[5]},0,1)`;
 }
 
-export function SiteIMac({ site }: { site: Site }) {
+export function SiteIMac({ site, bare = false }: { site: Site; bare?: boolean }) {
   const box = useRef<HTMLDivElement>(null);
   const scr = useRef<HTMLDivElement>(null);
   const glr = useRef<HTMLDivElement>(null);
@@ -53,7 +53,7 @@ export function SiteIMac({ site }: { site: Site }) {
     return () => ro.disconnect();
   }, []);
   return (
-    <figure className="w-full">
+    <figure className="h-full w-full">
       <div ref={box} className="imac relative w-full" style={{ aspectRatio: `${IMG.w}/${IMG.h}` }}>
         <div ref={scr} className="imac-screen site-screen" style={{ width: SW, height: SH }} tabIndex={0} aria-label={`${site.label} — scroll to explore`}>
           <Image src={site.src} alt={`${site.label} website`} width={site.w} height={site.h} sizes="1280px" loading="eager" className="block h-auto w-full" />
@@ -61,12 +61,12 @@ export function SiteIMac({ site }: { site: Site }) {
         <div ref={glr} className="imac-glare" style={{ width: SW, height: SH }} aria-hidden />
         <Image src={IMG.src} alt="" fill sizes="(min-width: 768px) 60vw, 100vw" className="pointer-events-none z-[2] select-none" />
       </div>
-      <figcaption className="t-label mt-4 flex justify-between gap-4 text-ink-2">
+      {!bare && <figcaption className="t-label mt-4 flex justify-between gap-4 text-ink-2">
         {site.url
           ? <a href={site.url} target="_blank" rel="noopener noreferrer" className="link-line text-ink" data-cursor="Visit">{site.label} ↗</a>
           : <span>{site.label}</span>}
         <span>Scroll ↓</span>
-      </figcaption>
+      </figcaption>}
     </figure>
   );
 }

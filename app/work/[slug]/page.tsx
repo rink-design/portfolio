@@ -1,13 +1,16 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/content/projects";
-import { cases, type Insta, type Site } from "@/content/cases";
-import { caseBlocks, type Item } from "@/lib/media";
+import { cases, type CaseSet, type Insta, type Site } from "@/content/cases";
+import { caseBlocks, type Block, type Item } from "@/lib/media";
 import { Visual } from "@/components/blocks/Visual";
-import { HScroll } from "@/components/blocks/HScroll";
 import { Phone, SiteIMac } from "@/components/blocks/Frames";
-import { ImageReveal } from "@/components/motion/ImageReveal";
+import { BlockLabel } from "@/components/blocks/BlockLabel";
+import { SetRow } from "@/components/blocks/SetRow";
+import { BookGrid } from "@/components/blocks/BookGrid";
+import { ArchiveGrid } from "@/components/blocks/ArchiveGrid";
 import { Lines, Reveal } from "@/components/motion/Reveal";
 
 export function generateStaticParams() {
@@ -22,35 +25,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 const isPlaceholder = (t?: string) => !t || t.includes("[…]");
 const PHONE_KINDS = ["telefoon", "telefoon-video"];
+const host = (u?: string) => (u ? u.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "") : "");
 
-// Eén consistent grid: 1:1, vullend, links uitgelijnd.
-function Grid({ items, alt, center }: { items: Item[]; alt: (i: number) => string; center?: boolean }) {
-  return (
-    <div className={`wrap grid grid-cols-1 gap-[var(--gap)] sm:grid-cols-2 md:grid-cols-3 ${center && items.length < 3 ? "mx-auto max-w-[1100px] md:!grid-cols-2" : ""}`}>
-      {items.map((x, i) => (
-        <ImageReveal key={x.src} delay={(i % 3) * 0.06}>
-          <Visual it={x} alt={alt(i)} ratio="1/1" sizes="(min-width: 768px) 33vw, (min-width: 640px) 50vw, 100vw" />
-        </ImageReveal>
-      ))}
-    </div>
-  );
-}
-
-// Alle telefoons overal even groot (zelfde breedte), gecentreerd op een rij.
+// Telefoons op een rij, overal even groot.
 function Phones({ items, alt, ig }: { items: Item[]; alt: (i: number) => string; ig?: Insta }) {
   return (
-    <div className="wrap bg-paper-2/60 py-16 md:py-24">
-      <div className="mx-auto flex max-w-[1200px] flex-wrap justify-center gap-[4vw] md:gap-[2.5vw]">
-        {items.map((x, i) => <Reveal key={x.src} delay={i * 0.08} className="w-[42vw] md:w-[min(21vw,270px)]"><Phone it={x} alt={alt(i)} ig={ig} /></Reveal>)}
-      </div>
-    </div>
-  );
-}
-
-function Sites({ sites }: { sites: Site[] }) {
-  return (
-    <div className={`wrap grid gap-x-[5%] gap-y-16 overflow-x-clip px-[6%] py-16 md:py-24 ${sites.length > 1 ? "md:grid-cols-2" : "mx-auto max-w-[1240px]"}`}>
-      {sites.map((s, i) => <Reveal key={s.src} delay={i * 0.1}><SiteIMac site={s} /></Reveal>)}
+    <div className="flex flex-wrap justify-center gap-[4vw] px-[var(--gutter)] md:gap-[2.5vw]">
+      {items.map((x, i) => <Reveal key={x.src} delay={i * 0.08} className="w-[42vw] md:w-[min(21vw,270px)]"><Phone it={x} alt={alt(i)} ig={ig} /></Reveal>)}
     </div>
   );
 }
@@ -64,93 +45,125 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
   const next = projects[(idx + 1) % projects.length];
   const blocks = caseBlocks(slug);
 
-  // Indelen: pdf-band, telefoons, websites, en de rest in het grid.
-  const scroll = blocks.filter((b) => b.kind === "scroll").flatMap((b) => b.items);
+  // Indelen: brandbook (pdf), telefoons, websites, en de rest = beelden voor de sets.
+  const book = blocks.filter((b) => b.kind === "scroll").flatMap((b) => b.items);
   const phones = blocks.filter((b) => PHONE_KINDS.includes(b.kind) || (c.videosAsPhones && b.kind === "video")).flatMap((b) => b.items);
   const mockSites: Site[] = blocks.filter((b) => b.kind === "website").flatMap((b) => b.items)
     .map((x) => ({ src: x.src, w: x.w, h: x.h, label: `${p.title} website` }));
   const sites = c.sites ?? mockSites;
-  let grid = blocks.filter((b) => !["scroll", "website", ...PHONE_KINDS].includes(b.kind) && !(c.videosAsPhones && b.kind === "video")).flatMap((b) => b.items);
+  const imageBlocks: Block[] = blocks.filter((b) => !["scroll", "website", ...PHONE_KINDS].includes(b.kind) && !(c.videosAsPhones && b.kind === "video"));
 
-  // Hero
+  // Header: schermbreed vlak, vullend, niet te diep.
   const mode = c.hero ?? "first";
-  let heroItems: Item[] = [];
-  if (mode === "first") {
-    if (grid[0]) { heroItems = [grid[0]]; grid = grid.slice(1); }
-  } else if (mode === "pair") {
-    heroItems = grid.slice(0, 2); grid = grid.slice(2);
-  }
-  const heroPhones = mode === "phones";
-  const heroSite = mode === "site" ? sites.slice(0, 1) : [];
+  let headerItems: Item[] = [];
+  const firstImages = imageBlocks.flatMap((b) => b.items);
+  if (mode === "first" && firstImages[0]) headerItems = [firstImages[0]];
+  if (mode === "pair") headerItems = firstImages.slice(0, 2);
+  const headerSite = mode === "site" ? sites[0] : undefined;
   const restSites = mode === "site" ? sites.slice(1) : sites;
+
+  // Sets: per case vastgelegd (content/cases); anders alles wat over is in één set.
+  // Eigen sets mogen het headerbeeld herhalen; zonder eigen sets komt alles wat níet in de header staat in één set.
+  const pick = (keys: string[]) => imageBlocks.filter((b) => keys.some((k) => b.key.startsWith(k))).flatMap((b) => b.items);
+  const inHeader = new Set(headerItems.map((x) => x.src));
+  const sets = c.sets
+    ? c.sets.map((d) => ({ ...d, items: pick(d.keys) })).filter((d) => d.items.length > 0)
+    : ([{ name: "Images", keys: [""], items: firstImages.filter((x) => !inHeader.has(x.src)) }] as (CaseSet & { items: Item[] })[]).filter((d) => d.items.length > 0);
 
   let k = 0;
   const alt = () => { k++; return `${p.title} — ${p.disciplines.split(" / ")[0]}, image ${k}`; };
-  const sections = c.sections.filter((s) => s.label);
+  const app = c.ig?.app === "tiktok" ? "TikTok" : "Instagram";
+
+  const parts = {
+    sets: sets.map((s) => (
+      <section key={s.name} className="wrap">
+        <BlockLabel name={s.name} note={s.note} />
+        {s.layout === "grid"
+          ? <ArchiveGrid items={s.items} alts={s.items.map(() => alt())} />
+          : <SetRow items={s.items} alts={s.items.map(() => alt())} size={s.size} overlap={s.overlap} />}
+      </section>
+    )),
+    phones: phones.length > 0 && mode !== "phones" ? [(
+      <section key="phones">
+        <div className="wrap"><BlockLabel name="Social" note={c.ig ? `${app} @${c.ig.handle}` : undefined} href={c.ig ? (c.ig.app === "tiktok" ? `https://www.tiktok.com/@${c.ig.handle}` : `https://www.instagram.com/${c.ig.handle}/`) : undefined} /></div>
+        <Phones items={phones} alt={alt} ig={c.ig} />
+      </section>
+    )] : [],
+    sites: restSites.map((s) => (
+      <section key={s.src} className="wrap">
+        <BlockLabel name={s.tag ?? "Website"} note={host(s.url) || s.label} href={s.url} />
+        <div className="mx-auto max-w-[1000px]"><SiteIMac site={s} bare /></div>
+      </section>
+    )),
+    book: book.length > 0 ? [(
+      <section key="book" className="wrap">
+        <BlockLabel name="Brandbook" note={c.book} />
+        <BookGrid items={book} alts={book.map(() => alt())} />
+      </section>
+    )] : [],
+  };
+  const order = c.order ?? ["sets", "phones", "sites", "book"];
+  const rest = (["sets", "phones", "sites", "book"] as const).filter((x) => !order.includes(x));
 
   return (
     <main>
       {/* KOP */}
       <section className="wrap pt-28 md:pt-36">
-        <p className="t-label text-ink-2 md:text-right">{p.disciplines}</p>
+        <p className="t-label text-ink-2">{p.disciplines}</p>
         <Lines as="h1" className="t-display mt-6 -ml-[0.04em] text-[clamp(56px,13.5vw,240px)] !leading-[0.84]" lines={[p.title]} />
       </section>
 
-      {/* HERO — geheel in beeld */}
+      {/* HEADER — schermbreed, vullend, iets dieper (16:7; mobiel 4:3) */}
       <div className="mt-8 md:mt-12">
-        {heroItems.length === 1 && (
+        {headerItems.length > 0 && (
+          <div className="relative grid aspect-[4/3] overflow-hidden bg-product md:aspect-[16/7]" style={{ gridTemplateColumns: `repeat(${headerItems.length}, minmax(0, 1fr))` }}>
+            {headerItems.map((x) => (
+              <div key={x.src} className="relative h-full overflow-hidden">
+                <Image src={x.hdr ?? x.src} alt={`${p.title} — header`} fill priority unoptimized={x.product || x.hdrProduct} sizes={headerItems.length > 1 ? "50vw" : "100vw"}
+                  className={x.product || x.hdrProduct ? "object-contain" : "object-cover"}
+                  style={x.product || x.hdrProduct
+                    ? { ["--z" as string]: c.headerZoom ?? (headerItems.length > 1 ? 1.1 : 1.25), ["--zm" as string]: Math.min(c.headerZoom ?? 1.25, headerItems.length > 1 ? 1.35 : 1.3), transform: `translateY(${c.headerShift ?? 0}%) scale(var(--zh))` }
+                    : { objectPosition: `50% ${50 - (c.headerShift ?? 0) * 2}%` }} />
+              </div>
+            ))}
+          </div>
+        )}
+        {headerSite && (
           <div className="wrap">
-            <div className="w-[min(100%,calc(86svh*var(--r)))]" style={{ ["--r" as string]: heroItems[0].w / heroItems[0].h }}>
-              <Visual it={heroItems[0]} alt={`${p.title} — hero`} priority />
-            </div>
+            <BlockLabel name={headerSite.tag ?? "Website"} note={host(headerSite.url) || headerSite.label} href={headerSite.url} />
+            <div className="mx-auto w-[min(100%,calc(min(56vw,72svh)*1058/915))]"><SiteIMac site={headerSite} bare /></div>
           </div>
         )}
-        {heroItems.length === 2 && (
-          <div className="wrap grid grid-cols-1 items-center gap-[var(--gap)] md:grid-cols-2">
-            {heroItems.map((x) => <Visual key={x.src} it={x} alt={`${p.title} — hero`} ratio={c.heroNatural ? undefined : "1/1"} priority sizes="(min-width: 768px) 50vw, 100vw" />)}
-          </div>
-        )}
-        {heroPhones && phones.length > 0 && <Phones items={phones} alt={alt} ig={c.ig} />}
-        {heroSite.length > 0 && <Sites sites={heroSite} />}
+        {mode === "phones" && phones.length > 0 && <Phones items={phones} alt={alt} ig={c.ig} />}
       </div>
 
-      {/* TEKST — één blok: statement, daaronder alle onderdelen */}
-      <section className="wrap grid-12 gap-y-10 py-20 md:py-28">
-        <div className="col-span-4 md:col-span-6">
-          {!isPlaceholder(c.statement) && <Lines as="h2" className="t-h1" lines={[c.statement]} />}
-          {c.intro && <Reveal delay={0.1}><p className="t-label mt-6 text-ink-2">{c.intro}</p></Reveal>}
+      {/* TEKST — statement + My role (de onderdelen staan als steekwoorden boven de titel) */}
+      <section className="wrap grid-12 items-end gap-y-10 pt-[var(--block)]">
+        {/* grote titel links, My role ernaast rechts */}
+        <div className="col-span-4 md:col-span-8">
+          {!isPlaceholder(c.statement) && (
+            <Lines as="h2" className="t-h1 statement [&>span]:whitespace-nowrap" lines={c.lines ?? [c.statement]}
+              style={{ ["--chars" as string]: Math.max(...(c.lines ?? [c.statement]).map((l) => l.length)) }} />
+          )}
+        </div>
+        <div className="col-span-4 md:col-span-4 md:col-start-9">
+          {c.intro && <Reveal delay={0.1}><p className="t-label mb-8 text-ink-2">{c.intro}</p></Reveal>}
           {c.role && (
-            <Reveal delay={0.15} className="mt-10 max-w-[560px]">
+            <Reveal delay={0.15} className="max-w-[460px]">
               <p className="t-label text-ink-2">My role</p>
               <p className="t-body mt-2">{c.role}</p>
             </Reveal>
           )}
         </div>
-        {sections.length > 0 && (
-          <Reveal delay={0.1} className="col-span-4 md:col-span-5 md:col-start-8">
-            <dl className="space-y-4">
-              {sections.map((s) => (
-                <div key={s.label} className="grid grid-cols-[minmax(0,5fr)_minmax(0,7fr)] gap-4">
-                  <dt className="t-label pt-[0.3em]">{s.label}</dt>
-                  <dd className="t-body text-ink-2">{isPlaceholder(s.text) ? "" : s.text}</dd>
-                </div>
-              ))}
-            </dl>
-          </Reveal>
-        )}
       </section>
 
-      {/* BEELD */}
-      <div className="space-y-[var(--gap)]">
-        {scroll.length > 0 && <HScroll items={scroll} alts={scroll.map(() => alt())} />}
-        {c.sitesFirst && restSites.length > 0 && <Sites sites={restSites} />}
-        {grid.length > 0 && <Grid items={grid} alt={alt} center={c.centerGrid} />}
-        {!heroPhones && phones.length > 0 && <Phones items={phones} alt={alt} ig={c.ig} />}
-        {!c.sitesFirst && restSites.length > 0 && <Sites sites={restSites} />}
+      {/* BEELD — elk blok met label, overal dezelfde witruimte */}
+      <div className="flex flex-col gap-[var(--block)] py-[var(--block)]">
+        {[...order, ...rest].flatMap((x) => parts[x])}
       </div>
 
       {/* NEXT PROJECT */}
-      <Link href={`/work/${next.slug}`} data-tone="dark" className="group wrap mt-28 block bg-ink pt-6 pb-10 text-paper md:mt-40" data-cursor="Next">
+      <Link href={`/work/${next.slug}`} data-tone="dark" className="group wrap block bg-ink pt-6 pb-10 text-paper" data-cursor="Next">
         <span className="t-label text-paper/60">Next project</span>
         <p className="t-display mt-16 text-[clamp(48px,11vw,200px)] !leading-[0.86] transition-colors duration-300 group-hover:text-accent">
           {next.title} →

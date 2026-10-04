@@ -2,7 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 
 // Leest het manifest dat scripts/beelden.mjs per case maakt (public/work/<slug>/manifest.json).
-export type Item = { src: string; w: number; h: number; video?: boolean; poster?: string };
+export type Item = { src: string; w: number; h: number; video?: boolean; poster?: string; product?: boolean; hdr?: string; hdrProduct?: boolean }; // hdr = zelfde product op het lichte headervlak (#F3F1EC) // product = uitgeknipt op de paginakleur
 export type Kind = "groot" | "duo" | "trio" | "set" | "layover" | "telefoon" | "telefoon-video" | "video"
   | "scroll" | "studio" | "detail" | "single" | "website";
 export type Block = { key: string; kind: Kind; items: Item[] };

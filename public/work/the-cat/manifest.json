@@ -6,16 +6,20 @@
       "kind": "duo",
       "items": [
         {
-          "file": "01-duo-1-95a729cf.webp",
-          "w": 2048,
-          "h": 2048,
-          "src": "/work/the-cat/01-duo-1-95a729cf.webp"
+          "file": "01-duo-1-f7646ea6.jpg",
+          "w": 1600,
+          "h": 1600,
+          "src": "/work/the-cat/01-duo-1-f7646ea6.jpg",
+          "product": true,
+          "hdr": "/work/the-cat/01-duo-1-hdr-be9aad34.jpg"
         },
         {
-          "file": "01-duo-2-1d76393c.webp",
-          "w": 2048,
-          "h": 2048,
-          "src": "/work/the-cat/01-duo-2-1d76393c.webp"
+          "file": "01-duo-2-21c6571e.jpg",
+          "w": 1600,
+          "h": 1600,
+          "src": "/work/the-cat/01-duo-2-21c6571e.jpg",
+          "product": true,
+          "hdr": "/work/the-cat/01-duo-2-hdr-c124a283.jpg"
         }
       ]
     }

@@ -7,6 +7,7 @@
   --color-ink: #141311;        /* bijna-zwart */
   --color-ink-2: #605c55;      /* secundaire tekst (contrast ≥ 4,5:1) */
   --color-line: #cfcac1;       /* lijnen */
+  --color-product: #f3f1ec;    /* productachtergrond (vlak achter uitgeknipte producten) */
   --color-accent: #2d3bff;     /* Cobalt — gekozen in stap 2 */
 
   --font-sans: var(--font-inter), "Helvetica Neue", Arial, sans-serif;
@@ -199,3 +200,43 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 .rink-cursor { will-change: transform; }
 .rink-cursor-arrow { opacity: 0; transition: opacity .2s; }
 .rink-cursor[data-mode="work"] .rink-cursor-arrow { opacity: 1; }
+/* ---------- Case-opbouw (4 okt): één witruimte, sets, zoom ---------- */
+:root { --block: 56px; }
+@media (min-width: 768px) { :root { --block: 96px; } }
+.set-row { scrollbar-width: none; }
+.set-row::-webkit-scrollbar { display: none; }
+/* alle tegels even hoog; breedte volgt de verhouding (--r) */
+.set-tile { --tile: calc((100vw - var(--gap) - 2 * var(--gutter)) / 1.6); height: var(--tile); aspect-ratio: var(--r, 1); }
+@media (min-width: 768px) { .set-tile { --tile: calc((100vw - 2 * var(--gap) - 2 * var(--gutter)) / 3.25); } }
+.zoom { position: fixed; z-index: 55; margin: 0; overflow: hidden; background: var(--color-paper); cursor: zoom-out;
+  box-shadow: 0 1px 1.5px rgba(20,19,17,.2), 0 10px 24px -8px rgba(20,19,17,.3);
+  transition: left .55s var(--ease-out-rink, cubic-bezier(.2,.7,.2,1)), top .55s var(--ease-out-rink, cubic-bezier(.2,.7,.2,1)), width .55s var(--ease-out-rink, cubic-bezier(.2,.7,.2,1)), height .55s var(--ease-out-rink, cubic-bezier(.2,.7,.2,1)); }
+.zoom img { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (prefers-reduced-motion: reduce) { .zoom { transition: none; } }
+
+/* Uitgeknipte producten smelten in de pagina: randen lopen zacht uit, zodat er nooit een vlak te zien is. */
+.melt { background: transparent !important;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, transparent, #000 7%, #000 93%, transparent);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent, #000 7%, #000 93%, transparent), linear-gradient(to bottom, transparent, #000 7%, #000 93%, transparent);
+  mask-composite: intersect; }
+
+/* Sets: grotere tegels (Santani-campagne) en losse, licht overlappende producten (JAJA) */
+.set-row.is-large .set-tile { --tile: calc((100vw - 2 * var(--gutter)) / 1.25); }
+@media (min-width: 768px) { .set-row.is-large .set-tile { --tile: calc((100vw - 2 * var(--gutter)) / 2.3); } }
+.set-row.is-overlap .set-tile { margin-right: calc(var(--tile) * -0.36); }
+.set-row.is-overlap .set-tile:nth-child(3n + 2) { height: calc(var(--tile) * 0.84); margin-bottom: calc(var(--tile) * 0.14); }
+.set-row.is-overlap .set-tile:nth-child(3n) { height: calc(var(--tile) * 0.94); }
+.set-row.is-overlap .set-tile:last-child { margin-right: 0; }
+/* overlappende producten: het donkerste pixel wint, zodat de ondergrond wegvalt en beide producten zichtbaar blijven */
+.set-row.is-overlap .set-tile { mix-blend-mode: darken; }
+.set-row.is-overlap .set-tile .melt { -webkit-mask-image: none; mask-image: none; }
+
+/* Grote case-titel: zo groot als t-h1, maar nooit breder dan zijn kolom (langste regel bepaalt) */
+.statement { font-size: min(13vw, calc((100vw - 2 * var(--gutter)) / (var(--chars) * 0.5))); }
+@media (min-width: 768px) { .statement { font-size: min(9vw, 160px, calc((100vw - 2 * var(--gutter)) * 0.64 / (var(--chars) * 0.5))); } }
+
+/* Header-product: op mobiel (4:3) minder ver ingezoomd dan op desktop (16:7), zodat niets van het product wegvalt */
+:root { --zh: var(--zm); }
+main [style*="--zm"] { --zh: var(--zm); }
+@media (min-width: 768px) { main [style*="--zm"] { --zh: var(--z); } }

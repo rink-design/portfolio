@@ -6,10 +6,11 @@
       "kind": "layover",
       "items": [
         {
-          "file": "01-layover-1-f9ae1bdf.webp",
-          "w": 2048,
-          "h": 2048,
-          "src": "/work/jaja/01-layover-1-f9ae1bdf.webp"
+          "file": "01-layover-1-b121530f.jpg",
+          "w": 1600,
+          "h": 1600,
+          "src": "/work/jaja/01-layover-1-b121530f.jpg",
+          "product": true
         }
       ]
     },
@@ -18,10 +19,11 @@
       "kind": "layover",
       "items": [
         {
-          "file": "02-layover-1-6cf56095.webp",
-          "w": 2048,
-          "h": 2048,
-          "src": "/work/jaja/02-layover-1-6cf56095.webp"
+          "file": "02-layover-1-cf00681c.jpg",
+          "w": 1600,
+          "h": 1600,
+          "src": "/work/jaja/02-layover-1-cf00681c.jpg",
+          "product": true
         }
       ]
     },
@@ -30,10 +32,11 @@
       "kind": "layover",
       "items": [
         {
-          "file": "03-layover-1-c83962ac.webp",
-          "w": 2048,
-          "h": 2048,
-          "src": "/work/jaja/03-layover-1-c83962ac.webp"
+          "file": "03-layover-1-f2030b7a.jpg",
+          "w": 1600,
+          "h": 1600,
+          "src": "/work/jaja/03-layover-1-f2030b7a.jpg",
+          "product": true
         }
       ]
     },
@@ -42,10 +45,11 @@
       "kind": "layover",
       "items": [
         {
-          "file": "04-layover-1-399e9845.webp",
-          "w": 2048,
-          "h": 2048,
-          "src": "/work/jaja/04-layover-1-399e9845.webp"
+          "file": "04-layover-1-a06014ee.jpg",
+          "w": 1600,
+          "h": 1600,
+          "src": "/work/jaja/04-layover-1-a06014ee.jpg",
+          "product": true
         }
       ]
     },
@@ -54,10 +58,11 @@
       "kind": "layover",
       "items": [
         {
-          "file": "05-layover-1-7e6c7faf.webp",
-          "w": 2048,
-          "h": 2048,
-          "src": "/work/jaja/05-layover-1-7e6c7faf.webp"
+          "file": "05-layover-1-e3802afe.jpg",
+          "w": 1600,
+          "h": 1600,
+          "src": "/work/jaja/05-layover-1-e3802afe.jpg",
+          "product": true
         }
       ]
     },

@@ -133,7 +133,6 @@ export function Phone({ it, alt, ig }: { it: Item; alt: string; ig?: Insta }) {
   return (
     <a href={`https://www.instagram.com/${ig.handle}/`} target="_blank" rel="noopener noreferrer" data-cursor="Instagram" aria-label={`@${ig.handle} on Instagram`} className="block">
       {phone}
-      <span className="t-label mt-4 block whitespace-nowrap text-center text-ink">@{ig.handle} ↗</span>
     </a>
   );
 }
