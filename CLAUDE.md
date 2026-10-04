@@ -106,3 +106,10 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Cijfers onder de cases, vóór de marquee: 38+ Projects · 7+ Years of experience, in t-h1, tellen op bij in beeld komen (components/motion/CountUp.tsx). Haar wens — uitzondering op 'geen tellers'.
 - Video's (AutoVideo): starten ook in iPhone-energiebesparingsmodus bij de eerste tik (touchend/click, niet touchstart).
 - Gereedschap op haar Mac (zonder wachtwoord, map ~/.rink-tools): Node.js 24 (PATH via ~/.zprofile), Python 3.12 + rembg in ~/.rink-tools/imgenv (`U2NET_HOME=~/.rink-tools/u2net`). Lokale preview: .claude/launch.json → npm run dev.
+
+## Mockups 4 okt (goedgekeurd)
+- Websites: zilveren iMac Pro 27″ met Apple-logo (Blender-render public/mockups/imac-pro-silver.webp, scherm = gat; echte site erachter via matrix3d op 4 hoeken, 5 px overscan). components/blocks/IMac.tsx. Alle 4 sites klikbaar (url in content/cases).
+- Telefoons: iPhone 18 Pro zwart, overal even groot (md: 270 px). Video's in Instagram-reel-omgeving; TikTok voor De Baron (@jajapaper). Profielscherm opnieuw opgebouwd met echte posts (public/ig/<handle>/), linkt naar het echte account. Cijfers opgehaald 4 okt (lopen niet mee).
+- Schaduwen: klein en subtiel, alleen bij het apparaat.
+- Santani: alleen de lancering, eerste 10 weken.
+- Preview-werkwijze: statische snapshot van de echte pagina's als Artifact (scratchpad/casepreview/build.py) → pas na 'goedgekeurd' live.

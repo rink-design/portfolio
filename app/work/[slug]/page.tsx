@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { projects } from "@/content/projects";
-import { cases, type Site } from "@/content/cases";
+import { cases, type Insta, type Site } from "@/content/cases";
 import { caseBlocks, type Item } from "@/lib/media";
 import { Visual } from "@/components/blocks/Visual";
 import { HScroll } from "@/components/blocks/HScroll";
-import { Phone, SiteLaptop } from "@/components/blocks/Frames";
+import { Phone, SiteIMac } from "@/components/blocks/Frames";
 import { ImageReveal } from "@/components/motion/ImageReveal";
 import { Lines, Reveal } from "@/components/motion/Reveal";
 
@@ -36,11 +36,12 @@ function Grid({ items, alt, center }: { items: Item[]; alt: (i: number) => strin
   );
 }
 
-function Phones({ items, alt }: { items: Item[]; alt: (i: number) => string }) {
+// Alle telefoons overal even groot (zelfde breedte), gecentreerd op een rij.
+function Phones({ items, alt, ig }: { items: Item[]; alt: (i: number) => string; ig?: Insta }) {
   return (
     <div className="wrap bg-paper-2/60 py-16 md:py-24">
-      <div className={`mx-auto grid max-w-[1200px] grid-cols-2 gap-[4vw] md:gap-[2.5vw] ${items.length >= 4 ? "md:grid-cols-4" : items.length === 3 ? "md:grid-cols-3" : "max-w-[520px]"}`}>
-        {items.map((x, i) => <Reveal key={x.src} delay={i * 0.08}><Phone it={x} alt={alt(i)} /></Reveal>)}
+      <div className="mx-auto flex max-w-[1200px] flex-wrap justify-center gap-[4vw] md:gap-[2.5vw]">
+        {items.map((x, i) => <Reveal key={x.src} delay={i * 0.08} className="w-[42vw] md:w-[min(21vw,270px)]"><Phone it={x} alt={alt(i)} ig={ig} /></Reveal>)}
       </div>
     </div>
   );
@@ -49,7 +50,7 @@ function Phones({ items, alt }: { items: Item[]; alt: (i: number) => string }) {
 function Sites({ sites }: { sites: Site[] }) {
   return (
     <div className={`wrap grid gap-x-[5%] gap-y-16 overflow-x-clip px-[6%] py-16 md:py-24 ${sites.length > 1 ? "md:grid-cols-2" : "mx-auto max-w-[1240px]"}`}>
-      {sites.map((s, i) => <Reveal key={s.src} delay={i * 0.1}><SiteLaptop site={s} /></Reveal>)}
+      {sites.map((s, i) => <Reveal key={s.src} delay={i * 0.1}><SiteIMac site={s} /></Reveal>)}
     </div>
   );
 }
@@ -109,7 +110,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
             {heroItems.map((x) => <Visual key={x.src} it={x} alt={`${p.title} — hero`} ratio={c.heroNatural ? undefined : "1/1"} priority sizes="(min-width: 768px) 50vw, 100vw" />)}
           </div>
         )}
-        {heroPhones && phones.length > 0 && <Phones items={phones} alt={alt} />}
+        {heroPhones && phones.length > 0 && <Phones items={phones} alt={alt} ig={c.ig} />}
         {heroSite.length > 0 && <Sites sites={heroSite} />}
       </div>
 
@@ -144,7 +145,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
         {scroll.length > 0 && <HScroll items={scroll} alts={scroll.map(() => alt())} />}
         {c.sitesFirst && restSites.length > 0 && <Sites sites={restSites} />}
         {grid.length > 0 && <Grid items={grid} alt={alt} center={c.centerGrid} />}
-        {!heroPhones && phones.length > 0 && <Phones items={phones} alt={alt} />}
+        {!heroPhones && phones.length > 0 && <Phones items={phones} alt={alt} ig={c.ig} />}
         {!c.sitesFirst && restSites.length > 0 && <Sites sites={restSites} />}
       </div>
 
