@@ -47,7 +47,7 @@ export const cases: Record<string, CaseText> = {
     ],
   },
   "purple-rain": {
-    statement: "Same disciplines. A different world.",
+    statement: "A rebrand, inspired by the sea.",
     role: "Designer, full rebrand.",
     sections: [
       { label: "Concept", text: "Dreamy, exclusive, inspired by the sea." },
@@ -57,7 +57,7 @@ export const cases: Record<string, CaseText> = {
     ],
   },
   "don-gelato": {
-    statement: "A visual story, directed.",
+    statement: "A new brand, art directed.",
     role: "Art Director & Designer.",
     sections: [
       { label: "Identity", text: "Type, colour and tone." },
@@ -67,7 +67,7 @@ export const cases: Record<string, CaseText> = {
     ],
   },
   "big-push": {
-    statement: "A new position, made visible.",
+    statement: "A new direction, designed and built.",
     role: "Designer & Developer.",
     hero: "site",
     sites: [{ src: "/sites/bigpush.webp", w: 1440, h: 8371, label: "bigpush.nl" }],
@@ -92,7 +92,7 @@ export const cases: Record<string, CaseText> = {
     ],
   },
   "the-cat": {
-    statement: "One briefing. Two answers.",
+    statement: "Ladies’ editions, with flair.",
     role: "Designer, two concepts.",
     hero: "pair",
     heroNatural: true,
@@ -106,7 +106,6 @@ export const cases: Record<string, CaseText> = {
   purple: {
     statement: "A coffeeshop, rebranded.",
     role: "Designer, full rebrand.",
-    intro: "Coffeeshop in Vlissingen.",
     sections: [
       { label: "Identity", text: "The new identity." },
       { label: "Product Development", text: "Merchandise, products, part of the interior." },
