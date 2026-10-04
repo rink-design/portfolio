@@ -27,7 +27,7 @@ export function AboutPortrait() {
       <div className="about-slab md:flex md:flex-1 md:flex-col">
         <div className="relative aspect-[4/5] overflow-hidden bg-paper-2 md:aspect-auto md:min-h-[360px] md:flex-1">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img ref={img} src="/about/portret-70b46b7c.webp" alt="Portrait of Rinke van de Rakt" loading="lazy"
+          <img ref={img} src="/about/portret-d3781175.webp" alt="Portrait of Rinke van de Rakt" loading="lazy"
             className="about-photo absolute inset-x-0 -top-[6%] h-[112%] w-full object-cover object-[50%_25%]" />
           <figcaption className="absolute inset-x-0 bottom-0 flex justify-between gap-3 bg-gradient-to-t from-ink/55 to-transparent p-4 pt-12 text-paper">
             <span className="t-label">Rinke van de Rakt</span>
