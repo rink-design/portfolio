@@ -1,4 +1,4 @@
-import { projects, contact, background } from "@/content/projects";
+import { projects, contact, background, cv } from "@/content/projects";
 import { WorkCard } from "@/components/WorkCard";
 import { Lines, Reveal } from "@/components/motion/Reveal";
 import { RinkMark } from "@/components/RinkMark";
@@ -61,8 +61,18 @@ export default function Home() {
         </div>
         <Reveal className="grid-12 mt-16">
           <p className="t-label col-span-4 text-ink-2 md:col-span-3">Background</p>
-          <ul className="t-label col-span-4 mt-3 space-y-1 md:col-span-9 md:mt-0">{background.map((b) => <li key={b}>{b}</li>)}</ul>
+          <ul className="t-label col-span-4 mt-3 space-y-1 md:col-span-9 md:mt-0">
+            {background.map((b) => (
+              <li key={b.what} className="flex justify-between gap-6"><span>{b.what}</span><span className="shrink-0 whitespace-nowrap text-ink-2">{b.time}</span></li>
+            ))}
+          </ul>
         </Reveal>
+        {cv.map((c) => (
+          <Reveal key={c.label} className="grid-12 mt-10">
+            <p className="t-label col-span-4 text-ink-2 md:col-span-3">{c.label}</p>
+            <p className="t-label col-span-4 mt-3 md:col-span-9 md:mt-0">{c.items.join(" · ")}</p>
+          </Reveal>
+        ))}
       </section>
 
       {/* 05 — CONTACT */}

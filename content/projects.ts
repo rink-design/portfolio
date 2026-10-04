@@ -25,7 +25,21 @@ export const projects: Project[] = [
   { slug: "big-push", tag: "Repositioning", number: "05", title: "BIG PUSH", disciplines: "Identity / Digital", statement: "A new position, made visible.", cover: "/covers/big-push.webp" },
 ];
 
-export const background = ["AMFI — Fashion & Branding", "Sint Lucas — Graphic Design & Photography", "Code d’Azur — Internship", "Wessel de Groot — Internship"];
+// Semi-cv onder About. Background met duur; de rest als één regel met puntjes.
+export const background = [
+  { what: "JAJA Rolling Paper — All-round Creative", time: "7 years" },
+  { what: "Freelance — Digital & Packaging Design", time: "3 years" },
+  { what: "AMFI — Fashion & Branding", time: "4 years" },
+  { what: "Sint Lucas — Graphic Design & Photography", time: "4 years" },
+  { what: "Code d’Azur — Internship", time: "½ year" },
+  { what: "Wessel de Groot — Internship", time: "½ year" },
+];
+
+export const cv = [
+  { label: "Services", items: ["Brand Identity", "Packaging Design", "Art Direction", "Graphic Design", "Digital Design", "Websites", "Social Content", "Product Development"] },
+  { label: "Tools", items: ["Illustrator", "Photoshop", "InDesign", "Figma", "CapCut", "Shopify", "Claude", "ChatGPT", "Midjourney", "Magnific", "Automation tools"] },
+  { label: "Brands", items: ["JAJA", "Soirée", "Purple Rain", "Don Gelato", "The Cat", "Purple", "Canajoy", "Santani", "Big Push", "De Baron", "Shiva", "Highlife", "Smokey"] },
+];
 
 export const contact = {
   email: "rinkevanderakt@gmail.com",
