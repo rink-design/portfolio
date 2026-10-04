@@ -212,8 +212,8 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
   transition: transform 0.7s var(--ease-out-rink);
 }
 .about-slab:hover::before { transform: translate(8px, 8px); }
-.about-photo { filter: grayscale(1) contrast(1.05); transition: filter 0.8s var(--ease-out-rink); will-change: transform; }
-.about-slab:hover .about-photo { filter: grayscale(0); }
+.about-photo { transition: filter 0.8s var(--ease-out-rink); will-change: transform; }
+.about-slab:hover .about-photo { filter: grayscale(1) contrast(1.05); }
 
 /* About: tools-band, heel langzaam; pauzeert bij hover */
 .tools-track { animation: tools-scroll 160s linear infinite; }
@@ -281,6 +281,6 @@ main [style*="--zm"] { --zh: var(--zm); }
   .mid-js .row { opacity: 0.22; transition: opacity 0.4s; }
   .mid-js .row[data-on] { opacity: 1; }
   .mid-js .row[data-on] .t-h1 { color: var(--color-accent); }
-  .mid-js [data-mid="photo"][data-on] .about-photo { filter: none; }
+  .mid-js [data-mid="photo"][data-on] .about-photo { filter: grayscale(1) contrast(1.05); }
   .mid-js [data-mid="photo"][data-on] .about-slab::before { transform: translate(8px, 8px); }
 }

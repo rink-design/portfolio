@@ -19,7 +19,6 @@ export const about = {
     { name: "InDesign", logo: "/tools/indesign.svg" }, { name: "Figma", logo: "/tools/figma.svg" },
     { name: "CapCut", logo: "/tools/capcut.svg" }, { name: "Shopify", logo: "/tools/shopify.svg" },
     { name: "Claude", logo: "/tools/claude.svg" }, { name: "ChatGPT", logo: "/tools/chatgpt.svg" },
-    { name: "Midjourney", logo: "/tools/midjourney.svg" }, { name: "Magnific", mark: "Ma" },
-    { name: "Automation", logo: "/tools/automation.svg" },
+    { name: "Midjourney", logo: "/tools/midjourney.svg" }, { name: "Magnific", mark: "Ma" }
   ] as { name: string; logo?: string; mark?: string }[],
 };

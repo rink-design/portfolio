@@ -16,7 +16,7 @@ function Rows({ rows, group }: { rows: typeof about.experience; group: string })
       {rows.map((r) => (
         <div key={r.name} data-mid={group}
           className="row group/row flex flex-col items-start py-3 transition-opacity duration-300 group-has-[.row:hover]/rows:opacity-25 hover:opacity-100! md:py-4">
-          <p className="t-h1 text-[clamp(44px,5.8vw,110px)] transition-colors duration-300 group-hover/row:text-accent">{r.name}</p>
+          <p className="t-h1 !text-[clamp(40px,5.2vw,84px)] !leading-[0.98] transition-colors duration-300 group-hover/row:text-accent">{r.name}</p>
           <div className="mt-3 grid gap-1 transition-colors duration-300 group-hover/row:text-accent">
             {r.lines.map((l) => <p key={l} className="t-label">{l}</p>)}
           </div>
@@ -77,24 +77,24 @@ export function About() {
           <div className={body}><Rows rows={about.education} group="edu" /></div>
         </div>
 
-        <div className={`${block} mt-10 md:mt-20`}>
-          <div className={lab}><p className="t-label pt-[13px] text-ink-2">In numbers</p></div>
-          <div className={`${body} grid grid-cols-2 gap-x-[var(--gap)]`}>
-            {about.numbers.map((n, i) => (
-              <Reveal key={n.label} delay={i * 0.1}>
-                <p className="t-h1 text-[clamp(44px,5.8vw,110px)] text-accent"><CountUp to={n.to} suffix="+" delay={i * 0.15} duration={2.2} /></p>
-                <p className="t-label mt-4 text-ink-2">{n.label}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-
         <div className="mt-14 md:mt-24">
           <p className="t-label mb-6 text-ink-2">Tools</p>
         </div>
         <div className="tools -mx-[var(--gutter)] grid gap-[var(--gap)] overflow-hidden" role="list" aria-label={about.tools.map((t) => t.name).join(", ")}>
           <ToolRow />
           <ToolRow reverse />
+        </div>
+
+        <div className={`${block} mt-14 md:mt-24`}>
+          <div className={lab}><p className="t-label pt-[13px] text-ink-2">In numbers</p></div>
+          <div className={`${body} grid grid-cols-2 gap-x-[var(--gap)]`}>
+            {about.numbers.map((n, i) => (
+              <Reveal key={n.label} delay={i * 0.1}>
+                <p className="t-h1 !text-[clamp(40px,5.2vw,84px)] !leading-[0.98]"><CountUp to={n.to} suffix="+" delay={i * 0.15} duration={2.2} settle /></p>
+                <p className="t-label mt-4 text-ink-2">{n.label}</p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
       <MidFocus rootId="about" />
