@@ -8,6 +8,7 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Kan niet programmeren, heeft een heel scherp oog voor typografie, grid, compositie en beweging. Haar oordeel over hoe iets eruitziet is leidend.
 
 ## Werkwijze (kort)
+- EERST PREVIEW: elke wijziging eerst als interactieve Artifact-preview (echte beweging/klikken) laten zien. Pas na haar 'goedgekeurd' commit + push naar live (byrink.com). Niets live zetten zonder akkoord.
 - Jij leidt, één stap tegelijk. Simpel Nederlands, korte zinnen, moeilijke woorden meteen uitleggen.
 - Vragen als aanklikbare keuzes (max. 4 per ronde, advies bovenaan met "(Aanbevolen)").
 - Eerst interview → `plan.md` → pas bouwen na haar "ja".
