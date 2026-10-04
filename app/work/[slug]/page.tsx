@@ -149,7 +149,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       </div>
 
       {/* NEXT PROJECT */}
-      <Link href={`/work/${next.slug}`} className="group wrap mt-28 block bg-ink pt-6 pb-10 text-paper md:mt-40" data-cursor="Next">
+      <Link href={`/work/${next.slug}`} data-tone="dark" className="group wrap mt-28 block bg-ink pt-6 pb-10 text-paper md:mt-40" data-cursor="Next">
         <span className="t-label text-paper/60">Next project</span>
         <p className="t-display mt-16 text-[clamp(48px,11vw,200px)] !leading-[0.86] transition-colors duration-300 group-hover:text-accent">
           {next.title} →

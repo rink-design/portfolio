@@ -2,16 +2,20 @@
 import { animate, motion, useMotionValue, useReducedMotion, useTransform, AnimatePresence } from "motion/react";
 import { useEffect, useLayoutEffect, useState } from "react";
 import { LOGO_PATHS, LOGO_VIEWBOX as V } from "../logo-paths";
+import { R_STROKES, R_WRITE_END } from "../r-strokes";
 
-// Laadscherm: het RINK-logo wordt "geschreven": de vulling begint bij de punt van de R (boven én onder tegelijk)
-// en loopt van links naar rechts door naar INK, terwijl de site laadt. Daarna schuift het scherm weg.
+const INK_X = 76.5; // waar I-N-K begint
+
+// Laadscherm: eerst wordt de sierlijke R écht geschreven — pennenstreken vanaf de uiteinden (boven en onder
+// tegelijk), die de vector onthullen. Daarna vult I-N-K zich van links naar rechts terwijl de site laadt.
 // Het logo staat exact op de plek van het logo onderaan de header.
 export function Loader() {
   const reduce = useReducedMotion();
   const [show, setShow] = useState(true);
   const [skip, setSkip] = useState(false);
   const progress = useMotionValue(0);
-  const fillW = useTransform(progress, [0, 100], [0, V.w + 4]);
+  // INK vult pas als de R grotendeels geschreven is
+  const fillW = useTransform(progress, [55, 100], [0, V.x + V.w + 2 - INK_X], { clamp: true });
   const counter = useTransform(progress, (v) => String(Math.round(v)).padStart(3, "0"));
 
   // Eén keer per bezoek.
@@ -24,9 +28,9 @@ export function Loader() {
   // Voortgang: loopt mee met het echte laden, minimaal ± 2,2 s.
   useEffect(() => {
     if (!show || skip) return;
-    const min = reduce ? 300 : 2200;
+    const min = reduce ? 300 : Math.round((R_WRITE_END + 1.1) * 1000);
     const start = performance.now();
-    const ctrl = animate(progress, 88, { duration: min / 1000, ease: [0.45, 0, 0.25, 1] });
+    const ctrl = animate(progress, 88, { duration: min / 1000, ease: [0.35, 0, 0.25, 1] });
     let finished = false;
     const finish = () => {
       if (finished) return; finished = true;
@@ -55,13 +59,23 @@ export function Loader() {
           <div className="wrap pb-5 md:pb-6">
             <svg viewBox={`${V.x} ${V.y} ${V.w} ${V.h}`} className="block h-auto w-full" aria-label="RINK — loading">
               <defs>
-                <clipPath id="rink-fill"><motion.rect x={V.x - 2} y={V.y - 2} height={V.h + 4} style={{ width: fillW }} /></clipPath>
+                {/* Masker voor de R: dikke pennenstreken langs de middenlijnen */}
+                <mask id="r-write" maskUnits="userSpaceOnUse" x={V.x - 4} y={V.y - 4} width={V.w + 8} height={V.h + 8}>
+                  {R_STROKES.map((s) => (
+                    <motion.path key={s.id} d={s.d} fill="none" stroke="#fff" strokeWidth={s.w} strokeLinecap="round" strokeLinejoin="round"
+                      initial={reduce ? { pathLength: 1, opacity: 1 } : { pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }}
+                      transition={{ pathLength: { duration: s.dur, delay: 0.2 + s.delay, ease: [0.45, 0.05, 0.25, 1] }, opacity: { duration: 0.01, delay: 0.2 + s.delay } }} />
+                  ))}
+                </mask>
+                <clipPath id="ink-fill"><motion.rect x={INK_X} y={V.y - 2} height={V.h + 4} style={{ width: fillW }} /></clipPath>
               </defs>
               {/* Lichte grondvorm: geen lijn, alleen vlak */}
               {LOGO_PATHS.map((d, i) => <path key={`g${i}`} d={d} fill="var(--color-paper-2)" />)}
-              {/* Vulling die meestijgt met het laden */}
-              <g clipPath="url(#rink-fill)">
-                {LOGO_PATHS.map((d, i) => <path key={`f${i}`} d={d} fill="var(--color-ink)" />)}
+              {/* De R, geschreven */}
+              <path d={LOGO_PATHS[0]} fill="var(--color-ink)" mask="url(#r-write)" />
+              {/* I-N-K, vult mee met het laden */}
+              <g clipPath="url(#ink-fill)">
+                {LOGO_PATHS.slice(1).map((d, i) => <path key={`f${i}`} d={d} fill="var(--color-ink)" />)}
               </g>
             </svg>
             {/* Onzichtbare labelregel: zelfde hoogte als Brand · Packaging · Digital in de header */}
