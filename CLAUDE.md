@@ -174,3 +174,11 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Mockups zonder vlak erachter. Labels: B2B Website (jaja.net, boven de header-iMac) / B2C Website (jajashop.com).
 - Desktop-header-video: public/hero-58d8cf7d.mp4 (1600×1200, zonder geluid) + poster; oude hero.mp4 weg.
 - Laadscherm: I-N-K vult NIET meer mee met de laadteller (die wacht op 88 → K haperde). Vulling = vervolg van de pen: start als het puntje van de R uitzwiept, één beweging tot en met de K (inkAt in r-pen.ts, ±1,25 s). Teller loopt nog mee met het laden.
+
+## About-ronde 4 okt (avond) — VERVANGT eerdere About-regels (cijfers/marquee/Make it…/Background)
+- Volgorde: zin (woord voor woord, vaag → cobalt → zwart, sticky ~280vh) → foto links + Experience/Education rechts (compact, foto-hoogte = tot onderkant Education) → Services in 2 kolommen (regel voor regel uit masker) → Tools-iconenband (echte logo's in public/tools, heel langzaam; Magnific nog letter-tegel "Ma") → cijfers 38+/7+ (tellen blauw op, staan zwart, + cobalt). Witruimte boven en onder cijfers gelijk (128 px, mobiel 64 px).
+- Zin: "I build brands and design to let people see, feel and hold on to. Made to stand out and built to last." Labels: About me / Experience / Education / Services / Tools / In numbers.
+- Experience: JaJa (Creative Director & Designer, 7 years) · Design by Rink (Digital, Packaging & Social, 3 years) · Code d’Azur (Internship, Marketing & Creative, 6 months) · Wessel de Groot (Internship, Assistant Photography & Design, 6 months). Education: AMFI (Fashion & Branding, 4 years) · Sint Lucas (Graphic Design & Photography, 4 years).
+- Services: Brand Identity, Packaging, Product Development, Art Direction, Graphic Design, Digital Design, Web Design, Social Content. Geen koppeling dienst ↔ rij (ze deed bijna alles overal). Geen verzonnen uitleg per dienst.
+- Foto (public/about, 1400 px): eerst in kleur, zwart-wit bij hover; mobiel altijd kleur. Cobalt plaat alleen links. Typografie = bestaand systeem (t-h1/t-label), geen eigen lettertypen.
+- Touch (geen hover): wat in het midden van het scherm staat licht op (components/MidFocus.tsx). Code: components/About.tsx, ScrollSentence, ServiceList, AboutPortrait; inhoud content/about.ts.
