@@ -148,3 +148,10 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Contact: LiquidDrops (WebGL cobalt druppels, muis/vinger = druppel), GetInTouch-menu (Mail · Call · WhatsApp, magnetisch), altijd 'Available for new projects', LocalClock, © RINK Design + Back to top.
 - Muis: Rekblok (components/motion/Cursor.tsx), cobalt vierkant dat rekt met snelheid; groot met ↗ boven [data-cursor], omkeren boven links/knoppen. Alleen pointer: fine.
 - Niet gekozen (cobalt): beelden onthullen, paginaovergang, punt achter casetitel, selectie in cobalt.
+
+## Ronde 4 onderkant (4 okt, nacht) — LIVE, vervangt waar het botst
+- Menu-blokjes weg. 'Let's work together' eindigt met vierkant cobalt blokje (geen punt).
+- Lines-masker ruimer onder (pb 0.22em) zodat de g niet wegvalt.
+- Tijd klein rechtsboven in Contact ('Amsterdam hh:mm:ss'), grote klok weg.
+- E-mail · telefoon · LinkedIn lager, 3 kolommen: links / midden / rechts.
+- Muis: 10 px cobalt blokje, minder rek, cobalt pixelspoor (canvas); boven werk 26 px met ↗; onzichtbaar zolang .rink-loader bestaat.
