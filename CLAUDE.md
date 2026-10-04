@@ -8,6 +8,7 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Kan niet programmeren, heeft een heel scherp oog voor typografie, grid, compositie en beweging. Haar oordeel over hoe iets eruitziet is leidend.
 
 ## Werkwijze (kort)
+- EERST PREVIEW: elke wijziging eerst als interactieve Artifact-preview (echte beweging/klikken) laten zien. Pas na haar 'goedgekeurd' commit + push naar live (byrink.com). Niets live zetten zonder akkoord.
 - Jij leidt, één stap tegelijk. Simpel Nederlands, korte zinnen, moeilijke woorden meteen uitleggen.
 - Vragen als aanklikbare keuzes (max. 4 per ronde, advies bovenaan met "(Aanbevolen)").
 - Eerst interview → `plan.md` → pas bouwen na haar "ja".
@@ -79,7 +80,8 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Nav 'RINK' vet. Favicon = sierlijke R in zwarte cirkel (app/icon.svg).
 - Covers = alléén preview op de home; komen NIET terug op de case-pagina. Case-hero standaard = eerste beeld van de case. JAJA-hero = B2B-website (jaja.net), B2C daaronder.
 - Header = showreel als schermvullende achtergrond (h-svh, object-cover, uitsnede object-[50%_85%] zodat product boven logo staat), logo-SVG + labels in WIT ONDERAAN de header (pb-5/md:pb-6), labels als marge eronder. Daarna direct Selected work.
-- Laadscherm 'schrijft': vulling van links naar rechts over volle hoogte, start bij de punt van de R → INK. Logo op exact dezelfde plek onderaan; teller bovenaan.
+- Laadscherm: de sierlijke R wordt ÉCHT geschreven — pennenstreken (middenlijnen, components/r-strokes.ts, berekend met scripts/r-pennenstreken.py) onthullen de vector als masker, start tegelijk bij de punt boven (zwaai) en de krul onder (hoofdhaal), dan lus, buik, uithaal (~1,6 s). Daarna vult I-N-K van links naar rechts met de laadvoortgang. Logo onderaan, teller bovenaan.
+- Menu: wit boven donkere secties (data-tone="dark": header, contact, next project), zwart op licht (components/Nav.tsx).
 - Alle video's via components/AutoVideo.tsx (iOS-autoplay: muted/playsinline als attribuut + play() in beeld). Energiebesparingsmodus op iPhone kan autoplay alsnog blokkeren → start bij eerste aanraking.
 - Santani: telefoons (hero) → tekst → website → 2 campagnebeelden gecentreerd. The Cat: hero-paar op eigen verhouding (meer ruimte).
 - Achtergronden Canajoy, Purple Rain, Purple vervangen door de RINK-studio-achtergrond (rembg + verloop, script: scripts/achtergrond-studio.py; originelen onaangeroerd op Drive).

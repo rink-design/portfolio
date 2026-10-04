@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main>
       {/* 01 — HEADER: showreel als achtergrond, logo en labels in wit erbovenop */}
-      <section className="relative flex h-svh min-h-[520px] flex-col justify-end overflow-hidden bg-ink">
+      <section data-tone="dark" className="relative flex h-svh min-h-[520px] flex-col justify-end overflow-hidden bg-ink">
         {hasHeroVideo() && <HeroVideo />}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-ink/35 via-transparent to-ink/30" aria-hidden />
         <div className="wrap relative pb-5 text-paper md:pb-6">
@@ -67,7 +67,7 @@ export default function Home() {
       </section>
 
       {/* 05 — CONTACT */}
-      <section id="contact" className="mt-40 bg-ink text-paper md:mt-56">
+      <section id="contact" data-tone="dark" className="mt-40 bg-ink text-paper md:mt-56">
         <div className="wrap flex flex-col gap-16 py-20 md:gap-24 md:py-28">
           <div>
             <Lines className="t-display !leading-[0.86] !tracking-[-0.052em] text-[clamp(64px,15.5vw,260px)]" stagger={0.1}
