@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-// Menu in exact dezelfde stijl en op dezelfde plek als de tekst van het laadscherm ("RINK Design" + teller).
+// Menu in exact dezelfde stijl en op dezelfde plek als de tekst van het laadscherm ("Design by RINK" + teller).
 // Verdwijnt bij naar beneden scrollen, komt terug bij naar boven scrollen.
 // Verkleurt mee: wit boven donkere vlakken (data-tone="dark"), zwart op licht.
 const SECTIONS = ["work", "about", "contact"];

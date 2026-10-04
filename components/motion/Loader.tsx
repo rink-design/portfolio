@@ -89,7 +89,7 @@ export function Loader() {
         <motion.div key="loader" className="rink-loader fixed inset-0 z-[70] flex flex-col justify-end bg-paper"
           initial={{ opacity: 1 }} exit={{ opacity: 0 }} transition={{ duration: 0.8, ease: [0.65, 0, 0.35, 1] }}>
           <div className="wrap pb-5 md:pb-6">
-            <svg viewBox={`${V.x} ${V.y} ${V.w} ${V.h}`} className="block h-auto w-full overflow-visible" aria-label="RINK — loading">
+            <svg viewBox={`${V.x} ${V.y} ${V.w} ${V.h}`} className="block h-auto w-full overflow-visible" aria-label="Design by RINK — loading">
               <defs>
                 <clipPath id="r-shape"><path d={LOGO_PATHS[0]} /></clipPath>
                 {PEN_SEGS.map((s) => (
@@ -116,7 +116,7 @@ export function Loader() {
             <div className="t-label invisible mt-5" aria-hidden>Brand</div>
           </div>
           <div className="wrap t-label absolute inset-x-0 top-5 flex justify-between">
-            <span>RINK Design</span>
+            <span>Design by RINK</span>
             <motion.span className="tabular-nums">{counter}</motion.span>
           </div>
         </motion.div>
