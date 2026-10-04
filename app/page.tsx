@@ -30,7 +30,7 @@ export default function Home() {
       {/* 03 — SELECTED WORK — vijf rijen van twee */}
       <section id="work" className="wrap mt-16 scroll-mt-16 md:mt-24">
         <div className="flex items-end justify-between pb-10">
-          <h2 className="t-label">Selected work</h2>
+          <h2 className="t-label">Selected projects</h2>
         </div>
         <div className="grid grid-cols-1 gap-x-[var(--gap)] gap-y-16 md:grid-cols-2 md:gap-y-24">
           {projects.map((p, i) => <WorkCard key={p.slug} p={p} delay={i % 2 ? 0.12 : 0} />)}
@@ -50,7 +50,7 @@ export default function Home() {
       </section>
 
       <div className="mt-20 md:mt-28">
-        <Marquee items={["Brand Identity", "Packaging", "Art Direction", "Graphic Design"]} />
+        <Marquee items={["Brand Identity", "Packaging", "Art Direction", "Graphic Design", "Digital Design"]} />
       </div>
 
       {/* 04 — ABOUT */}
@@ -59,8 +59,6 @@ export default function Home() {
         <div className="grid-12 mt-10">
           <Reveal className="col-span-4 md:col-span-7"><p className="t-h2">I design brands that feel like one — on the shelf, in your hand and on screen.</p></Reveal>
         </div>
-        <Lines as="p" className="t-h1 mt-20 uppercase !text-[8.4vw] md:mt-28" stagger={0.12}
-          lines={["Make it cohesive.", "Make it tangible.", <>Make it work<span key="d" className="text-accent">.</span></>]} />
         <Reveal className="grid-12 mt-16">
           <p className="t-label col-span-4 text-ink-2 md:col-span-3">Background</p>
           <ul className="t-label col-span-4 mt-3 space-y-1 md:col-span-9 md:mt-0">{background.map((b) => <li key={b}>{b}</li>)}</ul>

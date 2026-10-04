@@ -25,7 +25,7 @@ export const projects: Project[] = [
   { slug: "big-push", tag: "Repositioning", number: "05", title: "BIG PUSH", disciplines: "Identity / Digital", statement: "A new position, made visible.", cover: "/covers/big-push.webp" },
 ];
 
-export const background = ["AMFI — Fashion & Branding", "Graphic Design", "Code d’Azur — Internship", "Wessel de Groot — Internship", "RINK Design"];
+export const background = ["AMFI — Fashion & Branding", "Sint Lucas — Graphic Design & Photography", "Code d’Azur — Internship", "Wessel de Groot — Internship"];
 
 export const contact = {
   email: "rinkevanderakt@gmail.com",
