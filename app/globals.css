@@ -281,6 +281,5 @@ main [style*="--zm"] { --zh: var(--zm); }
   .mid-js .row { opacity: 0.22; transition: opacity 0.4s; }
   .mid-js .row[data-on] { opacity: 1; }
   .mid-js .row[data-on] .t-h1 { color: var(--color-accent); }
-  .mid-js [data-mid="photo"][data-on] .about-photo { filter: grayscale(1) contrast(1.05); }
   .mid-js [data-mid="photo"][data-on] .about-slab::before { transform: translate(8px, 8px); }
 }
