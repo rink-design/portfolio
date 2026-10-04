@@ -10,7 +10,6 @@ import { Availability } from "@/components/Availability";
 import { CountUp } from "@/components/motion/CountUp";
 import { LiquidDrops } from "@/components/motion/LiquidDrops";
 import { GetInTouch } from "@/components/GetInTouch";
-import { LocalClock } from "@/components/LocalClock";
 
 // Home begint donker (video): statusbalk op de telefoon kleurt mee, geen lichte balk boven de video.
 export const viewport: Viewport = { viewportFit: "cover", themeColor: "#141311" };
@@ -91,15 +90,15 @@ export default function Home() {
         <div className="wrap flex flex-col gap-16 pt-16 pb-6 md:gap-20 md:pt-20">
           <Availability />
           <Lines className="t-display !leading-[0.86] !tracking-[-0.052em] text-[clamp(64px,15.5vw,260px)]" stagger={0.1}
-            lines={["Let’s work", <>together<span key="d" className="text-accent">.</span></>]} />
-          <Reveal className="grid grid-cols-1 items-end gap-x-[var(--gap)] gap-y-12 md:grid-cols-2">
+            lines={["Let’s work", <>together<span key="d" className="ml-[0.06em] inline-block h-[0.17em] w-[0.17em] bg-accent" aria-hidden /></>]} />
+          <Reveal>
             <GetInTouch />
-            <LocalClock />
           </Reveal>
-          <Reveal className="grid-12 t-body gap-y-3">
-            <a href={`mailto:${contact.email}`} className="link-line col-span-4 justify-self-start">{contact.email}</a>
-            <a href={contact.phoneHref} className="link-line col-span-4 justify-self-start">{contact.phone}</a>
-            <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="link-line col-span-4 justify-self-start md:justify-self-end">LinkedIn ↗</a>
+          {/* Gegevens lager, netjes verdeeld: links · midden · rechts */}
+          <Reveal className="t-body mt-12 grid grid-cols-1 gap-3 md:mt-24 md:grid-cols-3 md:items-baseline">
+            <a href={`mailto:${contact.email}`} className="link-line justify-self-start">{contact.email}</a>
+            <a href={contact.phoneHref} className="link-line justify-self-start md:justify-self-center">{contact.phone}</a>
+            <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="link-line justify-self-start md:justify-self-end">LinkedIn ↗</a>
           </Reveal>
           <div className="t-label mt-6 flex justify-between text-paper/60">
             <span>© RINK Design</span>
