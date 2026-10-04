@@ -40,7 +40,7 @@ export const education = [
 
 export const cv = [
   { label: "Services", items: ["Brand Identity", "Packaging Design", "Art Direction", "Graphic Design", "Digital Design", "Websites", "Social Content", "Product Development"] },
-  { label: "Tools", items: ["Illustrator", "Photoshop", "InDesign", "Figma", "CapCut", "Shopify", "Claude", "ChatGPT", "Midjourney", "Magnific", "Automation tools"] },
+  { label: "Tools", items: ["Adobe Illustrator", "Adobe Photoshop", "Adobe InDesign", "Figma", "CapCut", "Shopify", "Claude", "ChatGPT", "Midjourney", "Magnific", "Automation tools"] },
   { label: "Languages", items: ["Dutch", "English"] },
 ];
 

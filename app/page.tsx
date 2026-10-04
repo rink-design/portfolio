@@ -59,8 +59,14 @@ export default function Home() {
         <div className="grid-12 mt-10">
           <Reveal className="col-span-4 md:col-span-7"><p className="t-h2">I design brands that feel like one — on the shelf, in your hand and on screen.</p></Reveal>
         </div>
+        {cv.slice(0, 1).map((c) => (
+          <Reveal key={c.label} className="grid-12 mt-16">
+            <p className="t-label col-span-4 text-ink-2 md:col-span-3">{c.label}</p>
+            <p className="t-label col-span-4 mt-3 md:col-span-9 md:mt-0">{c.items.join(" · ")}</p>
+          </Reveal>
+        ))}
         {[{ label: "Experience", rows: experience }, { label: "Education", rows: education }].map((g, k) => (
-          <Reveal key={g.label} className={`grid-12 ${k ? "mt-10" : "mt-16"}`}>
+          <Reveal key={g.label} className="grid-12 mt-10">
             <p className="t-label col-span-4 text-ink-2 md:col-span-3">{g.label}</p>
             <ul className="t-label col-span-4 mt-3 space-y-1 md:col-span-9 md:mt-0">
               {g.rows.map((b) => (
@@ -69,7 +75,7 @@ export default function Home() {
             </ul>
           </Reveal>
         ))}
-        {cv.map((c) => (
+        {cv.slice(1).map((c) => (
           <Reveal key={c.label} className="grid-12 mt-10">
             <p className="t-label col-span-4 text-ink-2 md:col-span-3">{c.label}</p>
             <p className="t-label col-span-4 mt-3 md:col-span-9 md:mt-0">{c.items.join(" · ")}</p>
