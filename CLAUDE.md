@@ -162,3 +162,4 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Elke streek onthult alleen zijn eigen gebied (components/r-regions.ts, gemaakt met scripts/r-gebieden.py) → geen klontjes waar streken samenkomen.
 - I-N-K vult van links naar rechts in kobalt, mee met het laden. Einde: scherm vervaagt (0,8 s); kobalt logo gaat over in het witte header-logo eronder.
 - Proefpagina met tijdschuif: Artifact 'RINK Laadscherm' (claude.ai/artifact/1kQZwXrvJj6YPsA57LvPLy).
+- Mobiel (< 768 px) heeft een eigen staande header-video: public/hero-mobile-<hash>.mp4 (720×1280, zonder geluid) + poster; desktop houdt hero.mp4. Via AutoVideo mobileSrc/mobilePoster. Video's webklaar maken: ffmpeg uit imageio-ffmpeg in ~/.rink-tools/imgenv.
