@@ -182,3 +182,5 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Services: Brand Identity, Packaging, Product Development, Art Direction, Graphic Design, Digital Design, Web Design, Social Content. Geen koppeling dienst ↔ rij (ze deed bijna alles overal). Geen verzonnen uitleg per dienst.
 - Foto (public/about, 1400 px): eerst in kleur, zwart-wit bij hover; mobiel altijd kleur. Cobalt plaat alleen links. Typografie = bestaand systeem (t-h1/t-label), geen eigen lettertypen.
 - Touch (geen hover): wat in het midden van het scherm staat licht op (components/MidFocus.tsx). Code: components/About.tsx, ScrollSentence, ServiceList, AboutPortrait; inhoud content/about.ts.
+- Tools-band (About): optie B — twee rijen, elk een eigen helft (boven Illustrator/Photoshop/InDesign/Figma/CapCut, onder Shopify/Claude/ChatGPT/Midjourney/Magnific), tegels even breed (clamp 240–400 px), ± 50 px/s. Nooit dezelfde tool boven elkaar.
+- Menu: WORK · ABOUT · CONTACT in hoofdletters. Footer: min-h-lvh + onderruimte env(safe-area-inset-bottom) (iPhone: ook met ingeklapte Safari-balk tot onder).
