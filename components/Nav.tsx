@@ -5,14 +5,24 @@ import { useEffect, useRef, useState } from "react";
 // Menu in exact dezelfde stijl en op dezelfde plek als de tekst van het laadscherm ("RINK Design" + teller).
 // Verdwijnt bij naar beneden scrollen, komt terug bij naar boven scrollen.
 // Verkleurt mee: wit boven donkere vlakken (data-tone="dark"), zwart op licht.
+const SECTIONS = ["work", "about", "contact"];
+
 export function Nav() {
   const [dark, setDark] = useState(true);
   const [hidden, setHidden] = useState(false);
+  const [active, setActive] = useState<string | null>(null);
   const lastY = useRef(0);
   useEffect(() => {
     const check = () => {
       const els = document.elementsFromPoint(window.innerWidth / 2, 28);
       setDark(els.some((el) => (el as HTMLElement).closest?.('[data-tone="dark"]')));
+      // Actieve sectie: de laatste die de bovenste 40% van het scherm heeft bereikt
+      let cur: string | null = null;
+      for (const id of SECTIONS) {
+        const s = document.getElementById(id);
+        if (s && s.getBoundingClientRect().top <= window.innerHeight * 0.4) cur = id;
+      }
+      setActive(cur);
     };
     const onScroll = () => {
       const y = window.scrollY;
@@ -36,9 +46,13 @@ export function Nav() {
     >
       <Link href="/" aria-label="Design by RINK — home">Design by RINK</Link>
       <nav className="flex gap-5 md:gap-8">
-        <Link href="/#work">Work</Link>
-        <Link href="/#about">About</Link>
-        <Link href="/#contact">Contact</Link>
+        {SECTIONS.map((id) => (
+          <Link key={id} href={`/#${id}`} className="relative inline-flex items-center capitalize">
+            {/* Cobalt blokje vóór de sectie waar je bent */}
+            <span aria-hidden className={`inline-block h-[7px] bg-accent transition-all duration-500 ease-[var(--ease-out-rink)] ${active === id ? "mr-[6px] w-[7px] opacity-100" : "mr-0 w-0 opacity-0"}`} />
+            {id}
+          </Link>
+        ))}
       </nav>
     </header>
   );
