@@ -80,10 +80,11 @@ export function About() {
         {/* Witruimte boven en onder de cijfers is even groot (128 px, mobiel 64 px) */}
         <div className="mt-16 md:mt-32">
           <p className="t-label mb-4 text-ink-2">In numbers</p>
-          <div className="grid grid-cols-2 gap-x-[var(--gap)] md:grid-cols-4">
+          {/* Op het grid: links de linker projectkolom, rechts de rechterkolom (waar Experience begint) */}
+          <div className="grid-12">
             {about.numbers.map((n, i) => (
-              <Reveal key={n.label} delay={i * 0.1}>
-                <p className="t-h1 !text-[clamp(28px,4.6vw,76px)] !leading-[1.02]"><CountUp to={n.to} suffix="+" delay={i * 0.15} duration={2.2} settle /></p>
+              <Reveal key={n.label} delay={i * 0.1} className={i === 0 ? "col-span-2 md:col-span-6" : "col-span-2 md:col-span-6 md:col-start-7"}>
+                <p className="t-display !text-[clamp(64px,11vw,200px)] !leading-[0.9] !tracking-[-0.05em]"><CountUp to={n.to} suffix="+" delay={i * 0.15} duration={2.2} settle /></p>
                 <p className="t-label mt-3 text-ink-2">{n.label}</p>
               </Reveal>
             ))}
