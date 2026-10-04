@@ -172,3 +172,5 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Sets (content/cases `sets`): even hoge tegels, slepen met cursor 'Drag', klik = groter (groeit uit zijn plek). Brandbook = overzicht, hover = groter. Coffeeshop = archief (raster van 3).
 - Producten uitgeknipt op exact de paginakleur #EBE8E2 (JPEG 4:4:4, `product: true`, unoptimized, zachte randmasker .melt); header-variant `hdr` op #F3F1EC. Coffeeshop uitgeknipt op Hunters-grijs #EEEEEE. Don Gelato: originele foto's (alleen header uitgeknipt). Uitknippen: rembg birefnet-general + alpha matting (scratch knip.py), één beeld per keer (geheugen).
 - Mockups zonder vlak erachter. Labels: B2B Website (jaja.net, boven de header-iMac) / B2C Website (jajashop.com).
+- Desktop-header-video: public/hero-58d8cf7d.mp4 (1600×1200, zonder geluid) + poster; oude hero.mp4 weg.
+- Laadscherm: I-N-K vult NIET meer mee met de laadteller (die wacht op 88 → K haperde). Vulling = vervolg van de pen: start als het puntje van de R uitzwiept, één beweging tot en met de K (inkAt in r-pen.ts, ±1,25 s). Teller loopt nog mee met het laden.
