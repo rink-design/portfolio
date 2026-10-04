@@ -23,7 +23,7 @@ export function Availability() {
     <div className="t-label flex flex-wrap justify-between gap-x-6 gap-y-2 text-paper/80">
       <span className="inline-flex items-center gap-2.5">
         <span className={`avail-dot ${s?.open ? "is-open" : ""}`} aria-hidden />
-        <span>{s ? (s.open ? "Available for projects" : "Offline") : " "}</span>
+        <span>{s ? (s.open ? "Available for new projects" : "Offline") : " "}</span>
       </span>
       <span>Based in Amsterdam{s && <> · <span className="tabular-nums">{s.time}</span></>}</span>
     </div>

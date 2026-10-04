@@ -57,7 +57,7 @@ export default function Home() {
       <section id="about" className="wrap mt-28 scroll-mt-16 md:mt-40">
         <h2 className="t-label">About</h2>
         <div className="grid-12 mt-10">
-          <Reveal className="col-span-4 md:col-span-7"><p className="t-h2">I design brands that feel like one — on the shelf, in your hand and on screen.</p></Reveal>
+          <Reveal className="col-span-4 md:col-span-7"><p className="t-h2">Brands made to be seen, held and used — and to stand out.</p></Reveal>
         </div>
         {cv.slice(0, 1).map((c) => (
           <Reveal key={c.label} className="grid-12 mt-16">
