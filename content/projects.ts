@@ -25,20 +25,23 @@ export const projects: Project[] = [
   { slug: "big-push", tag: "Repositioning", number: "05", title: "BIG PUSH", disciplines: "Identity / Digital", statement: "A new position, made visible.", cover: "/covers/big-push.webp" },
 ];
 
-// Semi-cv onder About. Background met duur; de rest als één regel met puntjes.
-export const background = [
+// Semi-cv onder About: Experience en Education met duur; de rest als één regel met puntjes.
+export const experience = [
   { what: "JAJA Rolling Paper — All-round Creative", time: "7 years" },
   { what: "Freelance — Digital & Packaging Design", time: "3 years" },
-  { what: "AMFI — Fashion & Branding", time: "4 years" },
-  { what: "Sint Lucas — Graphic Design & Photography", time: "4 years" },
   { what: "Code d’Azur — Internship", time: "½ year" },
   { what: "Wessel de Groot — Internship", time: "½ year" },
+];
+
+export const education = [
+  { what: "AMFI — Fashion & Branding", time: "4 years" },
+  { what: "Sint Lucas — Graphic Design & Photography", time: "4 years" },
 ];
 
 export const cv = [
   { label: "Services", items: ["Brand Identity", "Packaging Design", "Art Direction", "Graphic Design", "Digital Design", "Websites", "Social Content", "Product Development"] },
   { label: "Tools", items: ["Illustrator", "Photoshop", "InDesign", "Figma", "CapCut", "Shopify", "Claude", "ChatGPT", "Midjourney", "Magnific", "Automation tools"] },
-  { label: "Brands", items: ["JAJA", "Soirée", "Purple Rain", "Don Gelato", "The Cat", "Purple", "Canajoy", "Santani", "Big Push", "De Baron", "Shiva", "Highlife", "Smokey"] },
+  { label: "Languages", items: ["Dutch", "English"] },
 ];
 
 export const contact = {
