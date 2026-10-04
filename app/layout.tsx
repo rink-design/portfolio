@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Nav } from "@/components/Nav";
@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
+
+// Mobiel: beeld mag doorlopen tot bovenin het scherm (ook achter de statusbalk).
+export const viewport: Viewport = { viewportFit: "cover" };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (

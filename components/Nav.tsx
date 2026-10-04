@@ -1,26 +1,41 @@
 "use client";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-// Menu verkleurt mee: wit boven donkere vlakken (video, contact, next project), zwart op licht.
-// Donkere secties dragen data-tone="dark".
+// Menu in exact dezelfde stijl en op dezelfde plek als de tekst van het laadscherm ("RINK Design" + teller).
+// Verdwijnt bij naar beneden scrollen, komt terug bij naar boven scrollen.
+// Verkleurt mee: wit boven donkere vlakken (data-tone="dark"), zwart op licht.
 export function Nav() {
   const [dark, setDark] = useState(true);
+  const [hidden, setHidden] = useState(false);
+  const lastY = useRef(0);
   useEffect(() => {
     const check = () => {
       const els = document.elementsFromPoint(window.innerWidth / 2, 28);
       setDark(els.some((el) => (el as HTMLElement).closest?.('[data-tone="dark"]')));
     };
+    const onScroll = () => {
+      const y = window.scrollY;
+      const dy = y - lastY.current;
+      if (y < 80) setHidden(false);
+      else if (dy > 6) setHidden(true);
+      else if (dy < -6) setHidden(false);
+      if (Math.abs(dy) > 6 || y < 80) lastY.current = y;
+      check();
+    };
     check();
-    window.addEventListener("scroll", check, { passive: true });
+    window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", check);
     const t = setInterval(check, 800); // vangnet bij paginawissel
-    return () => { window.removeEventListener("scroll", check); window.removeEventListener("resize", check); clearInterval(t); };
+    return () => { window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", check); clearInterval(t); };
   }, []);
   return (
-    <header className={`wrap fixed inset-x-0 top-0 z-50 flex items-center justify-between py-4 transition-colors duration-300 ${dark ? "text-paper" : "text-ink"}`}>
-      <Link href="/" className="t-label !font-bold !tracking-[0.04em]" aria-label="RINK — home">RINK</Link>
-      <nav className="t-label flex gap-5 md:gap-8">
+    <header
+      className={`wrap t-label fixed inset-x-0 top-0 z-50 flex items-start justify-between pt-5 pb-4 transition-[color,transform] duration-500 ease-[var(--ease-out-rink)] ${dark ? "text-paper" : "text-ink"} ${hidden ? "-translate-y-full" : "translate-y-0"}`}
+      onFocusCapture={() => setHidden(false)}
+    >
+      <Link href="/" aria-label="RINK Design — home">RINK Design</Link>
+      <nav className="flex gap-5 md:gap-8">
         <Link href="/#work">Work</Link>
         <Link href="/#about">About</Link>
         <Link href="/#contact">Contact</Link>

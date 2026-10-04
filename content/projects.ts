@@ -25,23 +25,23 @@ export const projects: Project[] = [
   { slug: "big-push", tag: "Repositioning", number: "05", title: "BIG PUSH", disciplines: "Concept / Identity / Website", statement: "A new direction, designed and built.", cover: "/covers/big-push.webp" },
 ];
 
-// Semi-cv onder About: Experience en Education met duur; de rest als één regel met puntjes.
-export const experience = [
+// Semi-cv onder About; de rest als één regel met puntjes.
+// Duur alleen bij werk; stages en studies zonder jaartallen.
+export const experience: { what: string; time?: string }[] = [
   { what: "JAJA Rolling Paper — Creative Director & Designer", time: "7 years" },
   { what: "Freelance — Digital & Packaging Design", time: "3 years" },
-  { what: "Code d’Azur — Internship", time: "½ year" },
-  { what: "Wessel de Groot — Internship", time: "½ year" },
+  { what: "Code d’Azur — Internship" },
+  { what: "Wessel de Groot — Internship" },
 ];
 
-export const education = [
-  { what: "AMFI — Fashion & Branding", time: "4 years" },
-  { what: "Sint Lucas — Graphic Design & Photography", time: "4 years" },
+export const education: { what: string; time?: string }[] = [
+  { what: "AMFI — Fashion & Branding" },
+  { what: "Sint Lucas — Graphic Design & Photography" },
 ];
 
 export const cv = [
-  { label: "Services", items: ["Brand Identity", "Packaging", "Art Direction", "Graphic Design", "Digital Design", "Websites", "Social Content", "Product Development"] },
+  { label: "Services", items: ["Brand Identity", "Packaging", "Product Development", "Art Direction", "Graphic Design", "Digital Design", "Web Design", "Social Content"] },
   { label: "Tools", items: ["Adobe Illustrator", "Adobe Photoshop", "Adobe InDesign", "Figma", "CapCut", "Shopify", "Claude", "ChatGPT", "Midjourney", "Magnific", "Automation tools"] },
-  { label: "Languages", items: ["Dutch", "English"] },
 ];
 
 export const contact = {

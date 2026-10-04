@@ -23,6 +23,9 @@
 }
 
 html { background: var(--color-paper); color: var(--color-ink); overflow-x: clip; }
+/* Home: donkere grond achter de header, zodat de bovenrand op de telefoon (statusbalk) niet licht kleurt */
+html:has(main[data-home]) { background: var(--color-ink); }
+body { background: var(--color-paper); }
 body {
   font-family: var(--font-sans);
   font-feature-settings: "ss01", "cv11";
