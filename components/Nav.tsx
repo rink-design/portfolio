@@ -34,7 +34,7 @@ export function Nav() {
       className={`wrap t-label fixed inset-x-0 top-0 z-50 flex items-start justify-between pt-5 pb-4 transition-[color,transform] duration-500 ease-[var(--ease-out-rink)] ${dark ? "text-paper" : "text-ink"} ${hidden ? "-translate-y-full" : "translate-y-0"}`}
       onFocusCapture={() => setHidden(false)}
     >
-      <Link href="/" aria-label="RINK Design — home">RINK Design</Link>
+      <Link href="/" aria-label="Design by RINK — home">Design by RINK</Link>
       <nav className="flex gap-5 md:gap-8">
         <Link href="/#work">Work</Link>
         <Link href="/#about">About</Link>

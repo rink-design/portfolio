@@ -72,17 +72,17 @@ export function Loader() {
               {/* Lichte grondvorm: geen lijn, alleen vlak */}
               {LOGO_PATHS.map((d, i) => <path key={`g${i}`} d={d} fill="var(--color-paper-2)" />)}
               {/* De R, geschreven */}
-              <path d={LOGO_PATHS[0]} fill="var(--color-ink)" mask="url(#r-write)" />
+              <path d={LOGO_PATHS[0]} fill="var(--color-accent)" mask="url(#r-write)" />
               {/* I-N-K, vult mee met het laden */}
               <g clipPath="url(#ink-fill)">
-                {LOGO_PATHS.slice(1).map((d, i) => <path key={`f${i}`} d={d} fill="var(--color-ink)" />)}
+                {LOGO_PATHS.slice(1).map((d, i) => <path key={`f${i}`} d={d} fill="var(--color-accent)" />)}
               </g>
             </svg>
             {/* Onzichtbare labelregel: zelfde hoogte als Brand · Packaging · Digital in de header */}
             <div className="t-label invisible mt-5" aria-hidden>Brand</div>
           </div>
           <div className="wrap t-label absolute inset-x-0 top-5 flex justify-between">
-            <span>RINK Design</span>
+            <span>Design by RINK</span>
             <motion.span className="tabular-nums">{counter}</motion.span>
           </div>
         </motion.div>

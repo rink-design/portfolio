@@ -1,38 +1,45 @@
 "use client";
-import { motion, useMotionValue, useSpring, AnimatePresence } from "motion/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef } from "react";
 
-// Cobalt "View case"-bolletje dat de muis volgt boven werk (alleen met muis, niet op touch).
+// Rekblok: cobalt vierkantje dat de muis volgt en uitrekt in de bewegingsrichting.
+// Boven werk ([data-cursor]) groot met pijl, boven links/knoppen middelgroot en omkeren. Alleen met muis, niet op touch.
 export function Cursor() {
-  const x = useMotionValue(-100), y = useMotionValue(-100);
-  const sx = useSpring(x, { stiffness: 500, damping: 40, mass: 0.5 });
-  const sy = useSpring(y, { stiffness: 500, damping: 40, mass: 0.5 });
-  const [label, setLabel] = useState<string | null>(null);
-  const [fine, setFine] = useState(false);
-
+  const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    setFine(window.matchMedia("(pointer: fine)").matches);
+    if (!window.matchMedia("(pointer: fine)").matches) return;
+    const el = ref.current!, root = document.documentElement;
+    root.classList.add("has-cursor");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const P = { x: -100, y: -100, in: false }, s = { x: -100, y: -100, sz: 18 };
+    let mode: "work" | "link" | null = null, raf = 0;
     const move = (e: PointerEvent) => {
-      x.set(e.clientX); y.set(e.clientY);
-      const el = (e.target as HTMLElement).closest<HTMLElement>("[data-cursor]");
-      setLabel(el ? el.dataset.cursor ?? null : null);
+      if (e.pointerType !== "mouse") return;
+      if (!P.in) { s.x = e.clientX; s.y = e.clientY; }
+      P.x = e.clientX; P.y = e.clientY; P.in = true;
+      const t = e.target as HTMLElement;
+      mode = t.closest("[data-cursor]") ? "work" : t.closest("a,button,[role=menuitem]") ? "link" : null;
+    };
+    const leave = () => { P.in = false; };
+    const loop = () => {
+      const ox = s.x, oy = s.y, k = reduce ? 1 : 0.25;
+      s.x += (P.x - s.x) * k; s.y += (P.y - s.y) * k;
+      s.sz += ((mode === "work" ? 80 : mode === "link" ? 34 : 18) - s.sz) * (reduce ? 1 : 0.18);
+      const vx = s.x - ox, vy = s.y - oy, sp = reduce ? 0 : Math.min(1.2, Math.hypot(vx, vy) / 40), ang = Math.atan2(vy, vx);
+      el.style.width = el.style.height = `${s.sz}px`;
+      el.style.transform = `translate(${s.x - s.sz / 2}px,${s.y - s.sz / 2}px) rotate(${ang}rad) scale(${1 + sp},${1 - sp * 0.45}) rotate(${-ang}rad)`;
+      el.style.opacity = P.in ? "1" : "0";
+      el.style.mixBlendMode = mode === "link" ? "difference" : "normal";
+      el.dataset.mode = mode ?? "";
+      raf = requestAnimationFrame(loop);
     };
     window.addEventListener("pointermove", move);
-    return () => window.removeEventListener("pointermove", move);
-  }, [x, y]);
-
-  if (!fine) return null;
+    document.addEventListener("mouseleave", leave);
+    raf = requestAnimationFrame(loop);
+    return () => { root.classList.remove("has-cursor"); cancelAnimationFrame(raf); window.removeEventListener("pointermove", move); document.removeEventListener("mouseleave", leave); };
+  }, []);
   return (
-    <motion.div className="pointer-events-none fixed left-0 top-0 z-[60]" style={{ x: sx, y: sy }}>
-      <AnimatePresence>
-        {label && (
-          <motion.div key="c" initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}
-            transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="t-label flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-accent text-center text-paper">
-            {label}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+    <div ref={ref} aria-hidden className="rink-cursor pointer-events-none fixed left-0 top-0 z-[80] flex items-center justify-center bg-accent text-[26px] font-semibold leading-none text-paper opacity-0">
+      <span className="rink-cursor-arrow">↗</span>
+    </div>
   );
 }

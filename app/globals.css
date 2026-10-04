@@ -193,3 +193,9 @@ body {
 .igp-nav { position: absolute; left: 4.5%; right: 4.5%; bottom: 3.2%; height: 7.4%; border-radius: 999px; background: rgba(255,255,255,.82); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 1px 6px rgba(0,0,0,.12); display: flex; align-items: center; justify-content: space-around; }
 .igp-nav .igp-i { width: 1.75em; height: 1.75em; }
 .igp-nav .ig-av { width: 1.75em; height: 1.75em; box-shadow: 0 0 0 1.5px #000; }
+
+/* Rekblok-cursor: eigen muis vervangt de gewone (alleen met muis) */
+html.has-cursor, html.has-cursor * { cursor: none !important; }
+.rink-cursor { will-change: transform; }
+.rink-cursor-arrow { opacity: 0; transition: opacity .2s; }
+.rink-cursor[data-mode="work"] .rink-cursor-arrow { opacity: 1; }
