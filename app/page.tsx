@@ -1,13 +1,12 @@
 import type { Viewport } from "next";
-import { projects, contact, experience, education, cv } from "@/content/projects";
+import { projects, contact } from "@/content/projects";
 import { WorkCard } from "@/components/WorkCard";
 import { Lines, Reveal } from "@/components/motion/Reveal";
 import { RinkMark } from "@/components/RinkMark";
 import { AfterLoad } from "@/components/motion/AfterLoad";
 import { HeroVideo, hasHeroVideo } from "@/components/HeroVideo";
-import { Marquee } from "@/components/motion/Marquee";
 import { Availability } from "@/components/Availability";
-import { CountUp } from "@/components/motion/CountUp";
+import { About } from "@/components/About";
 import { LiquidDrops } from "@/components/motion/LiquidDrops";
 import { GetInTouch } from "@/components/GetInTouch";
 
@@ -43,67 +42,26 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 04 — ABOUT: begint met de cijfers (tellen op als ze in beeld komen) */}
-      <section id="about" className="wrap mt-28 scroll-mt-16 md:mt-40" aria-label="About">
-        <div className="grid grid-cols-2 gap-x-[var(--gap)] md:mt-14">
-          {[{ to: 38, label: "Projects" }, { to: 7, label: "Years of experience" }].map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.1}>
-              <p className="t-h1"><CountUp to={s.to} suffix="+" delay={i * 0.15} /></p>
-              <p className="t-label mt-4 text-ink-2">{s.label}</p>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <div className="mt-20 md:mt-28">
-        <Marquee items={["Brand Identity", "Packaging", "Art Direction", "Graphic Design", "Digital Design"]} />
-      </div>
-
-      {/* SEMI-CV — ruime witruimte tussen de blokken; duur met streepje direct achter de regel */}
-      <section className="wrap mt-24 md:mt-36" aria-label="Services, experience and education">
-        {[
-          { label: "Services", items: cv[0].items },
-          { label: "Experience", rows: experience },
-          { label: "Education", rows: education },
-          ...cv.slice(1).map((c) => ({ label: c.label, items: c.items })),
-        ].map((g, k) => (
-          <Reveal key={g.label} className={`grid-12 ${k ? "mt-14 md:mt-20" : ""}`}>
-            <p className="t-label col-span-4 text-ink-2 md:col-span-3">{g.label}</p>
-            {"rows" in g && g.rows ? (
-              <ul className="t-label col-span-4 mt-3 space-y-2 md:col-span-9 md:mt-0">
-                {g.rows.map((b) => (
-                  <li key={b.what}>{b.what}{b.time && <span className="whitespace-nowrap text-ink-2"> — {b.time}</span>}</li>
-                ))}
-              </ul>
-            ) : (
-              <p className="t-label col-span-4 mt-3 md:col-span-9 md:mt-0">
-                {g.items?.map((t, i) => <span key={t}>{i > 0 && <span className="mx-2 inline-block h-[5px] w-[5px] -translate-y-[2px] bg-ink" aria-hidden />}{t}</span>)}
-              </p>
-            )}
-          </Reveal>
-        ))}
-      </section>
+      {/* ABOUT — statement, services, experience, education, cijfers, tools */}
+      <About />
 
       {/* 05 — CONTACT: vloeibaar inkt-en-cobalt vlak, Get in touch-menu, live klok */}
-      <section id="contact" data-tone="dark" className="relative isolate mt-40 overflow-hidden bg-ink text-paper md:mt-56">
+      {/* Precies één schermhoogte: beschikbaarheid bovenin, gegevens onderaan */}
+      <section id="contact" data-tone="dark" className="relative isolate mt-40 flex min-h-svh flex-col overflow-hidden bg-ink text-paper md:mt-56">
         <LiquidDrops />
-        <div className="wrap flex flex-col gap-16 pt-16 pb-6 md:gap-20 md:pt-20">
+        <div className="wrap flex flex-1 flex-col gap-10 pt-16 pb-6">
           <Availability />
-          <Lines className="t-display !leading-[0.86] !tracking-[-0.052em] text-[clamp(64px,15.5vw,260px)]" stagger={0.1}
+          <Lines className="t-display !leading-[0.86] !tracking-[-0.052em] text-[clamp(64px,min(15.5vw,26svh),260px)]" stagger={0.1}
             lines={["Let’s work", <>together<span key="d" className="ml-[0.06em] inline-block h-[0.17em] w-[0.17em] bg-accent" aria-hidden /></>]} />
           <Reveal>
             <GetInTouch />
           </Reveal>
-          {/* Gegevens lager, netjes verdeeld: links · midden · rechts */}
-          <Reveal className="t-body mt-12 grid grid-cols-1 gap-3 md:mt-24 md:grid-cols-3 md:items-baseline">
+          {/* Gegevens onderaan, netjes verdeeld: links · midden · rechts */}
+          <Reveal className="t-body mt-auto grid grid-cols-1 gap-3 md:grid-cols-3 md:items-baseline">
             <a href={`mailto:${contact.email}`} className="link-line justify-self-start">{contact.email}</a>
             <a href={contact.phoneHref} className="link-line justify-self-start md:justify-self-center">{contact.phone}</a>
             <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="link-line justify-self-start md:justify-self-end">LinkedIn ↗</a>
           </Reveal>
-          <div className="t-label mt-6 flex justify-between text-paper/60">
-            <span>© RINK Design</span>
-            <a href="#top" className="link-line">Back to top ↑</a>
-          </div>
         </div>
       </section>
     </main>
