@@ -106,6 +106,8 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Vaste woorden: Identity, Graphics, Packaging, Social Content, Website(s), Art Direction. Toon: kort, statements met punt.
 - Stip: 'Available for new projects'. Google-titel: 'RINK — Brand, Packaging, Art Direction'; beschrijving: 'RINK Design — brand identity, packaging and art direction by RINK, based in Amsterdam.'
 - Purple: geen Vlissingen-regel. Soirée: warm, premium (niet 'dark').
+- Steekwoorden home (5 okt): JAJA Brand & Design · Soirée/Purple Rain/Purple Rebrand · Don Gelato/Canajoy Art Direction · The Cat Ladies Sub-brand · Coffeeshop Packaging · Santani Launch & Social · Big Push Repositioning.
+- Santani-rol (zonder 'I'): concept met mede-stagiairs bij Code d’Azur, timeline + visual/art direction; daarna kort freelance social content creator voor de lancering.
 
 ## Techniek-notities
 - Chromium-screenshots: launch met `--ignore-certificate-errors-spki-list=PS48cX347wDVcRynzq+DFqswl2PLNE1sG6uQvxMCOS0=` (vertrouwt alleen de proxy-CA van deze omgeving).

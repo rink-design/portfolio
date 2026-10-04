@@ -13,15 +13,15 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  { slug: "jaja", tag: "Brand World", number: "01", title: "JAJA", disciplines: "Identity / Products / Production / Campaigns / Digital Design / Social Content / Websites", statement: "One brand. Every touchpoint.", cover: "/covers/jaja.webp" },
+  { slug: "jaja", tag: "Brand & Design", number: "01", title: "JAJA", disciplines: "Identity / Products / Production / Campaigns / Digital Design / Social Content / Websites", statement: "One brand. Every touchpoint.", cover: "/covers/jaja.webp" },
   { slug: "soiree", tag: "Rebrand", number: "02", title: "SOIRÉE", disciplines: "Concept / Identity / Graphics / Packaging", statement: "A rebrand with a premium taste.", cover: "/covers/soiree.webp" },
-  { slug: "purple-rain", tag: "Packaging", number: "03", title: "PURPLE RAIN", disciplines: "Concept / Identity / Graphics / Packaging", statement: "A rebrand, inspired by the sea.", cover: "/covers/purple-rain.webp" },
+  { slug: "purple-rain", tag: "Rebrand", number: "03", title: "PURPLE RAIN", disciplines: "Concept / Identity / Graphics / Packaging", statement: "A rebrand, inspired by the sea.", cover: "/covers/purple-rain.webp" },
   { slug: "don-gelato", tag: "Art Direction", number: "04", title: "DON GELATO", disciplines: "Identity / Packaging / Art Direction / Campaign Imagery", statement: "A new brand, art directed.", cover: "/covers/don-gelato.webp" },
-  { slug: "the-cat", tag: "Ladies Edition", number: "07", title: "THE CAT", disciplines: "Concept / Graphics / Packaging", statement: "Ladies’ editions, with flair.", cover: "/covers/the-cat.webp" },
-  { slug: "purple", tag: "Coffeeshop Rebrand", number: "08", title: "PURPLE", disciplines: "Identity / Product Development", statement: "A coffeeshop, rebranded.", cover: "/covers/purple.webp" },
-  { slug: "canajoy", tag: "New Brand", number: "09", title: "CANAJOY", disciplines: "Identity / Packaging", statement: "A brand, from idea to pack.", cover: "/covers/canajoy.webp" },
-  { slug: "coffeeshop-packaging", tag: "Packaging Archive", number: "10", title: "SELECTED COFFEESHOP PACKAGING", disciplines: "Packaging / Print / Production", statement: "A packaging archive.", cover: "/covers/coffeeshop-packaging.webp" },
-  { slug: "santani", tag: "Drink Launch", number: "06", title: "SANTANI", disciplines: "Concept / Launch / Creative Direction / Social Content", statement: "A creative launch. Concept to social.", cover: "/covers/santani.webp" },
+  { slug: "the-cat", tag: "Ladies Sub-brand", number: "07", title: "THE CAT", disciplines: "Concept / Graphics / Packaging", statement: "Ladies’ editions, with flair.", cover: "/covers/the-cat.webp" },
+  { slug: "purple", tag: "Rebrand", number: "08", title: "PURPLE", disciplines: "Identity / Product Development", statement: "A coffeeshop, rebranded.", cover: "/covers/purple.webp" },
+  { slug: "canajoy", tag: "Art Direction", number: "09", title: "CANAJOY", disciplines: "Identity / Packaging", statement: "A brand, from idea to pack.", cover: "/covers/canajoy.webp" },
+  { slug: "coffeeshop-packaging", tag: "Packaging", number: "10", title: "SELECTED COFFEESHOP PACKAGING", disciplines: "Packaging / Print / Production", statement: "A packaging archive.", cover: "/covers/coffeeshop-packaging.webp" },
+  { slug: "santani", tag: "Launch & Social", number: "06", title: "SANTANI", disciplines: "Concept / Launch / Creative Direction / Social Content", statement: "A creative launch. Concept to social.", cover: "/covers/santani.webp" },
   { slug: "big-push", tag: "Repositioning", number: "05", title: "BIG PUSH", disciplines: "Concept / Identity / Website", statement: "A new direction, designed and built.", cover: "/covers/big-push.webp" },
 ];
 
