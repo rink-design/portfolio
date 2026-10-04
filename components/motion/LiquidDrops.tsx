@@ -1,17 +1,20 @@
 "use client";
 import { useEffect, useRef } from "react";
 
-// Vloeibaar vlak achter Contact: cobalt druppels drijven door de inkt en smelten samen.
+// Vloeibaar vlak achter Contact: druppels in het studio-verloop van haar foto's en video's (nachtblauw → staalblauw → licht
+// blauwgrijs) drijven door de inkt en smelten samen.
 // De muis (of vinger) is zelf een druppel. Rendert alleen als het in beeld is; bij 'minder beweging' staat het stil.
 const VS = "attribute vec2 a;void main(){gl_Position=vec4(a,0.,1.);}";
 const FS = `precision highp float;uniform vec2 r;uniform float t;uniform vec3 b[7];
 float h(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float n(vec2 p){vec2 i=floor(p),f=fract(p);vec2 u=f*f*(3.-2.*f);return mix(mix(h(i),h(i+vec2(1,0)),u.x),mix(h(i+vec2(0,1)),h(i+vec2(1,1)),u.x),u.y);}
-const vec3 INK=vec3(.078,.075,.067);const vec3 COB=vec3(.176,.231,1.);
+const vec3 INK=vec3(.078,.075,.067);
+const vec3 DEEP=vec3(.106,.259,.380);const vec3 MID=vec3(.255,.404,.514);const vec3 LIGHT=vec3(.647,.737,.816);
 void main(){vec2 px=gl_FragCoord.xy;float s=0.;for(int i=0;i<7;i++){vec2 d=px-b[i].xy;s+=b[i].z*b[i].z/(dot(d,d)+1.);}
 float inside=smoothstep(.95,1.05,s);float rim=smoothstep(.75,1.,s)-inside;float core=smoothstep(1.4,3.5,s);
-vec3 col=INK+vec3(.02,.025,.08)*n(px*.004+t*.05);
-col=mix(col,COB,inside);col=mix(col,vec3(.62,.66,1.),core*.35);col+=COB*rim*.6;
+float y=px.y/r.y;vec3 col=INK+vec3(.015,.025,.04)*n(px*.004+t*.05);
+vec3 drop=mix(MID,DEEP,smoothstep(.1,.9,y));
+col=mix(col,drop,inside);col=mix(col,LIGHT,core*.55);col+=MID*rim*.45;
 gl_FragColor=vec4(col,1.);}`;
 
 export function LiquidDrops() {
