@@ -48,7 +48,7 @@ export default function Home() {
 
       {/* 05 — CONTACT: vloeibaar inkt-en-cobalt vlak, Get in touch-menu, live klok */}
       {/* Precies één schermhoogte: beschikbaarheid bovenin, knop in het midden, logo + gegevens onderaan */}
-      <section id="contact" data-tone="dark" className="relative isolate mt-40 flex min-h-svh flex-col overflow-hidden bg-ink text-paper md:mt-56">
+      <section id="contact" data-tone="dark" className="relative isolate mt-16 flex min-h-svh flex-col overflow-hidden bg-ink text-paper md:mt-32">
         <LiquidDrops />
         <div className="wrap flex flex-1 flex-col gap-10 pt-16 pb-6">
           <Availability />

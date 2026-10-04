@@ -3,25 +3,25 @@ import { ScrollSentence } from "@/components/ScrollSentence";
 import { MidFocus } from "@/components/MidFocus";
 import { CountUp } from "@/components/motion/CountUp";
 import { AboutPortrait } from "@/components/AboutPortrait";
+import { ServiceList } from "@/components/ServiceList";
 import { about } from "@/content/about";
 
-// Label links (kolom 1–3), inhoud rechts (vanaf kolom 4) — zelfde lijn voor alle blokken.
-const lab = "col-span-4 mb-4 md:col-span-6 md:mb-0";
-const body = "col-span-4 md:col-span-6 md:col-start-7";
-const block = "grid-12";
-
+// Compacte rijen: naam links, rol en duur rechts (op mobiel eronder). Internships: rol en vakgebied op één regel.
 function Rows({ rows, group }: { rows: typeof about.experience; group: string }) {
   return (
     <div className="group/rows">
-      {rows.map((r) => (
-        <div key={r.name} data-mid={group}
-          className="row group/row flex flex-col items-start py-3 transition-opacity duration-300 group-has-[.row:hover]/rows:opacity-25 hover:opacity-100! md:py-4">
-          <p className="t-h1 !text-[clamp(40px,5.2vw,84px)] !leading-[0.98] transition-colors duration-300 group-hover/row:text-accent">{r.name}</p>
-          <div className="mt-3 grid gap-1 transition-colors duration-300 group-hover/row:text-accent">
-            {r.lines.map((l) => <p key={l} className="t-label">{l}</p>)}
+      {rows.map((r) => {
+        const meta = r.lines.length > 2 ? [r.lines.slice(0, -1).join(" · "), r.lines[r.lines.length - 1]] : r.lines;
+        return (
+          <div key={r.name} data-mid={group}
+            className="row group/row flex flex-col items-start gap-1 py-2.5 transition-opacity duration-300 group-has-[.row:hover]/rows:opacity-25 hover:opacity-100! md:flex-row md:items-baseline md:justify-between md:gap-[var(--gap)]">
+            <p className="t-h1 !text-[clamp(30px,3.6vw,56px)] !leading-[0.98] transition-colors duration-300 group-hover/row:text-accent">{r.name}</p>
+            <div className="grid gap-[3px] transition-colors duration-300 group-hover/row:text-accent md:max-w-[58%] md:shrink-0 md:text-right">
+              {meta.map((l) => <p key={l} className="t-label">{l}</p>)}
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 }
@@ -52,29 +52,19 @@ export function About() {
       <ScrollSentence text={about.statement} />
 
       <div className="wrap -mt-[10svh] md:-mt-[14svh]">
-        <div className={block}>
+        <div className="grid-12">
           <AboutPortrait />
           <div className="col-span-4 mt-8 md:col-span-6 md:col-start-7 md:mt-0">
-            <p className="t-label mb-6 text-ink-2">Services</p>
-            <ul className="group/ul">
-              {about.services.map((s) => (
-                <li key={s} tabIndex={0} data-mid="svc"
-                  className="svc t-h1 cursor-default py-[0.04em] !text-[clamp(40px,5.2vw,84px)] !leading-[0.98] transition-all duration-500 group-has-[.svc:hover]/ul:opacity-20 hover:translate-x-3 hover:text-accent hover:opacity-100! focus-visible:text-accent focus-visible:outline-none">
-                  {s}
-                </li>
-              ))}
-            </ul>
+            <p className="t-label mb-3 text-ink-2">Experience</p>
+            <Rows rows={about.experience} group="exp" />
+            <p className="t-label mb-3 mt-8 text-ink-2 md:mt-10">Education</p>
+            <Rows rows={about.education} group="edu" />
           </div>
         </div>
 
-        <div className={`${block} mt-14 md:mt-24`}>
-          <div className={lab}><p className="t-label pt-[15px] text-ink-2">Experience</p></div>
-          <div className={body}><Rows rows={about.experience} group="exp" /></div>
-        </div>
-
-        <div className={`${block} mt-3 md:mt-4`}>
-          <div className={lab}><p className="t-label pt-[15px] text-ink-2">Education</p></div>
-          <div className={body}><Rows rows={about.education} group="edu" /></div>
+        <div className="mt-14 md:mt-20">
+          <p className="t-label mb-6 text-ink-2">Services</p>
+          <ServiceList items={about.services} />
         </div>
 
         <div className="mt-14 md:mt-24">
@@ -85,13 +75,14 @@ export function About() {
           <ToolRow reverse />
         </div>
 
-        <div className={`${block} mt-14 md:mt-24`}>
-          <div className={lab}><p className="t-label pt-[13px] text-ink-2">In numbers</p></div>
-          <div className={`${body} grid grid-cols-2 gap-x-[var(--gap)]`}>
+        {/* Witruimte boven en onder de cijfers is even groot (128 px, mobiel 64 px) */}
+        <div className="mt-16 md:mt-32">
+          <p className="t-label mb-4 text-ink-2">In numbers</p>
+          <div className="grid grid-cols-2 gap-x-[var(--gap)] md:grid-cols-4">
             {about.numbers.map((n, i) => (
               <Reveal key={n.label} delay={i * 0.1}>
-                <p className="t-h1 !text-[clamp(40px,5.2vw,84px)] !leading-[0.98]"><CountUp to={n.to} suffix="+" delay={i * 0.15} duration={2.2} settle /></p>
-                <p className="t-label mt-4 text-ink-2">{n.label}</p>
+                <p className="t-h1 !text-[clamp(28px,4.6vw,76px)] !leading-[1.02]"><CountUp to={n.to} suffix="+" delay={i * 0.15} duration={2.2} settle /></p>
+                <p className="t-label mt-3 text-ink-2">{n.label}</p>
               </Reveal>
             ))}
           </div>
