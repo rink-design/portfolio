@@ -87,5 +87,15 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Achtergronden Canajoy, Purple Rain, Purple vervangen door de RINK-studio-achtergrond (rembg + verloop, script: scripts/achtergrond-studio.py; originelen onaangeroerd op Drive).
 - Beeldbestanden krijgen een inhoud-hash in de naam (cache-busting). Telefoonvideo's 540 px breed, crf 31.
 
+## Teksten-interview 4 okt — VERVANGT eerdere tekstregels waar ze botsen
+- Alle sitetekst staat in de Claude-doc 'RINK Design — website copy' (https://claude.ai/code/artifact/94d78833-66da-4b90-931f-2de43ddb27d5). Tekstpreview: https://claude.ai/artifact/JMZpHCaDDEJRkGtrgzu4u7 (wijzigingen cobalt gemarkeerd).
+- Bovenin: Brand · Packaging · Art Direction. About-zin: 'I design brands that feel like one — on the shelf, in your hand and on screen.' Google-beschrijving: Cohesive. Tangible. Built to work.
+- Contact: groene stip 'Available for projects' ma–vr 10:00–18:00 Amsterdamse tijd, anders grijs 'Offline'; rechts 'Based in Amsterdam · HH:MM CEST' (components/Availability.tsx). Alleen bij Contact.
+- Home-grid: onder elke cover 1–2 steekwoorden (`tag` in content/projects.ts) i.p.v. disciplines.
+- 'My role' bij elke case. 'In-house designer at JAJA' ALLEEN bij JAJA; bij andere merken nooit JAJA noemen, alleen wat zij deed.
+- Eén woord voor huisstijl: overal 'Identity' (niet house style / graphic identity / brand style). 'Graphics' (meervoud).
+- SOIRÉE met accent. Background: 'Wessel de Groot' is correct; 'Graphic Design' i.p.v. Grafisch Vormgeven.
+- Don Gelato: kleding- en accessoiremerk; campagnebeeld gemaakt met AI (mag eerlijk vermeld). Soirée/Purple Rain: rookaccessoires, complete rebrand. Big Push: ontworpen én gebouwd. Santani: blikjesdrank. The Cat: briefing ladies' edition (Ladies Bag). Canajoy: brand & packaging.
+
 ## Techniek-notities
 - Chromium-screenshots: launch met `--ignore-certificate-errors-spki-list=PS48cX347wDVcRynzq+DFqswl2PLNE1sG6uQvxMCOS0=` (vertrouwt alleen de proxy-CA van deze omgeving).

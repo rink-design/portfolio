@@ -14,9 +14,9 @@ export function WorkCard({ p, delay = 0 }: { p: Project; delay?: number }) {
           <span className="transition-transform duration-500 ease-[var(--ease-out-rink)] group-hover:translate-x-2">{p.title}</span>
           <span className="ml-2 text-accent opacity-0 transition-all duration-500 ease-[var(--ease-out-rink)] group-hover:translate-x-2 group-hover:opacity-100">→</span>
         </h3>
-        <p className="t-label hidden text-right text-ink-2 sm:block">{p.disciplines}</p>
+        <p className="t-label hidden text-right text-ink-2 sm:block">{p.tag}</p>
       </div>
-      <p className="t-label mt-1 text-ink-2 sm:hidden">{p.disciplines}</p>
+      <p className="t-label mt-1 text-ink-2 sm:hidden">{p.tag}</p>
     </Link>
   );
 }

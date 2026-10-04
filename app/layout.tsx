@@ -16,7 +16,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.byrink.com"),
   title: "RINK — Brand, Packaging, Digital",
-  description: "RINK Design — brand identity, packaging, digital design and art direction. Distinctive. Tangible. Built to work.",
+  description: "RINK Design — brand identity, packaging, digital design and art direction. Cohesive. Tangible. Built to work.",
   openGraph: {
     title: "RINK — Brand, Packaging, Digital",
     description: "Brand identity, packaging, digital design and art direction.",

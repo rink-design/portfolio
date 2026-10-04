@@ -5,6 +5,7 @@ import { RinkMark } from "@/components/RinkMark";
 import { AfterLoad } from "@/components/motion/AfterLoad";
 import { HeroVideo, hasHeroVideo } from "@/components/HeroVideo";
 import { Marquee } from "@/components/motion/Marquee";
+import { Availability } from "@/components/Availability";
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
             <div className="grid-12 t-label mt-5">
               <span className="col-span-2 md:col-span-4">Brand</span>
               <span className="col-span-1 md:col-span-4">Packaging</span>
-              <span className="col-span-1 text-right md:col-span-4">Digital</span>
+              <span className="col-span-1 text-right md:col-span-4">Art Direction</span>
             </div>
           </AfterLoad>
         </div>
@@ -43,7 +44,7 @@ export default function Home() {
       <section id="about" className="wrap mt-28 scroll-mt-16 md:mt-40">
         <h2 className="t-label">About</h2>
         <div className="grid-12 mt-10">
-          <Reveal className="col-span-4 md:col-span-7"><p className="t-h2">I design brands you can see, hold and use — and that stand out.</p></Reveal>
+          <Reveal className="col-span-4 md:col-span-7"><p className="t-h2">I design brands that feel like one — on the shelf, in your hand and on screen.</p></Reveal>
         </div>
         <Lines as="p" className="t-h1 mt-20 uppercase !text-[8.4vw] md:mt-28" stagger={0.12}
           lines={["Make it cohesive.", "Make it tangible.", <>Make it work<span key="d" className="text-accent">.</span></>]} />
@@ -56,6 +57,7 @@ export default function Home() {
       {/* 05 — CONTACT */}
       <section id="contact" data-tone="dark" className="mt-40 bg-ink text-paper md:mt-56">
         <div className="wrap flex flex-col gap-16 py-20 md:gap-24 md:py-28">
+          <Availability />
           <div>
             <Lines className="t-display !leading-[0.86] !tracking-[-0.052em] text-[clamp(64px,15.5vw,260px)]" stagger={0.1}
               lines={["Let’s work", <>together<span key="d" className="text-accent">.</span></>]} />
