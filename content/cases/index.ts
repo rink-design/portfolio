@@ -88,7 +88,7 @@ export const cases: Record<string, CaseText> = {
     sitesFirst: true,
     centerGrid: true,
     sites: [{ src: "/sites/santani.webp", w: 1440, h: 9000, label: "santani.vercel.app", url: "https://santani.vercel.app/" }],
-    role: "Launch only. Concept, project management and graphics, as a team during an internship at Code d’Azur (10 weeks).",
+    role: "During my internship at Code d’Azur, my fellow interns and I created the concept to launch Santani, a new organic soda. As a graphic department project, I managed the timeline and contributed to the visual and art direction. After the internship, I worked freelance as a social content creator for a short period to help launch the brand.",
     sections: [
       { label: "Concept", text: "The idea behind a canned drink." },
       { label: "Launch", text: "Introducing the can." },
