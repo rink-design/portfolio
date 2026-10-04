@@ -13,16 +13,16 @@ export type Project = {
 };
 
 export const projects: Project[] = [
-  { slug: "jaja", tag: "Brand world", number: "01", title: "JAJA", disciplines: "Brand / Packaging / Digital", statement: "One brand. Every touchpoint.", cover: "/covers/jaja.webp" },
-  { slug: "soiree", tag: "Rebrand", number: "02", title: "SOIRÉE", disciplines: "Identity / Packaging", statement: "A rebrand with a premium taste.", cover: "/covers/soiree.webp" },
-  { slug: "purple-rain", tag: "Packaging", number: "03", title: "PURPLE RAIN", disciplines: "Identity / Packaging", statement: "A rebrand, inspired by the sea.", cover: "/covers/purple-rain.webp" },
-  { slug: "don-gelato", tag: "Art direction", number: "04", title: "DON GELATO", disciplines: "Art Direction / Identity / Packaging / Photography", statement: "A new brand, art directed.", cover: "/covers/don-gelato.webp" },
-  { slug: "the-cat", tag: "Ladies edition", number: "07", title: "THE CAT", disciplines: "Concept / Packaging", statement: "Ladies’ editions, with flair.", cover: "/covers/the-cat.webp" },
-  { slug: "purple", tag: "Coffeeshop rebrand", number: "08", title: "PURPLE", disciplines: "Rebrand / Identity / Product Development", statement: "A coffeeshop, rebranded.", cover: "/covers/purple.webp" },
-  { slug: "canajoy", tag: "New brand", number: "09", title: "CANAJOY", disciplines: "Brand / Packaging", statement: "A brand, from idea to pack.", cover: "/covers/canajoy.webp" },
-  { slug: "coffeeshop-packaging", tag: "Packaging archive", number: "10", title: "SELECTED COFFEESHOP PACKAGING", disciplines: "Packaging / Print / Production", statement: "A packaging archive.", cover: "/covers/coffeeshop-packaging.webp" },
-  { slug: "santani", tag: "Drink launch", number: "06", title: "SANTANI", disciplines: "Concept / Creative Direction / Social", statement: "A creative launch. Concept to social.", cover: "/covers/santani.webp" },
-  { slug: "big-push", tag: "Repositioning", number: "05", title: "BIG PUSH", disciplines: "Identity / Digital", statement: "A new direction, designed and built.", cover: "/covers/big-push.webp" },
+  { slug: "jaja", tag: "Brand World", number: "01", title: "JAJA", disciplines: "Identity / Products / Production / Campaigns / Digital Design / Social Content / Websites", statement: "One brand. Every touchpoint.", cover: "/covers/jaja.webp" },
+  { slug: "soiree", tag: "Rebrand", number: "02", title: "SOIRÉE", disciplines: "Concept / Identity / Graphics / Packaging", statement: "A rebrand with a premium taste.", cover: "/covers/soiree.webp" },
+  { slug: "purple-rain", tag: "Packaging", number: "03", title: "PURPLE RAIN", disciplines: "Concept / Identity / Graphics / Packaging", statement: "A rebrand, inspired by the sea.", cover: "/covers/purple-rain.webp" },
+  { slug: "don-gelato", tag: "Art Direction", number: "04", title: "DON GELATO", disciplines: "Identity / Packaging / Art Direction / Campaign Imagery", statement: "A new brand, art directed.", cover: "/covers/don-gelato.webp" },
+  { slug: "the-cat", tag: "Ladies Edition", number: "07", title: "THE CAT", disciplines: "Concept / Graphics / Packaging", statement: "Ladies’ editions, with flair.", cover: "/covers/the-cat.webp" },
+  { slug: "purple", tag: "Coffeeshop Rebrand", number: "08", title: "PURPLE", disciplines: "Identity / Product Development", statement: "A coffeeshop, rebranded.", cover: "/covers/purple.webp" },
+  { slug: "canajoy", tag: "New Brand", number: "09", title: "CANAJOY", disciplines: "Identity / Packaging", statement: "A brand, from idea to pack.", cover: "/covers/canajoy.webp" },
+  { slug: "coffeeshop-packaging", tag: "Packaging Archive", number: "10", title: "SELECTED COFFEESHOP PACKAGING", disciplines: "Packaging / Print / Production", statement: "A packaging archive.", cover: "/covers/coffeeshop-packaging.webp" },
+  { slug: "santani", tag: "Drink Launch", number: "06", title: "SANTANI", disciplines: "Concept / Launch / Creative Direction / Social Content", statement: "A creative launch. Concept to social.", cover: "/covers/santani.webp" },
+  { slug: "big-push", tag: "Repositioning", number: "05", title: "BIG PUSH", disciplines: "Concept / Identity / Website", statement: "A new direction, designed and built.", cover: "/covers/big-push.webp" },
 ];
 
 // Semi-cv onder About: Experience en Education met duur; de rest als één regel met puntjes.
@@ -39,7 +39,7 @@ export const education = [
 ];
 
 export const cv = [
-  { label: "Services", items: ["Brand Identity", "Packaging Design", "Art Direction", "Graphic Design", "Digital Design", "Websites", "Social Content", "Product Development"] },
+  { label: "Services", items: ["Brand Identity", "Packaging", "Art Direction", "Graphic Design", "Digital Design", "Websites", "Social Content", "Product Development"] },
   { label: "Tools", items: ["Adobe Illustrator", "Adobe Photoshop", "Adobe InDesign", "Figma", "CapCut", "Shopify", "Claude", "ChatGPT", "Midjourney", "Magnific", "Automation tools"] },
   { label: "Languages", items: ["Dutch", "English"] },
 ];

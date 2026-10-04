@@ -15,11 +15,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.byrink.com"),
-  title: "RINK — Brand, Packaging, Digital",
-  description: "RINK Design — brand identity, packaging, digital design and art direction. Cohesive. Tangible. Built to work.",
+  title: "RINK — Brand, Packaging, Art Direction",
+  description: "RINK Design — brand identity, packaging and art direction by RINK, based in Amsterdam.",
   openGraph: {
-    title: "RINK — Brand, Packaging, Digital",
-    description: "Brand identity, packaging, digital design and art direction.",
+    title: "RINK — Brand, Packaging, Art Direction",
+    description: "Brand identity, packaging and art direction by RINK, based in Amsterdam.",
     siteName: "RINK Design",
     type: "website",
   },

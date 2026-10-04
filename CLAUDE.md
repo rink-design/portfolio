@@ -97,6 +97,16 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - SOIRÉE met accent. Background: 'Wessel de Groot' is correct; 'Graphic Design' i.p.v. Grafisch Vormgeven.
 - Don Gelato: kleding- en accessoiremerk; campagnebeeld gemaakt met AI (mag eerlijk vermeld). Soirée/Purple Rain: rookaccessoires, complete rebrand. Big Push: ontworpen én gebouwd. Santani: blikjesdrank. The Cat: briefing ladies' edition (Ladies Bag). Canajoy: brand & packaging.
 
+## Tekstronde 2 (4 okt, avond) — VERVANGT eerdere tekstregels waar ze botsen
+- Geen 'I' in About. About-zin: 'Brands made to be seen, held and used — and to stand out.' Grote regels (MAKE IT …) weg.
+- Kopje werkgrid: 'Selected projects'. Marquee + Digital Design. Steekwoorden (tag) in Title Case.
+- Semi-cv onder About, volgorde: Services · Experience (met duur) · Education (met duur) · Tools · Languages. Geen Brands-lijst. Data: content/projects.ts (experience, education, cv).
+- JAJA-titel: Creative Director & Designer (in Experience én My role).
+- Alle cases zelfde opbouw: onderdelen in vaste volgorde Concept · Identity · Graphics · Packaging, daarna extra's; elke tekst 3–6 woorden. My role = korte titel (bijv. 'Designer, full rebrand.'). Disciplines boven de case = de kopjes van de onderdelen.
+- Vaste woorden: Identity, Graphics, Packaging, Social Content, Website(s), Art Direction. Toon: kort, statements met punt.
+- Stip: 'Available for new projects'. Google-titel: 'RINK — Brand, Packaging, Art Direction'; beschrijving: 'RINK Design — brand identity, packaging and art direction by RINK, based in Amsterdam.'
+- Purple: geen Vlissingen-regel. Soirée: warm, premium (niet 'dark').
+
 ## Techniek-notities
 - Chromium-screenshots: launch met `--ignore-certificate-errors-spki-list=PS48cX347wDVcRynzq+DFqswl2PLNE1sG6uQvxMCOS0=` (vertrouwt alleen de proxy-CA van deze omgeving).
 

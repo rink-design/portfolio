@@ -32,8 +32,8 @@ export const cases: Record<string, CaseText> = {
       { label: "Production", text: "Materials, print, finishes." },
       { label: "Campaigns", text: "Campaigns and activations." },
       { label: "Digital Design", text: "Digital brand assets." },
-      { label: "Social", text: "Social formats and content." },
-      { label: "Websites — B2B & B2C", text: "Two websites, designed and built." },
+      { label: "Social Content", text: "Social formats and content." },
+      { label: "Websites", text: "Two websites, designed and built." },
     ],
   },
   soiree: {
@@ -74,7 +74,7 @@ export const cases: Record<string, CaseText> = {
     sections: [
       { label: "Concept", text: "Existing company, new direction." },
       { label: "Identity", text: "A new graphic foundation." },
-      { label: "Website & Assets", text: "Designed and built, desktop and mobile." },
+      { label: "Website", text: "Designed and built, desktop and mobile." },
     ],
   },
   santani: {
