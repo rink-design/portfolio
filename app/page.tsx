@@ -9,6 +9,7 @@ import { Availability } from "@/components/Availability";
 import { About } from "@/components/About";
 import { LiquidDrops } from "@/components/motion/LiquidDrops";
 import { GetInTouch } from "@/components/GetInTouch";
+import { LOGO_PATHS, LOGO_VIEWBOX } from "@/components/logo-paths";
 
 // Home begint donker (video): statusbalk op de telefoon kleurt mee, geen lichte balk boven de video.
 export const viewport: Viewport = { viewportFit: "cover", themeColor: "#141311" };
@@ -46,22 +47,29 @@ export default function Home() {
       <About />
 
       {/* 05 — CONTACT: vloeibaar inkt-en-cobalt vlak, Get in touch-menu, live klok */}
-      {/* Precies één schermhoogte: beschikbaarheid bovenin, gegevens onderaan */}
+      {/* Precies één schermhoogte: beschikbaarheid bovenin, knop in het midden, logo + gegevens onderaan */}
       <section id="contact" data-tone="dark" className="relative isolate mt-40 flex min-h-svh flex-col overflow-hidden bg-ink text-paper md:mt-56">
         <LiquidDrops />
         <div className="wrap flex flex-1 flex-col gap-10 pt-16 pb-6">
           <Availability />
-          <Lines className="t-display !leading-[0.86] !tracking-[-0.052em] text-[clamp(64px,min(15.5vw,26svh),260px)]" stagger={0.1}
+          <Lines className="t-display !leading-[0.86] !tracking-[-0.052em] text-[clamp(64px,min(15.5vw,22svh),260px)]" stagger={0.1}
             lines={["Let’s work", <>together<span key="d" className="ml-[0.06em] inline-block h-[0.17em] w-[0.17em] bg-accent" aria-hidden /></>]} />
-          <Reveal>
+          {/* Knop halverwege tussen de kop en de onderkant */}
+          <Reveal className="my-auto">
             <GetInTouch />
           </Reveal>
-          {/* Gegevens onderaan, netjes verdeeld: links · midden · rechts */}
-          <Reveal className="t-body mt-auto grid grid-cols-1 gap-3 md:grid-cols-3 md:items-baseline">
-            <a href={`mailto:${contact.email}`} className="link-line justify-self-start">{contact.email}</a>
-            <a href={contact.phoneHref} className="link-line justify-self-start md:justify-self-center">{contact.phone}</a>
-            <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="link-line justify-self-start md:justify-self-end">LinkedIn ↗</a>
-          </Reveal>
+          {/* Onderlijn: klein wit logo als ondertekening links, gegevens rechts naast elkaar.
+              Geen Reveal: helemaal onderaan zou hij nooit 'in beeld' komen en onzichtbaar blijven. */}
+          <div className="flex flex-col-reverse gap-8 md:flex-row md:items-end md:justify-between">
+            <svg viewBox={`${LOGO_VIEWBOX.x} ${LOGO_VIEWBOX.y} ${LOGO_VIEWBOX.w} ${LOGO_VIEWBOX.h}`} className="block h-auto w-[64px]" aria-label="RINK">
+              {LOGO_PATHS.map((d, i) => <path key={i} d={d} fill="var(--color-paper)" />)}
+            </svg>
+            <div className="t-body flex flex-col gap-2 md:flex-row md:gap-10 md:leading-none">
+              <a href={`mailto:${contact.email}`} className="link-line self-start">{contact.email}</a>
+              <a href={contact.phoneHref} className="link-line self-start">{contact.phone}</a>
+              <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="link-line self-start">LinkedIn ↗</a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
