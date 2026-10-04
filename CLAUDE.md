@@ -184,3 +184,4 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Touch (geen hover): wat in het midden van het scherm staat licht op (components/MidFocus.tsx). Code: components/About.tsx, ScrollSentence, ServiceList, AboutPortrait; inhoud content/about.ts.
 - Tools-band (About): optie B — twee rijen, elk een eigen helft (boven Illustrator/Photoshop/InDesign/Figma/CapCut, onder Shopify/Claude/ChatGPT/Midjourney/Magnific), tegels even breed (clamp 240–400 px), ± 50 px/s. Nooit dezelfde tool boven elkaar.
 - Menu: WORK · ABOUT · CONTACT in hoofdletters. Footer: min-h-lvh + onderruimte env(safe-area-inset-bottom) (iPhone: ook met ingeklapte Safari-balk tot onder).
+- Cijfers (In numbers): 38+ op linkerkolom, 7+ op col 7 (gelijk met Experience/rechter projectkolom), t-display clamp(64px, 11vw, 200px).
