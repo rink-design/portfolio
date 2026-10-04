@@ -22,7 +22,7 @@ export function Lines({ lines, className = "", as: Tag = "h2", stagger = 0.08 }:
     <MotionTag className={className} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-10% 0px" }}
       transition={{ staggerChildren: stagger }}>
       {lines.map((l, i) => (
-        <span key={i} className="block overflow-hidden pb-[0.08em] -mb-[0.08em]">
+        <span key={i} className="block overflow-hidden pt-[0.16em] -mt-[0.16em] pb-[0.08em] -mb-[0.08em]">
           <motion.span className="block" variants={{ hidden: { y: "105%" }, show: { y: "0%", transition: { duration: 0.9, ease: EASE } } }}>
             {l}
           </motion.span>
