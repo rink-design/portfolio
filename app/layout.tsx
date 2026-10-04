@@ -14,7 +14,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://portfolio-zeta-eight-09eeu06opz.vercel.app"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.byrink.com"),
   title: "RINK — Brand, Packaging, Digital",
   description: "RINK Design — brand identity, packaging, digital design and art direction. Distinctive. Tangible. Built to work.",
   openGraph: {
