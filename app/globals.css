@@ -203,3 +203,20 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 .rink-cursor { will-change: transform; }
 .rink-cursor-arrow { opacity: 0; transition: opacity .2s; }
 .rink-cursor[data-mode="work"] .rink-cursor-arrow { opacity: 1; }
+/* About: portret op cobalt plaat */
+.about-slab { position: relative; padding: 0 0 clamp(14px, 2vw, 28px) clamp(14px, 2vw, 28px); }
+.about-slab::before {
+  content: ""; position: absolute; background: var(--color-accent);
+  inset: clamp(14px, 2vw, 28px) clamp(14px, 2vw, 28px) 0 0;
+  transition: transform 0.7s var(--ease-out-rink);
+}
+.about-slab:hover::before { transform: translate(8px, 8px); }
+.about-photo { filter: grayscale(1) contrast(1.05); transition: filter 0.8s var(--ease-out-rink); will-change: transform; }
+.about-slab:hover .about-photo { filter: grayscale(0); }
+
+/* About: tools-band, heel langzaam; pauzeert bij hover */
+.tools-track { animation: tools-scroll 160s linear infinite; }
+.tools-track-rev { animation-direction: reverse; animation-duration: 180s; }
+.tools:hover .tools-track { animation-play-state: paused; }
+@keyframes tools-scroll { to { transform: translateX(-25%); } }
+@media (prefers-reduced-motion: reduce) { .tools-track { animation-duration: 600s; } }

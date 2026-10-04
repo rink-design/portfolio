@@ -1,13 +1,12 @@
 import type { Viewport } from "next";
-import { projects, contact, experience, education, cv } from "@/content/projects";
+import { projects, contact } from "@/content/projects";
 import { WorkCard } from "@/components/WorkCard";
 import { Lines, Reveal } from "@/components/motion/Reveal";
 import { RinkMark } from "@/components/RinkMark";
 import { AfterLoad } from "@/components/motion/AfterLoad";
 import { HeroVideo, hasHeroVideo } from "@/components/HeroVideo";
-import { Marquee } from "@/components/motion/Marquee";
 import { Availability } from "@/components/Availability";
-import { CountUp } from "@/components/motion/CountUp";
+import { About } from "@/components/About";
 import { LiquidDrops } from "@/components/motion/LiquidDrops";
 import { GetInTouch } from "@/components/GetInTouch";
 
@@ -43,46 +42,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 04 — ABOUT: begint met de cijfers (tellen op als ze in beeld komen) */}
-      <section id="about" className="wrap mt-28 scroll-mt-16 md:mt-40" aria-label="About">
-        <div className="grid grid-cols-2 gap-x-[var(--gap)] md:mt-14">
-          {[{ to: 38, label: "Projects" }, { to: 7, label: "Years of experience" }].map((s, i) => (
-            <Reveal key={s.label} delay={i * 0.1}>
-              <p className="t-h1"><CountUp to={s.to} suffix="+" delay={i * 0.15} /></p>
-              <p className="t-label mt-4 text-ink-2">{s.label}</p>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      <div className="mt-20 md:mt-28">
-        <Marquee items={["Brand Identity", "Packaging", "Art Direction", "Graphic Design", "Digital Design"]} />
-      </div>
-
-      {/* SEMI-CV — ruime witruimte tussen de blokken; duur met streepje direct achter de regel */}
-      <section className="wrap mt-24 md:mt-36" aria-label="Services, experience and education">
-        {[
-          { label: "Services", items: cv[0].items },
-          { label: "Experience", rows: experience },
-          { label: "Education", rows: education },
-          ...cv.slice(1).map((c) => ({ label: c.label, items: c.items })),
-        ].map((g, k) => (
-          <Reveal key={g.label} className={`grid-12 ${k ? "mt-14 md:mt-20" : ""}`}>
-            <p className="t-label col-span-4 text-ink-2 md:col-span-3">{g.label}</p>
-            {"rows" in g && g.rows ? (
-              <ul className="t-label col-span-4 mt-3 space-y-2 md:col-span-9 md:mt-0">
-                {g.rows.map((b) => (
-                  <li key={b.what}>{b.what}{b.time && <span className="whitespace-nowrap text-ink-2"> — {b.time}</span>}</li>
-                ))}
-              </ul>
-            ) : (
-              <p className="t-label col-span-4 mt-3 md:col-span-9 md:mt-0">
-                {g.items?.map((t, i) => <span key={t}>{i > 0 && <span className="mx-2 inline-block h-[5px] w-[5px] -translate-y-[2px] bg-ink" aria-hidden />}{t}</span>)}
-              </p>
-            )}
-          </Reveal>
-        ))}
-      </section>
+      {/* ABOUT — statement, services, experience, education, cijfers, tools */}
+      <About />
 
       {/* 05 — CONTACT: vloeibaar inkt-en-cobalt vlak, Get in touch-menu, live klok */}
       {/* Precies één schermhoogte: beschikbaarheid bovenin, gegevens onderaan */}
