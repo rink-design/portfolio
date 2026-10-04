@@ -1,5 +1,5 @@
 // Pennenstreken (middenlijnen) van de sierlijke R, berekend uit RInk.svg (skelet van de letter).
-// De streken onthullen de echte vector als masker; start = uiteinde van de streek. delay/dur in seconden.
+// Richting en tempo staan in components/r-pen.ts; de gebieden per streek in components/r-regions.ts. (delay/dur: oud, ongebruikt.)
 export const R_STROKES = [
   { id: "swash", d: "M78.25,6.25 L77.81,5.94 L75.25,6.00 L72.25,6.31 L70.56,6.69 L68.62,7.38 L67.56,8.94", w: 4.89, delay: 0.0, dur: 0.45 },
   { id: "stem", d: "M9.06,49.19 L7.94,50.06 L7.62,50.81 L8.19,53.12 L9.06,55.44 L9.62,56.38 L10.44,57.19 L11.94,58.06 L13.06,58.44 L15.00,58.75 L18.00,58.75 L19.56,58.56 L21.50,58.12 L23.69,57.38 L26.19,56.19 L29.31,54.19 L31.94,52.00 L34.12,49.81 L35.88,47.81 L38.50,44.38 L41.25,40.25 L49.19,26.44 L51.00,23.62 L53.06,20.75 L56.00,17.25 L58.44,14.75 L61.31,12.12 L63.75,10.12 L64.12,9.06", w: 10.2, delay: 0.0, dur: 0.85 },
@@ -9,4 +9,3 @@ export const R_STROKES = [
   { id: "leg", d: "M83.44,39.81 L83.00,40.12 L80.69,43.31 L76.88,47.94 L72.69,52.25 L70.19,54.44 L67.75,56.19 L65.56,57.38 L64.62,57.69 L62.62,58.00 L61.81,58.00 L60.75,57.81 L59.94,57.44 L59.50,57.00 L58.88,56.00 L58.06,54.19 L57.56,52.56 L57.50,52.00 L57.81,50.31 L58.31,48.75 L60.25,44.50 L61.00,42.56 L60.81,40.50 L59.94,37.38 L58.94,34.94 L58.31,34.06 L57.00,32.94 L56.75,32.25", w: 11.21, delay: 1.0, dur: 0.6 },
   { id: "nub", d: "M53.12,32.25 L53.56,32.00 L55.31,32.00 L56.69,32.19", w: 2.83, delay: 1.05, dur: 0.2 }
 ];
-export const R_WRITE_END = 1.6;

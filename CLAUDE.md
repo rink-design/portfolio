@@ -155,3 +155,10 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Tijd klein rechtsboven in Contact ('Amsterdam hh:mm:ss'), grote klok weg.
 - E-mail · telefoon · LinkedIn lager, 3 kolommen: links / midden / rechts.
 - Muis: 10 px cobalt blokje, minder rek, cobalt pixelspoor (canvas); boven werk 26 px met ↗; onzichtbaar zolang .rink-loader bestaat.
+
+## Laadscherm 4 okt (avond) — VERVANGT eerdere laadscherm-regels
+- Goedgekeurd: variant A2c. Geen spook-logo: wat nog niet geschreven is, is achtergrond (paper).
+- De R schrijft in kobalt met één doorgaande pen (components/r-pen.ts): steel vanaf de krul onderin omhoog → zonder afremmen door de kruising → lus links rond + buik rechts omlaag tot in de staart; puntje rechtsboven zwiept direct uit bij de kruising. Over het stuk waar de lus langs de steel loopt gaat de pen snel (anders hapert hij).
+- Elke streek onthult alleen zijn eigen gebied (components/r-regions.ts, gemaakt met scripts/r-gebieden.py) → geen klontjes waar streken samenkomen.
+- I-N-K vult van links naar rechts in kobalt, mee met het laden. Einde: scherm vervaagt (0,8 s); kobalt logo gaat over in het witte header-logo eronder.
+- Proefpagina met tijdschuif: Artifact 'RINK Laadscherm' (claude.ai/artifact/1kQZwXrvJj6YPsA57LvPLy).
