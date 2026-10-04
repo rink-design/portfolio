@@ -139,3 +139,12 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 - Services: Brand Identity · Packaging · Product Development · Art Direction · Graphic Design · Digital Design · Web Design · Social Content. LIVE.
 - Onderkant (in de maak): opbouw 'Live' ZONDER lopende letterband; vloeibaar inkt-met-cobalt WebGL-vlak dat op muis/vinger reageert; cobalt 'Get in touch'-knop die openklapt met Mail · Bel · WhatsApp (LinkedIn los eronder); groene stip altijd 'Available for new projects' (nooit Offline); live Amsterdam-klok; Back to top. Moet 'booming' zijn.
 - Muis: zes voorstellen, géén tekst in de cursor nodig. Preview: claude.ai/artifact/EUAAXfsQ37XDdbys9s8M62
+
+## Ronde cobalt (4 okt, nacht) — LIVE
+- Linksboven 'Design by RINK' (menu). Laadscherm NIET aangepast: zij fixt dat elders.
+- Projecten op home: titel + tag cobalt bij hover.
+- About-kopje en zin 'Brands made to be seen…' weg. Services-puntjes = kleine vierkante inkt-blokjes. Marquee-stip = vierkant cobalt blok op letterhoogte (was per ongeluk 8 px).
+- Cijfers: '+' in cobalt. Menu: cobalt blokje vóór de actieve sectie (Work/About/Contact).
+- Contact: LiquidDrops (WebGL cobalt druppels, muis/vinger = druppel), GetInTouch-menu (Mail · Call · WhatsApp, magnetisch), altijd 'Available for new projects', LocalClock, © RINK Design + Back to top.
+- Muis: Rekblok (components/motion/Cursor.tsx), cobalt vierkant dat rekt met snelheid; groot met ↗ boven [data-cursor], omkeren boven links/knoppen. Alleen pointer: fine.
+- Niet gekozen (cobalt): beelden onthullen, paginaovergang, punt achter casetitel, selectie in cobalt.
