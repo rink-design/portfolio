@@ -23,7 +23,7 @@ export function AboutPortrait() {
   }, [reduce]);
 
   return (
-    <figure className="col-span-4 self-start md:sticky md:top-6 md:col-span-5">
+    <figure className="col-span-4 self-start md:sticky md:top-6 md:col-span-6">
       <div className="about-slab">
         <div className="relative aspect-[4/5] overflow-hidden bg-paper-2">
           {/* eslint-disable-next-line @next/next/no-img-element */}

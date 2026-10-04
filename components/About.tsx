@@ -1,4 +1,5 @@
 import { Reveal } from "@/components/motion/Reveal";
+import { TypedText } from "@/components/TypedText";
 import { CountUp } from "@/components/motion/CountUp";
 import { AboutPortrait } from "@/components/AboutPortrait";
 import { about } from "@/content/about";
@@ -44,9 +45,9 @@ function ToolRow({ reverse }: { reverse?: boolean }) {
 export function About() {
   return (
     <section id="about" className="wrap mt-28 scroll-mt-16 md:mt-40" aria-label="About">
-      <div className="grid-12">
-        <div className={lab}><p className="t-label pt-[0.6em] text-ink-2">About me</p></div>
-        <Reveal className={body}><p className="t-h2 max-w-[24ch]">{about.statement}</p></Reveal>
+      <div className="grid-12 md:items-baseline">
+        <div className={lab}><p className="t-label text-ink-2">About me</p></div>
+        <div className={body}><TypedText text={about.statement} className="t-h2 max-w-[24ch]" /></div>
       </div>
 
       <div className={block}>

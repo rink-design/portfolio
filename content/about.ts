@@ -1,6 +1,6 @@
 // Inhoud van de About-sectie. Teksten door Rinke goedgekeurd (4 okt).
 export const about = {
-  statement: "I build brands and design that people can see, feel and hold on to. Made to stand out and built to last.",
+  statement: "I build brands and design to let people see, feel and hold on to. Made to stand out and built to last.",
   services: ["Brand Identity", "Packaging", "Product Development", "Art Direction", "Graphic Design", "Digital Design", "Web Design", "Social Content"],
   experience: [
     { name: "JaJa", lines: ["Creative Director & Designer", "7 years"] },

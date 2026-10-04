@@ -261,3 +261,13 @@ html.has-cursor, html.has-cursor * { cursor: none !important; }
 :root { --zh: var(--zm); }
 main [style*="--zm"] { --zh: var(--zm); }
 @media (min-width: 768px) { main [style*="--zm"] { --zh: var(--z); } }
+
+/* About: tekst typt als een ondertitel, cobalt → zwart */
+.typed-c { opacity: 0; }
+.typed-go .typed-c { animation: typed-in 1.2s linear both; }
+@keyframes typed-in {
+  0% { opacity: 0; color: var(--color-accent); }
+  1% { opacity: 1; color: var(--color-accent); }
+  100% { opacity: 1; color: var(--color-ink); }
+}
+@media (prefers-reduced-motion: reduce) { .typed-c { opacity: 1; animation: none !important; } }
