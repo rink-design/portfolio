@@ -10,13 +10,23 @@ export function AutoVideo({ src, poster, className = "", label, eager = false }:
     const v = ref.current; if (!v) return;
     v.muted = true; v.defaultMuted = true;
     v.setAttribute("muted", ""); v.setAttribute("playsinline", ""); v.setAttribute("webkit-playsinline", "");
-    const play = () => v.play().catch(() => {});
-    const io = new IntersectionObserver(([e]) => (e.isIntersecting ? play() : v.pause()), { rootMargin: "200px" });
+    let inView = false;
+    const play = () => { if (inView && v.paused) v.play().catch(() => {}); };
+    const io = new IntersectionObserver(([e]) => { inView = e.isIntersecting; if (inView) play(); else v.pause(); }, { rootMargin: "200px" });
     io.observe(v);
-    // Eerste aanraking op de pagina: alsnog starten (bijv. bij energiebesparingsmodus)
-    const touch = () => { play(); window.removeEventListener("touchstart", touch); };
-    window.addEventListener("touchstart", touch, { passive: true });
-    return () => { io.disconnect(); window.removeEventListener("touchstart", touch); };
+    // Klaar met laden of tabblad weer zichtbaar: opnieuw proberen.
+    v.addEventListener("canplay", play);
+    const vis = () => { if (!document.hidden) play(); };
+    document.addEventListener("visibilitychange", vis);
+    // Energiebesparingsmodus blokkeert autoplay tot de eerste échte aanraking. iOS telt het loslaten
+    // (touchend/click) als aanraking, niet het neerzetten (touchstart).
+    const GESTURES = ["touchend", "pointerup", "click", "keydown"] as const;
+    GESTURES.forEach((g) => window.addEventListener(g, play, { passive: true }));
+    return () => {
+      io.disconnect(); v.removeEventListener("canplay", play);
+      document.removeEventListener("visibilitychange", vis);
+      GESTURES.forEach((g) => window.removeEventListener(g, play));
+    };
   }, []);
   return (
     <video ref={ref} src={src} poster={poster} autoPlay muted loop playsInline preload={eager ? "auto" : "metadata"}

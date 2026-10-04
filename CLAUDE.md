@@ -99,3 +99,10 @@ Lees bij een nieuwe sessie eerst dit bestand, daarna `plan.md` (zodra die er is)
 
 ## Techniek-notities
 - Chromium-screenshots: launch met `--ignore-certificate-errors-spki-list=PS48cX347wDVcRynzq+DFqswl2PLNE1sG6uQvxMCOS0=` (vertrouwt alleen de proxy-CA van deze omgeving).
+
+## Ronde 4 okt — VERVANGT eerdere regels waar ze botsen
+- Volgorde home: JAJA · Soiree · Purple Rain · Don Gelato · The Cat · Purple · Canajoy · Coffeeshop · Santani · Big Push (Santani + Big Push = onderste rij).
+- Productfoto's in de cases: product uitgeknipt, vierkant 2048 px, gecentreerd (langste zijde 70%), warm lichtgrijs vlak #F3F1EC + zachte warme slagschaduw. Script: scripts/product-achtergrond.py (gebruik `--proef <map>` om eerst te testen). Vervangt de studio-verloop-achtergronden. Niet voor modelfoto's, close-ups, campagnebeelden, pdf, websites, video's. Don Gelato 03-detail-white-2 (wit shirt met print) bewust origineel: uitknippen lukt niet wit-op-wit.
+- Cijfers onder de cases, vóór de marquee: 38+ Projects · 7+ Years of experience, in t-h1, tellen op bij in beeld komen (components/motion/CountUp.tsx). Haar wens — uitzondering op 'geen tellers'.
+- Video's (AutoVideo): starten ook in iPhone-energiebesparingsmodus bij de eerste tik (touchend/click, niet touchstart).
+- Gereedschap op haar Mac (zonder wachtwoord, map ~/.rink-tools): Node.js 24 (PATH via ~/.zprofile), Python 3.12 + rembg in ~/.rink-tools/imgenv (`U2NET_HOME=~/.rink-tools/u2net`). Lokale preview: .claude/launch.json → npm run dev.

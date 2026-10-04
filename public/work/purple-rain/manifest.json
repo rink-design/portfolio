@@ -6,10 +6,10 @@
       "kind": "groot",
       "items": [
         {
-          "file": "01-groot-1-36433381.webp",
-          "w": 1024,
-          "h": 1024,
-          "src": "/work/purple-rain/01-groot-1-36433381.webp"
+          "file": "01-groot-1-d74d8629.webp",
+          "w": 2048,
+          "h": 2048,
+          "src": "/work/purple-rain/01-groot-1-d74d8629.webp"
         }
       ]
     },
@@ -18,16 +18,16 @@
       "kind": "duo",
       "items": [
         {
-          "file": "02-duo-1-44915723.webp",
+          "file": "02-duo-1-4672f5dd.webp",
           "w": 2048,
-          "h": 1150,
-          "src": "/work/purple-rain/02-duo-1-44915723.webp"
+          "h": 2048,
+          "src": "/work/purple-rain/02-duo-1-4672f5dd.webp"
         },
         {
-          "file": "02-duo-2-b983aa53.webp",
+          "file": "02-duo-2-6d2be92c.webp",
           "w": 2048,
-          "h": 1150,
-          "src": "/work/purple-rain/02-duo-2-b983aa53.webp"
+          "h": 2048,
+          "src": "/work/purple-rain/02-duo-2-6d2be92c.webp"
         }
       ]
     },
@@ -36,16 +36,16 @@
       "kind": "duo",
       "items": [
         {
-          "file": "03-duo-1-6e52b55b.webp",
+          "file": "03-duo-1-89580b93.webp",
           "w": 2048,
-          "h": 1150,
-          "src": "/work/purple-rain/03-duo-1-6e52b55b.webp"
+          "h": 2048,
+          "src": "/work/purple-rain/03-duo-1-89580b93.webp"
         },
         {
-          "file": "03-duo-2-35fcdc22.webp",
-          "w": 1318,
+          "file": "03-duo-2-c028f23e.webp",
+          "w": 2048,
           "h": 2048,
-          "src": "/work/purple-rain/03-duo-2-35fcdc22.webp"
+          "src": "/work/purple-rain/03-duo-2-c028f23e.webp"
         }
       ]
     }

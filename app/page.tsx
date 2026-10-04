@@ -6,6 +6,7 @@ import { AfterLoad } from "@/components/motion/AfterLoad";
 import { HeroVideo, hasHeroVideo } from "@/components/HeroVideo";
 import { Marquee } from "@/components/motion/Marquee";
 import { Availability } from "@/components/Availability";
+import { CountUp } from "@/components/motion/CountUp";
 
 export default function Home() {
   return (
@@ -36,7 +37,19 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="mt-28 md:mt-40">
+      {/* CIJFERS — tellen op als ze in beeld komen */}
+      <section className="wrap mt-28 md:mt-40" aria-label="In numbers">
+        <div className="grid grid-cols-2 gap-x-[var(--gap)]">
+          {[{ to: 38, label: "Projects" }, { to: 7, label: "Years of experience" }].map((s, i) => (
+            <Reveal key={s.label} delay={i * 0.1}>
+              <p className="t-h1"><CountUp to={s.to} suffix="+" delay={i * 0.15} /></p>
+              <p className="t-label mt-4 text-ink-2">{s.label}</p>
+            </Reveal>
+          ))}
+        </div>
+      </section>
+
+      <div className="mt-20 md:mt-28">
         <Marquee items={["Brand Identity", "Packaging", "Art Direction", "Graphic Design"]} />
       </div>
 
