@@ -30,7 +30,7 @@ export function ScrollSentence({ text }: { text: string }) {
 
   return (
     <div ref={track} className="relative h-[240vh] md:h-[280vh]">
-      <div className="wrap sticky top-0 flex h-svh flex-col justify-center gap-6">
+      <div className="wrap pointer-events-none sticky top-0 flex h-svh flex-col justify-center gap-6">
         <p className="t-label text-ink-2">About me</p>
         <p className="t-h1 max-w-[16ch] !text-[clamp(34px,9.4vw,96px)] !leading-[0.96] md:max-w-[22ch] md:!text-[clamp(40px,5.4vw,96px)]" aria-label={text}>
           {words.map((w, i) => <span key={i} aria-hidden><span className="sw">{w}</span>{i < words.length - 1 && " "}</span>)}
