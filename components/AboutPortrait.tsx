@@ -15,7 +15,7 @@ export function AboutPortrait() {
     const el = box.current!, c = cv.current!, ctx = c.getContext("2d")!;
     const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const dpr = Math.min(1.6, devicePixelRatio || 1);
-    let w = 2, on = 0, hover = false, visible = false, raf = 0, tt = 0, cur: HTMLImageElement | undefined, bag: HTMLImageElement[] = [], last = performance.now();
+    let w = 2, on = 0, hover = false, pointer = false, scrolling = false, lastY = scrollY, stopT = 0, visible = false, raf = 0, tt = 0, cur: HTMLImageElement | undefined, bag: HTMLImageElement[] = [], last = performance.now();
     const pool: HTMLImageElement[] = [];
     let loading = false;
 
@@ -67,9 +67,17 @@ export function AboutPortrait() {
       if (hover || on > 0.01) raf = requestAnimationFrame(loop); else { on = 0; draw(now, 0); }
     };
     const kick = () => { if (!raf && visible && !reduce) { last = performance.now(); raf = requestAnimationFrame(loop); } };
-    const set = (v: boolean) => { hover = v; if (v) load(); kick(); };
+    // Flitst bij hover/aanraking, en ook terwijl je langs de foto scrolt; zodra je stilstaat is het weer de gewone foto.
+    const sync = () => { hover = pointer || scrolling; if (hover) load(); kick(); };
+    const set = (v: boolean) => { pointer = v; sync(); };
     const enter = () => set(true), leave = () => set(false);
     const up = (e: PointerEvent) => { if (e.pointerType !== "mouse") set(false); };
+    const onScroll = () => {
+      const d = Math.abs(scrollY - lastY); lastY = scrollY;
+      if (d < 2 || !visible) return;
+      scrolling = true; sync();
+      clearTimeout(stopT); stopT = window.setTimeout(() => { scrolling = false; sync(); }, 220);
+    };
 
     size();
     const ro = new ResizeObserver(size); ro.observe(el);
@@ -77,9 +85,10 @@ export function AboutPortrait() {
     io.observe(el);
     const pre = new IntersectionObserver(([e]) => { if (e.isIntersecting) { load(); pre.disconnect(); } }, { rootMargin: "700px 0px" });
     pre.observe(el);
+    addEventListener("scroll", onScroll, { passive: true });
     el.addEventListener("pointerenter", enter); el.addEventListener("pointerleave", leave);
     el.addEventListener("pointerdown", enter); el.addEventListener("pointerup", up); el.addEventListener("pointercancel", leave);
-    return () => { cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); pre.disconnect(); el.removeEventListener("pointerenter", enter); el.removeEventListener("pointerleave", leave); el.removeEventListener("pointerdown", enter); el.removeEventListener("pointerup", up); el.removeEventListener("pointercancel", leave); };
+    return () => { clearTimeout(stopT); removeEventListener("scroll", onScroll); cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); pre.disconnect(); el.removeEventListener("pointerenter", enter); el.removeEventListener("pointerleave", leave); el.removeEventListener("pointerdown", enter); el.removeEventListener("pointerup", up); el.removeEventListener("pointercancel", leave); };
   }, []);
 
   return (
