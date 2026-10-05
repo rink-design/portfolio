@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "motion/react";
 
 type Row = { name: string; lines: string[] };
@@ -31,6 +31,17 @@ function Rows({ rows, group, active }: { rows: Row[]; group: string; active: boo
 // Tabs: Experience of Education. Beide lijsten staan op elkaar, dus de hoogte springt niet bij wisselen.
 export function AboutTabs({ experience, education }: { experience: Row[]; education: Row[] }) {
   const [tab, setTab] = useState(0);
+  const refs = [useRef<HTMLDivElement>(null), useRef<HTMLDivElement>(null)];
+  const [hs, setHs] = useState<number[]>([]);
+  useEffect(() => {
+    const measure = () => setHs(refs.map((r) => r.current?.offsetHeight ?? 0));
+    const ro = new ResizeObserver(measure);
+    refs.forEach((r) => r.current && ro.observe(r.current));
+    measure();
+    return () => ro.disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  const ready = hs.length > 0 && hs[tab] > 0;
   const tabs = [{ id: "experience", label: "Experience", rows: experience }, { id: "education", label: "Education", rows: education }];
   return (
     <div>
@@ -42,14 +53,15 @@ export function AboutTabs({ experience, education }: { experience: Row[]; educat
           </button>
         ))}
       </div>
-      <div className="grid">
+      {/* De hoogte volgt het actieve tabblad (Services schuift zacht omhoog of omlaag), dus de witruimte eronder is altijd gelijk. */}
+      <motion.div initial={false} animate={{ height: ready ? hs[tab] : "auto" }} transition={{ duration: 0.6, ease: EASE }} className="relative overflow-hidden">
         {tabs.map((t, i) => (
-          <div key={t.id} id={`panel-${t.id}`} role="tabpanel" aria-labelledby={`tab-${t.id}`} aria-hidden={tab !== i}
-            className={`col-start-1 row-start-1 ${tab === i ? "visible" : "invisible delay-300 transition-[visibility]"}`}>
+          <div key={t.id} ref={refs[i]} id={`panel-${t.id}`} role="tabpanel" aria-labelledby={`tab-${t.id}`} aria-hidden={tab !== i}
+            className={`${ready || i !== 0 ? "absolute inset-x-0 top-0" : "relative"} ${tab === i ? "visible" : "invisible delay-300 transition-[visibility]"}`}>
             <Rows rows={t.rows} group={t.id.slice(0, 3)} active={tab === i} />
           </div>
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }

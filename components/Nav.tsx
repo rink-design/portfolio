@@ -20,6 +20,12 @@ export function Nav() {
       const y = window.scrollY;
       const dy = y - lastY.current;
       const foot = document.getElementById("contact");
+      // Bij de footer wordt ook de pagina-achtergrond (en de browserbalk) inkt, zodat de footer echt tot het eind loopt.
+      const inFoot = !!foot && foot.getBoundingClientRect().top < innerHeight * 0.6;
+      document.documentElement.style.backgroundColor = inFoot ? "var(--color-ink)" : "";
+      let meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+      if (!meta) { meta = document.createElement("meta"); meta.name = "theme-color"; document.head.appendChild(meta); }
+      meta.content = inFoot ? "#141311" : "#ebe8e2";
       if (foot && foot.getBoundingClientRect().top < 56) setHidden(true); // nooit over de footer heen
       else if (y < 80) setHidden(false);
       else if (dy > 6) setHidden(true);
