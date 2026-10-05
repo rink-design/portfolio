@@ -25,11 +25,11 @@ export default function Home() {
         <div className="wrap relative pb-5 text-paper md:pb-6">
           <RinkMark color="var(--color-paper)" />
           <AfterLoad delay={0.35}>
-            {/* Eén regel: Brand links, Packaging precies in het midden, Art Direction rechts */}
-            <div className="t-label mt-5 grid grid-cols-[1fr_auto_1fr] items-baseline whitespace-nowrap">
+            {/* Eén regel. Mobiel: Packaging in het midden. Web: Packaging begint precies onder de N van INK (50,8% van de logobreedte). */}
+            <div className="t-label relative mt-5 grid grid-cols-[1fr_auto_1fr] items-baseline whitespace-nowrap">
               <span>Brand</span>
-              <span className="text-center">Packaging</span>
-              <span className="text-right">Art Direction</span>
+              <span className="text-center md:absolute md:left-[50.82%] md:text-left">Packaging</span>
+              <span className="text-right md:col-start-3">Art Direction</span>
             </div>
           </AfterLoad>
         </div>
