@@ -25,10 +25,11 @@ export default function Home() {
         <div className="wrap relative pb-5 text-paper md:pb-6">
           <RinkMark color="var(--color-paper)" />
           <AfterLoad delay={0.35}>
-            <div className="grid-12 t-label mt-5">
-              <span className="col-span-2 md:col-span-4">Brand</span>
-              <span className="col-span-1 md:col-span-4">Packaging</span>
-              <span className="col-span-1 text-right md:col-span-4">Art Direction</span>
+            {/* Eén regel: Brand links, Packaging precies in het midden, Art Direction rechts */}
+            <div className="t-label mt-5 grid grid-cols-[1fr_auto_1fr] items-baseline whitespace-nowrap">
+              <span>Brand</span>
+              <span className="text-center">Packaging</span>
+              <span className="text-right">Art Direction</span>
             </div>
           </AfterLoad>
         </div>
