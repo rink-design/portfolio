@@ -278,8 +278,9 @@ main [style*="--zm"] { --zh: var(--zm); }
 @media (hover: none) {
   .mid-js .svc { opacity: 0.22; }
   .mid-js .svc[data-on] { opacity: 1; color: var(--color-accent); transform: translateX(12px); }
-  .mid-js .row { opacity: 0.22; transition: opacity 0.4s; }
-  .mid-js .row[data-on] { opacity: 1; }
-  .mid-js .row[data-on] .t-h1 { color: var(--color-accent); }
+  /* Experience/Education (tabs) blijven op mobiel gewoon donkerzwart */
+  .mid-js .row:not(.row-tab) { opacity: 0.22; transition: opacity 0.4s; }
+  .mid-js .row:not(.row-tab)[data-on] { opacity: 1; }
+  .mid-js .row:not(.row-tab)[data-on] .t-h1 { color: var(--color-accent); }
   .mid-js [data-mid="photo"][data-on] .about-slab::before { transform: translate(8px, 8px); }
 }

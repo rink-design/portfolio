@@ -37,7 +37,7 @@ export function About() {
       <div className="wrap relative z-10 -mt-[10svh] md:-mt-[14svh]">
         <div className="grid-12">
           <AboutPortrait />
-          <div className="col-span-4 mt-8 md:col-span-6 md:col-start-7 md:mt-0">
+          <div className="col-span-4 mt-14 md:col-span-6 md:col-start-7 md:mt-0">
             <AboutTabs experience={about.experience} education={about.education} />
             {/* Zelfde witruimte boven Services als boven Tools */}
             <div className="mt-14 md:mt-24">
