@@ -6,7 +6,7 @@ import { Arrow } from "@/components/Arrow";
 // Cobalt knop die openklapt met Mail · Call · WhatsApp. Trekt licht naar de muis toe (magnetisch).
 const wa = `https://wa.me/${contact.phoneHref.replace(/\D/g, "")}`;
 const items = [
-  { label: "Mail", sub: contact.email, href: `mailto:${contact.email}?subject=Project%20enquiry` },
+  { label: "Mail", sub: contact.email, href: `mailto:${contact.email}?subject=Project%20orientation%20-%20Rink%20Design` },
   { label: "Call", sub: contact.phone, href: contact.phoneHref },
   { label: "WhatsApp", sub: <>Chat <Arrow dir="ur" /></>, href: wa, ext: true },
 ];

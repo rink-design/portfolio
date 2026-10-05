@@ -13,6 +13,8 @@ import { BookGrid } from "@/components/blocks/BookGrid";
 import { ArchiveGrid } from "@/components/blocks/ArchiveGrid";
 import { Lines, Reveal } from "@/components/motion/Reveal";
 import { Arrow } from "@/components/Arrow";
+import { JsonLd } from "@/components/JsonLd";
+import { caseJsonLd } from "@/lib/seo";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -21,7 +23,16 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const p = projects.find((x) => x.slug === slug);
-  return p ? { title: `${p.title} — RINK`, description: `${p.title} — ${p.disciplines}. ${cases[slug]?.statement ?? ""}` } : {};
+  if (!p) return {};
+  const title = `${p.title} — ${p.tag}`;
+  const description = `${p.title}: ${p.disciplines.replace(/ \/ /g, ", ")}. ${cases[slug]?.statement ?? ""} A case by Rinke van de Rakt, freelance brand & packaging designer in Amsterdam.`;
+  return {
+    title,
+    description,
+    alternates: { canonical: `/work/${slug}` },
+    openGraph: { title: `${title} | RINK Design`, description, type: "article", url: `/work/${slug}`, images: p.cover ? [{ url: p.cover }] : undefined },
+    twitter: { card: "summary_large_image", title: `${title} | RINK Design`, description, images: p.cover ? [p.cover] : undefined },
+  };
 }
 
 const isPlaceholder = (t?: string) => !t || t.includes("[…]");
@@ -108,6 +119,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
 
   return (
     <main>
+      <JsonLd data={caseJsonLd(slug, `${p.title}: ${p.disciplines.replace(/ \/ /g, ", ")}. ${c.statement}`)} />
       {/* KOP */}
       <section className="wrap pt-28 md:pt-36">
         <p className="t-label text-ink-2">{p.disciplines}</p>

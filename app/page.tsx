@@ -67,7 +67,7 @@ export default function Home() {
               {LOGO_PATHS.map((d, i) => <path key={i} d={d} fill="var(--color-paper)" />)}
             </svg>
             <div className="t-body flex flex-col gap-2 md:flex-row md:gap-10 md:leading-none">
-              <a href={`mailto:${contact.email}`} className="link-line self-start">{contact.email}</a>
+              <a href={`mailto:${contact.email}?subject=Project%20orientation%20-%20Rink%20Design`} className="link-line self-start">{contact.email}</a>
               <a href={contact.phoneHref} className="link-line self-start">{contact.phone}</a>
               <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="link-line self-start">LinkedIn <Arrow dir="ur" className="ml-1" /></a>
             </div>

@@ -5,6 +5,9 @@ import { Nav } from "@/components/Nav";
 import { Providers } from "@/components/motion/Providers";
 import { Cursor } from "@/components/motion/Cursor";
 import { Loader } from "@/components/motion/Loader";
+import { JsonLd } from "@/components/JsonLd";
+import { Analytics } from "@vercel/analytics/next";
+import { SITE, PERSON, BRAND, TITLE, DESCRIPTION, siteJsonLd } from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,15 +17,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.byrink.com"),
-  title: "RINK — Brand, Packaging, Art Direction",
-  description: "RINK Design — brand identity, packaging and art direction by RINK, based in Amsterdam.",
-  openGraph: {
-    title: "RINK — Brand, Packaging, Art Direction",
-    description: "Brand identity, packaging and art direction by RINK, based in Amsterdam.",
-    siteName: "RINK Design",
-    type: "website",
-  },
+  metadataBase: new URL(SITE),
+  title: { default: TITLE, template: `%s | ${BRAND}` },
+  description: DESCRIPTION,
+  applicationName: BRAND,
+  authors: [{ name: PERSON, url: SITE }],
+  creator: PERSON,
+  keywords: ["freelance designer Amsterdam", "freelance brand designer", "packaging design", "brand identity", "art direction", "product development", "Rinke van de Rakt", "RINK Design"],
+  alternates: { canonical: "/" },
+  robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
+  openGraph: { title: TITLE, description: DESCRIPTION, siteName: BRAND, type: "website", url: SITE, locale: "en_NL" },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION },
 };
 
 // Mobiel: beeld mag doorlopen tot bovenin het scherm (ook achter de statusbalk).
@@ -38,6 +43,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {children}
           <Cursor />
           <Loader />
+          <JsonLd data={siteJsonLd} />
+          <Analytics />
         </Providers>
       </body>
     </html>
