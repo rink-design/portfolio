@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
 import type { Site } from "@/content/cases";
+import { Arrow } from "@/components/Arrow";
 
 // iMac Pro (27″, zilver) — Blender-render met het scherm als gat.
 // De echte website zit erachter, scrollbaar, via een perspectief-transform op de 4 schermhoeken.
@@ -63,9 +64,9 @@ export function SiteIMac({ site, bare = false }: { site: Site; bare?: boolean })
       </div>
       {!bare && <figcaption className="t-label mt-4 flex justify-between gap-4 text-ink-2">
         {site.url
-          ? <a href={site.url} target="_blank" rel="noopener noreferrer" className="link-line text-ink" data-cursor="Visit">{site.label} ↗</a>
+          ? <a href={site.url} target="_blank" rel="noopener noreferrer" className="link-line text-ink" data-cursor="Visit">{site.label} <Arrow dir="ur" /></a>
           : <span>{site.label}</span>}
-        <span>Scroll ↓</span>
+        <span>Scroll <Arrow dir="d" /></span>
       </figcaption>}
     </figure>
   );

@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useRef } from "react";
+import { Arrow } from "@/components/Arrow";
 
 // Rekblok: klein cobalt vierkantje dat strak volgt en licht rekt in de bewegingsrichting.
 // Laat cobalt pixels achter die wegvallen, krimpen en verdwijnen (meer pixels bij sneller bewegen).
@@ -81,7 +82,7 @@ export function Cursor() {
     <>
       <canvas ref={cvs} aria-hidden className="pointer-events-none fixed inset-0 z-[79] hidden h-screen w-screen [@media(pointer:fine)]:block" />
       <div ref={ref} aria-hidden className="rink-cursor pointer-events-none fixed left-0 top-0 z-[80] flex items-center justify-center bg-accent text-[15px] font-semibold leading-none text-paper opacity-0">
-        <span className="rink-cursor-arrow">↗</span>
+        <span className="rink-cursor-arrow"><Arrow dir="ur" /></span>
       </div>
     </>
   );

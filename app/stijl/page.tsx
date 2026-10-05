@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Arrow } from "@/components/Arrow";
 
 export const metadata: Metadata = { title: "RINK — Stijlpagina", robots: { index: false } };
 
@@ -86,7 +87,7 @@ export default function Stijl() {
                   </div>
                   <div className="flex aspect-[16/10] flex-col justify-between bg-paper-2 p-3">
                     <span className="t-label">01 — JAJA</span>
-                    <span className="t-label" style={{ color: a.hex }}>View case →</span>
+                    <span className="t-label" style={{ color: a.hex }}>View case <Arrow dir="r" /></span>
                   </div>
                   <div className="flex aspect-[16/10] items-center justify-center bg-ink p-3">
                     <span className="t-h2 text-paper">RINK<span style={{ color: a.hex }}>.</span></span>

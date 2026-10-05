@@ -4,27 +4,8 @@ import { MidFocus } from "@/components/MidFocus";
 import { CountUp } from "@/components/motion/CountUp";
 import { AboutPortrait } from "@/components/AboutPortrait";
 import { ServiceList } from "@/components/ServiceList";
+import { AboutTabs } from "@/components/AboutTabs";
 import { about } from "@/content/about";
-
-// Compacte rijen: naam links, rol en duur rechts (op mobiel eronder). Internships: rol en vakgebied op één regel.
-function Rows({ rows, group }: { rows: typeof about.experience; group: string }) {
-  return (
-    <div className="group/rows">
-      {rows.map((r) => {
-        const meta = r.lines.length > 2 ? [r.lines.slice(0, -1).join(" · "), r.lines[r.lines.length - 1]] : r.lines;
-        return (
-          <div key={r.name} data-mid={group}
-            className="row group/row flex flex-col items-start gap-1 py-2.5 transition-opacity duration-300 group-has-[.row:hover]/rows:opacity-25 hover:opacity-100! md:flex-row md:items-baseline md:justify-between md:gap-[var(--gap)]">
-            <p className="t-h1 !text-[clamp(30px,3.6vw,56px)] !leading-[0.98] md:whitespace-nowrap transition-colors duration-300 group-hover/row:text-accent">{r.name}</p>
-            <div className="grid gap-[3px] transition-colors duration-300 group-hover/row:text-accent md:max-w-[46%] md:shrink-0 md:text-right">
-              {meta.map((l) => <p key={l} className="t-label">{l}</p>)}
-            </div>
-          </div>
-        );
-      })}
-    </div>
-  );
-}
 
 // Twee rijen, elk een eigen helft van de tools (geen dubbele tool boven elkaar). Tegels even breed,
 // zodat de kolommen netjes onder elkaar vallen.
@@ -57,10 +38,7 @@ export function About() {
         <div className="grid-12">
           <AboutPortrait />
           <div className="col-span-4 mt-8 md:col-span-6 md:col-start-7 md:mt-0">
-            <p className="t-label mb-3 text-ink-2">Experience</p>
-            <Rows rows={about.experience} group="exp" />
-            <p className="t-label mb-3 mt-8 text-ink-2 md:mt-10">Education</p>
-            <Rows rows={about.education} group="edu" />
+            <AboutTabs experience={about.experience} education={about.education} />
           </div>
         </div>
 

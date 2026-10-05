@@ -19,7 +19,9 @@ export function Nav() {
     const onScroll = () => {
       const y = window.scrollY;
       const dy = y - lastY.current;
-      if (y < 80) setHidden(false);
+      const foot = document.getElementById("contact");
+      if (foot && foot.getBoundingClientRect().top < 56) setHidden(true); // nooit over de footer heen
+      else if (y < 80) setHidden(false);
       else if (dy > 6) setHidden(true);
       else if (dy < -6) setHidden(false);
       if (Math.abs(dy) > 6 || y < 80) lastY.current = y;

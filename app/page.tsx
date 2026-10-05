@@ -10,6 +10,7 @@ import { About } from "@/components/About";
 import { LiquidDrops } from "@/components/motion/LiquidDrops";
 import { GetInTouch } from "@/components/GetInTouch";
 import { LOGO_PATHS, LOGO_VIEWBOX } from "@/components/logo-paths";
+import { Arrow } from "@/components/Arrow";
 
 // Home begint donker (video): statusbalk op de telefoon kleurt mee, geen lichte balk boven de video.
 export const viewport: Viewport = { viewportFit: "cover", themeColor: "#141311" };
@@ -67,7 +68,7 @@ export default function Home() {
             <div className="t-body flex flex-col gap-2 md:flex-row md:gap-10 md:leading-none">
               <a href={`mailto:${contact.email}`} className="link-line self-start">{contact.email}</a>
               <a href={contact.phoneHref} className="link-line self-start">{contact.phone}</a>
-              <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="link-line self-start">LinkedIn ↗</a>
+              <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="link-line self-start">LinkedIn <Arrow dir="ur" className="ml-1" /></a>
             </div>
           </div>
         </div>

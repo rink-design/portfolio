@@ -12,6 +12,7 @@ import { SetRow } from "@/components/blocks/SetRow";
 import { BookGrid } from "@/components/blocks/BookGrid";
 import { ArchiveGrid } from "@/components/blocks/ArchiveGrid";
 import { Lines, Reveal } from "@/components/motion/Reveal";
+import { Arrow } from "@/components/Arrow";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -166,7 +167,7 @@ export default async function CasePage({ params }: { params: Promise<{ slug: str
       <Link href={`/work/${next.slug}`} data-tone="dark" className="group wrap block bg-ink pt-6 pb-10 text-paper" data-cursor="Next">
         <span className="t-label text-paper/60">Next project</span>
         <p className="t-display mt-16 text-[clamp(48px,11vw,200px)] !leading-[0.86] transition-colors duration-300 group-hover:text-accent">
-          {next.title} →
+          {next.title} <Arrow dir="r" className="!size-[0.55em]" />
         </p>
       </Link>
     </main>
