@@ -72,13 +72,16 @@ export function AboutPortrait() {
     const set = (v: boolean) => { pointer = v; sync(); };
     const enter = () => set(true), leave = () => set(false);
     const up = (e: PointerEvent) => { if (e.pointerType !== "mouse") set(false); };
-    const onScroll = () => {
-      const d = Math.abs(scrollY - lastY); lastY = scrollY;
-      if (d < 2 || !visible) return;
+    const bump = () => {
+      if (!visible) return;
       scrolling = true; sync();
-      clearTimeout(stopT); stopT = window.setTimeout(() => { scrolling = false; sync(); }, 220);
+      clearTimeout(stopT); stopT = window.setTimeout(() => { scrolling = false; sync(); }, 300);
     };
+    const onScroll = () => { const d = Math.abs(scrollY - lastY); lastY = scrollY; if (d >= 1) bump(); };
 
+    // Beelden alvast laden zodra de pagina rustig is, zodat de flits direct werkt bij de eerste scroll.
+    const idle = (window as unknown as { requestIdleCallback?: (f: () => void, o?: { timeout: number }) => number }).requestIdleCallback;
+    if (idle) idle(load, { timeout: 4000 }); else setTimeout(load, 2500);
     size();
     const ro = new ResizeObserver(size); ro.observe(el);
     const io = new IntersectionObserver(([e]) => { visible = e.isIntersecting; if (visible) kick(); }, { rootMargin: "0px" });
@@ -86,9 +89,11 @@ export function AboutPortrait() {
     const pre = new IntersectionObserver(([e]) => { if (e.isIntersecting) { load(); pre.disconnect(); } }, { rootMargin: "700px 0px" });
     pre.observe(el);
     addEventListener("scroll", onScroll, { passive: true });
+    addEventListener("wheel", bump, { passive: true });
+    addEventListener("touchmove", bump, { passive: true });
     el.addEventListener("pointerenter", enter); el.addEventListener("pointerleave", leave);
     el.addEventListener("pointerdown", enter); el.addEventListener("pointerup", up); el.addEventListener("pointercancel", leave);
-    return () => { clearTimeout(stopT); removeEventListener("scroll", onScroll); cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); pre.disconnect(); el.removeEventListener("pointerenter", enter); el.removeEventListener("pointerleave", leave); el.removeEventListener("pointerdown", enter); el.removeEventListener("pointerup", up); el.removeEventListener("pointercancel", leave); };
+    return () => { clearTimeout(stopT); removeEventListener("scroll", onScroll); removeEventListener("wheel", bump); removeEventListener("touchmove", bump); cancelAnimationFrame(raf); ro.disconnect(); io.disconnect(); pre.disconnect(); el.removeEventListener("pointerenter", enter); el.removeEventListener("pointerleave", leave); el.removeEventListener("pointerdown", enter); el.removeEventListener("pointerup", up); el.removeEventListener("pointercancel", leave); };
   }, []);
 
   return (
