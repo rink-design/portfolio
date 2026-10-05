@@ -16,7 +16,7 @@ function Rows({ rows, group, active }: { rows: Row[]; group: string; active: boo
             animate={active ? { opacity: 1, y: 0 } : { opacity: 0, y: 14 }}
             transition={{ duration: active ? 0.6 : 0.2, ease: EASE, delay: active ? 0.1 + i * 0.06 : 0 }}>
             <div className="row group/row flex flex-col items-start gap-1 py-2.5 transition-opacity duration-300 group-has-[.row:hover]/rows:opacity-25 hover:opacity-100! md:flex-row md:items-baseline md:justify-between md:gap-[var(--gap)]">
-              <p className="t-h1 !text-[clamp(30px,3.6vw,56px)] !leading-[0.98] md:whitespace-nowrap transition-colors duration-300 group-hover/row:text-accent">{r.name}</p>
+              <p className="t-h1 !text-[clamp(30px,3.6vw,56px)] !leading-[1.02] md:whitespace-nowrap transition-colors duration-300 group-hover/row:text-accent">{r.name}</p>
               <div className="grid gap-[3px] transition-colors duration-300 group-hover/row:text-accent md:max-w-[46%] md:shrink-0 md:text-right">
                 {meta.map((l) => <p key={l} className="t-label">{l}</p>)}
               </div>

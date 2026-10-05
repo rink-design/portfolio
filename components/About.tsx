@@ -39,12 +39,12 @@ export function About() {
           <AboutPortrait />
           <div className="col-span-4 mt-8 md:col-span-6 md:col-start-7 md:mt-0">
             <AboutTabs experience={about.experience} education={about.education} />
+            {/* Zelfde witruimte boven Services als boven Tools */}
+            <div className="mt-14 md:mt-24">
+              <p className="t-label mb-6 text-ink-2">Services</p>
+              <ServiceList items={about.services} />
+            </div>
           </div>
-        </div>
-
-        <div className="mt-14 md:mt-20">
-          <p className="t-label mb-6 text-ink-2">Services</p>
-          <ServiceList items={about.services} />
         </div>
 
         <div className="mt-14 md:mt-24">
