@@ -34,20 +34,20 @@ export function About() {
     <section id="about" className="scroll-mt-16" aria-label="About">
       <ScrollSentence text={about.statement} />
 
-      <div className="wrap relative z-10 -mt-[var(--pull,10svh)] md:-mt-[14svh]">
+      <div className="wrap relative z-10 -mt-[var(--pull,10svh)]">
         <div className="grid-12">
           <AboutPortrait />
-          <div className="col-span-4 mt-14 md:col-span-6 md:col-start-7 md:mt-0">
+          <div className="col-span-4 mt-24 md:col-span-6 md:col-start-7 md:mt-0">
             <AboutTabs experience={about.experience} education={about.education} />
             {/* Zelfde witruimte boven Services als boven Tools */}
-            <div className="mt-14 md:mt-24">
+            <div className="mt-24">
               <p className="t-label mb-6 text-ink-2">Services</p>
               <ServiceList items={about.services} />
             </div>
           </div>
         </div>
 
-        <div className="mt-14 md:mt-24">
+        <div className="mt-24">
           <p className="t-label mb-6 text-ink-2">Tools</p>
         </div>
         <div className="tools -mx-[var(--gutter)] grid gap-[var(--gap)] overflow-hidden" role="list" aria-label={about.tools.map((t) => t.name).join(", ")}>
@@ -56,7 +56,7 @@ export function About() {
         </div>
 
         {/* Witruimte boven en onder de cijfers is even groot (128 px, mobiel 64 px) */}
-        <div className="mt-16 md:mt-32">
+        <div className="mt-24">
           <p className="t-label mb-4 text-ink-2">In numbers</p>
           {/* Op het grid: links de linker projectkolom, rechts de rechterkolom (waar Experience begint) */}
           <div className="grid-12">

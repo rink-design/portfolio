@@ -9,12 +9,12 @@ export function ScrollSentence({ text }: { text: string }) {
     const el = track.current;
     if (!el) return;
     const w = Array.from(el.querySelectorAll<HTMLElement>(".sw"));
-    // Mobiel: de ruimte tussen het einde van de zin en de foto is precies 56 px (zelfde als de rest van About).
+    // Mobiel: de ruimte tussen het einde van de zin en de foto is precies 96 px (zelfde als de rest van About).
     const st = el.firstElementChild as HTMLElement, about = el.closest("section");
     const pull = () => {
       const first = st.firstElementChild as HTMLElement, last = st.lastElementChild as HTMLElement;
       const contentH = last.getBoundingClientRect().bottom - first.getBoundingClientRect().top;
-      about?.style.setProperty("--pull", `${Math.round((st.offsetHeight - contentH) / 2 - 56)}px`);
+      about?.style.setProperty("--pull", `${Math.round((st.offsetHeight - contentH) / 2 - 96)}px`);
     };
     pull();
     const ro = new ResizeObserver(pull); ro.observe(st);
